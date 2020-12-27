@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour
 
     private List<GameObject> damagedObject = new List<GameObject>();
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (ableToAttack)
         {
@@ -19,6 +19,10 @@ public class Sword : MonoBehaviour
                 {
                     damagedObject.Add(other.gameObject);
                     other.GetComponent<Enemy>().TakeDamage(1);
+                }
+                else
+                {
+                    Debug.Log("Contained already");
                 }
             }
         }
