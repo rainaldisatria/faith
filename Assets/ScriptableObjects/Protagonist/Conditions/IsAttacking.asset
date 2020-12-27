@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fcc2b1de48572f47a628a598bc2c5d3, type: 3}
-  m_Name: HandlePlayerRotation
+  m_Script: {fileID: 11500000, guid: 6e81744c2291a0942aa5afa91d34866d, type: 3}
+  m_Name: IsAttacking
   m_EditorClassIdentifier: 
-  turnSpeed: 15
+  cacheResult: 1

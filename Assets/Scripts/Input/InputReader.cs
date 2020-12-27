@@ -43,7 +43,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Started)
             AttackEvent?.Invoke();
     }
 
