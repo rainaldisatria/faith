@@ -383,6 +383,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: 836094130663a7c49841a366acbd455f, type: 2}
+  jumpInput: 0
+  extraActionInput: 0
+  movementInput: {x: 0, y: 0, z: 0}
+  movementVector: {x: 0, y: 0, z: 0}
+  isRunning: 0
 --- !u!143 &342762162
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1033,7 +1038,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646344181}
-  m_LocalRotation: {x: 4.9282567e-10, y: 0.9999153, z: -0.013018543, w: 0.000000037852462}
+  m_LocalRotation: {x: -4.2068934e-10, y: 0.9999153, z: -0.013018545, w: -0.000000032311885}
   m_LocalPosition: {x: 284.4197, y: 7.279, z: 193.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2123,7 +2128,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699358690}
-  m_LocalRotation: {x: -0.30570048, y: -0.06555538, z: 0.02036598, w: 0.94964993}
+  m_LocalRotation: {x: -0.30570048, y: -0.06555535, z: 0.02036597, w: 0.94964993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2197,7 +2202,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794596977}
-  m_LocalRotation: {x: -0.2710027, y: -0.064772315, z: 0.022733834, w: 0.9601278}
+  m_LocalRotation: {x: -0.2710027, y: -0.06477228, z: 0.022733822, w: 0.9601278}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2519,7 +2524,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064308188}
-  m_LocalRotation: {x: -0.28842214, y: -0.06517513, z: 0.021551901, w: 0.9550395}
+  m_LocalRotation: {x: -0.28842214, y: -0.06517509, z: 0.02155189, w: 0.9550395}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30667,6 +30672,7 @@ GameObject:
   - component: {fileID: 5271060601630476250}
   - component: {fileID: 342762162}
   - component: {fileID: 342762161}
+  - component: {fileID: 8572145592723936918}
   m_Layer: 0
   m_Name: Berserk00
   m_TagString: Player
@@ -30674,3 +30680,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8572145592723936918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572145592723936917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeda163c70b3cb4ebb88ba92f608fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitionTableSO: {fileID: 11400000, guid: 1997b53fd33f9de4e85d0ce08b0f8b75, type: 2}
+  _debugger:
+    debugTransitions: 1
+    appendConditionsInfo: 1
+    appendActionsInfo: 1
+    currentState: 
