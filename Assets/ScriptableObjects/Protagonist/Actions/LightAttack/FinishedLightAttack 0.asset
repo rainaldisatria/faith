@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FinishedLightAttack 0
   m_EditorClassIdentifier: 
   cacheResult: 1
-  timerLength: 0.6590909
+  timerLength: 0.01

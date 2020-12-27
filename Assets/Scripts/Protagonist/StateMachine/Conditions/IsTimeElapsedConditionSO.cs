@@ -20,6 +20,6 @@ public class IsTimeElapsedCondition : Condition
 
     protected override bool Statement()
     {
-        return Time.time > startTime + _originSO.timerLength;
+        return Time.time >= startTime + _originSO.timerLength;
     }
 }
