@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Camera",
+                    "name": "CameraMove",
                     "type": "Value",
                     "id": "23f3e29a-c1ce-4f87-a141-3932d6c4cf86",
                     "expectedControlType": "Vector2",
@@ -170,6 +170,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3c3c5d73-e00d-44a6-86e2-a31af7ce7936",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e1c67221-d075-40ad-ba24-c38b5fac7558",
                     "path": "<Keyboard>/k",
                     "interactions": "",
@@ -197,7 +208,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Camera",
+                    "action": "CameraMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

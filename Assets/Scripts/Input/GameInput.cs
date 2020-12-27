@@ -51,7 +51,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Camera"",
+                    ""name"": ""CameraMove"",
                     ""type"": ""Value"",
                     ""id"": ""23f3e29a-c1ce-4f87-a141-3932d6c4cf86"",
                     ""expectedControlType"": ""Vector2"",
@@ -183,6 +183,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3c3c5d73-e00d-44a6-86e2-a31af7ce7936"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e1c67221-d075-40ad-ba24-c38b5fac7558"",
                     ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
@@ -210,7 +221,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Camera"",
+                    ""action"": ""CameraMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -225,7 +236,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
-        m_Gameplay_Camera = m_Gameplay.FindAction("Camera", throwIfNotFound: true);
+        m_Gameplay_CameraMove = m_Gameplay.FindAction("CameraMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -279,7 +290,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Pause;
-    private readonly InputAction m_Gameplay_Camera;
+    private readonly InputAction m_Gameplay_CameraMove;
     public struct GameplayActions
     {
         private @GameInput m_Wrapper;
@@ -288,7 +299,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
-        public InputAction @Camera => m_Wrapper.m_Gameplay_Camera;
+        public InputAction @CameraMove => m_Wrapper.m_Gameplay_CameraMove;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,9 +321,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
-                @Camera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCamera;
-                @Camera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCamera;
-                @Camera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCamera;
+                @CameraMove.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCameraMove;
+                @CameraMove.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCameraMove;
+                @CameraMove.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCameraMove;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -329,9 +340,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
-                @Camera.started += instance.OnCamera;
-                @Camera.performed += instance.OnCamera;
-                @Camera.canceled += instance.OnCamera;
+                @CameraMove.started += instance.OnCameraMove;
+                @CameraMove.performed += instance.OnCameraMove;
+                @CameraMove.canceled += instance.OnCameraMove;
             }
         }
     }
@@ -342,6 +353,6 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnCamera(InputAction.CallbackContext context);
+        void OnCameraMove(InputAction.CallbackContext context);
     }
 }
