@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SwordAttackController : MonoBehaviour
 { 
-    [SerializeField] private Collider _swordCollider; 
+    [SerializeField] private Sword _sword; 
 
     public void AttackStart()
     {
-        _swordCollider.gameObject.SetActive(true);
+        _sword.Enable();
     }
 
     public void AttackEnded()
-    { 
-        _swordCollider.gameObject.SetActive(false);
+    {
+        _sword.Disable();
     }
 }

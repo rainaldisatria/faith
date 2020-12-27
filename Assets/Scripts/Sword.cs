@@ -5,13 +5,34 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Sword : MonoBehaviour
 {
-    [SerializeField] private GameObject _user;
+    public bool ableToAttack = false;
+
+    private List<GameObject> damagedObject = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (ableToAttack)
         {
-            other.GetComponent<Enemy>().TakeDamage(1);
+            if (other.CompareTag("Enemy"))
+            {
+                if (!damagedObject.Contains(other.gameObject))
+                {
+                    damagedObject.Add(other.gameObject);
+                    other.GetComponent<Enemy>().TakeDamage(1);
+                }
+            }
         }
-    } 
+    }
+
+    public void Enable()
+    {
+        ableToAttack = true;
+    }
+
+    public void Disable()
+    {
+        ableToAttack = false;
+        damagedObject.Clear();
+
+    }
 }
