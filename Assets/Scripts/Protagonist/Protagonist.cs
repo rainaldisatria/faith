@@ -1,131 +1,70 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
-using System.Collections.Generic; 
+﻿using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+/// <summary>
+/// <para>This component consumes input on the InputReader and stores its values. The input is then read, and manipulated, by the StateMachines's Actions.</para>
+/// </summary>
 public class Protagonist : MonoBehaviour
 {
-    [SerializeField] private InputReader _inputReader;
+	[SerializeField] private InputReader _inputReader = default; 
 
-    private bool IsGrounded => Physics.Raycast(transform.position, -Vector3.up,  0.1f);
-    private bool IsAlmostGrounded => Physics.Raycast(transform.position, -Vector3.up, 1f);
+	private Vector2 _previousMovementInput;
 
-    private CharacterController _cc;
+	//These fields are read and manipulated by the StateMachine actions
+	[HideInInspector] public bool jumpInput;
+	[HideInInspector] public bool extraActionInput;
+	[HideInInspector] public Vector3 movementInput; //Initial input coming from the Protagonist script
+	[HideInInspector] public Vector3 movementVector; //Final movement vector, manipulated by the StateMachine actions
+	[HideInInspector] public ControllerColliderHit lastHit;
+	[HideInInspector] public bool isRunning; // Used when using the keyboard to run, brings the normalised speed to 1 
 
-    private Animator[] _animators;
-    private Vector2 _previousMovementInput;
-    private Vector3 cameraForward;
-    private Vector3 cameraRight;
-    private Vector3 adjustedMovement; 
-    private float vSpeed;
+	private void OnControllerColliderHit(ControllerColliderHit hit)
+	{
+		lastHit = hit;
+	}
 
-    private bool isMoving = false;
+	//Adds listeners for events being triggered in the InputReader script
+	private void OnEnable()
+	{ 
+		_inputReader.MoveEvent += OnMove;  
+	}
 
-    private void Awake()
-    {
-        _animators = GetComponentsInChildren<Animator>();
-        _cc = GetComponent<CharacterController>();
-    }
+	//Removes all listeners to the events coming from the InputReader script
+	private void OnDisable()
+	{ 
+		_inputReader.MoveEvent -= OnMove;  
+	}
 
-    private void OnEnable()
-    {
-        _inputReader.MoveEvent += OnMove;
-        _inputReader.AttackEvent += OnAttack;
-    }
+	private void Update()
+	{
+		RecalculateMovement();
+	}
 
-    private void Update()
-    { 
-        CalculateMovement();
-        DetermineAnimationToPlay();
-    }
+	private void RecalculateMovement()
+	{
+		//Get the two axes from the camera and flatten them on the XZ plane
+		Vector3 cameraForward = Camera.main.transform.forward;
+		cameraForward.y = 0f;
+		Vector3 cameraRight = Camera.main.transform.right;
+		cameraRight.y = 0f;
 
-    public void OnMoveStarted()
-    {
-        SetBoolean(true, "isWalking");
-    }
+		//Use the two axes, modulated by the corresponding inputs, and construct the final vector
+		Vector3 adjustedMovement = cameraRight.normalized * _previousMovementInput.x +
+			cameraForward.normalized * _previousMovementInput.y;
 
-    public void OnMoveCanceled()
-    {
-        SetBoolean(false, "isWalking");
-    }
-
-    private void SetInteger(int value, string name = "condition")
-    {
-        for(int i = 0; i < _animators.Length; i++)
-        {
-            _animators[i].SetInteger(name, value);
-        }
-    }
-
-    private void SetBoolean(bool value, string name)
-    {
-        for(int i = 0; i < _animators.Length; i++)
-        {
-            _animators[i].SetBool(name, value);
-        }
-    }
-
-    #region Helper methods
-    private void DetermineAnimationToPlay()
-    {
-        if (isMoving)
-        {
-            OnMoveStarted();
-        }
-        else
-        {
-            OnMoveCanceled();
-        }
-    }
-
-    private void CalculateMovement()
-    {
-        cameraForward = Camera.main.transform.forward;
-        cameraForward.y = 0f;
-
-        cameraRight = Camera.main.transform.right;
-        cameraRight.y = 0f;
-
-        adjustedMovement = cameraRight.normalized * _previousMovementInput.x +
-            cameraForward.normalized * _previousMovementInput.y;
-
-        if (adjustedMovement != Vector3.zero)
-        {
-            transform.forward = Vector3.Slerp(transform.forward.normalized, -adjustedMovement, 10 * Time.deltaTime);
-        }
-
-        if (IsGrounded)
-        {
-            vSpeed = 0;
-        }
-
-        vSpeed -= 0.9f * Time.deltaTime;
-        adjustedMovement.y = vSpeed;
+		movementInput = Vector3.ClampMagnitude(adjustedMovement, 1f);
 
 
-        _cc.Move(adjustedMovement * Time.deltaTime * 10);
+		// This is used to set the speed to the maximum if holding the Shift key,
+		// to allow keyboard players to "run"
+		if (isRunning)
+			movementInput.Normalize();
+	}
 
-        if (adjustedMovement.magnitude > 0.1f)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-    }  
+	//---- EVENT LISTENERS ----
 
-    private void OnMove(Vector2 movement)
-    { 
-        _previousMovementInput = movement;
-    }
-
-    private void OnAttack()
-    {
-        Debug.Log("Attack called");
-        SetBoolean(true, "isAttacking");
-    }
-    #endregion
+	private void OnMove(Vector2 movement)
+	{
+		_previousMovementInput = movement;
+	} 
 }
