@@ -25,7 +25,8 @@ public class HandlePlayerRotationAction : StateAction
         faceDirection.y = 0;
         faceDirection.z = _protagonist.movementInput.z;
 
-        _protagonist.transform.forward = Vector3.Slerp(_protagonist.transform.forward.normalized,
+        if(faceDirection != Vector3.zero)
+            _protagonist.transform.forward = Vector3.Slerp(_protagonist.transform.forward.normalized,
             -faceDirection, _originSO.turnSpeed * Time.deltaTime);
     }
 }
