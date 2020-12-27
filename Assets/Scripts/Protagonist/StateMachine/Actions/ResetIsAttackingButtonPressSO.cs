@@ -15,8 +15,7 @@ public class ResetIsAttackingButtonPressAction : StateAction
     }
 
     public override void OnStateEnter()
-    {
-        Debug.Log(_protagonist.attackInputPressed);
+    { 
         _protagonist.attackInputPressed = false;
     }
 
