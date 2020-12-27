@@ -21,9 +21,9 @@ public class HandlePlayerRotationAction : StateAction
 
     public override void OnUpdate()
     {
-        faceDirection.x = _protagonist.movementVector.x;
+        faceDirection.x = _protagonist.movementInput.x;
         faceDirection.y = 0;
-        faceDirection.z = _protagonist.movementVector.z;
+        faceDirection.z = _protagonist.movementInput.z;
 
         _protagonist.transform.forward = Vector3.Slerp(_protagonist.transform.forward.normalized,
             -faceDirection, _originSO.turnSpeed * Time.deltaTime);

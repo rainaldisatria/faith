@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "IsMoving", menuName = "State Machines/Conditions/Is Moving")]
 public class IsMovingConditionSO : StateConditionSO
 {
-    [SerializeField] private float _treshold = 0.2f;
+    [SerializeField] public float _treshold = 0.2f;
 
     protected override Condition CreateCondition()
     {
@@ -15,7 +15,7 @@ public class IsMovingConditionSO : StateConditionSO
 
 public class IsMovingCondition : Condition
 {
-    private float _treshold;
+    private IsMovingConditionSO _originSO => (IsMovingConditionSO)base.OriginSO;
     private CharacterController _cc;
 
     public override void Awake(StateMachine stateMachine)
@@ -25,6 +25,6 @@ public class IsMovingCondition : Condition
 
     protected override bool Statement()
     {
-        return _cc.velocity.sqrMagnitude > _treshold * _treshold;
+        return _cc.velocity.sqrMagnitude > _originSO._treshold * _originSO._treshold;
     }
 }
