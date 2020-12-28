@@ -11,7 +11,7 @@ public class Protagonist : MonoBehaviour
 	private Vector2 _previousMovementInput;
 	 
 	[HideInInspector] public bool jumpInput;
-	[HideInInspector] public bool attackInputPressed;
+	 public bool attackInputPressed;
 	[HideInInspector] public Vector3 movementInput;  
 	[HideInInspector] public Vector3 movementVector;  
 	[HideInInspector] public ControllerColliderHit lastHit;
