@@ -2,13 +2,13 @@
 
 public abstract class Battler : MonoBehaviour, IDamageable
 {
-    [SerializeField] private BattlerData _data;
+    [SerializeField] protected BattlerData Data;
     protected Animator[] _animators;
 
     [HideInInspector] public bool IsHitted;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _animators = GetComponentsInChildren<Animator>();
     }
@@ -17,7 +17,7 @@ public abstract class Battler : MonoBehaviour, IDamageable
     {
         IsHitted = true;
 
-        _data.HP -= damage;
+        Data.HP -= damage;
 
         this._animators.PlayAll(
             (i) => this._animators[i].Play("isHitted", -1, 0)
@@ -26,9 +26,11 @@ public abstract class Battler : MonoBehaviour, IDamageable
         CheckCondition();
     }
 
+    public abstract void OnAttack();
+
     protected virtual void CheckCondition()
     {
-        if(_data.HP <= 0)
+        if(Data.HP <= 0)
         {
             OnDeath();
         }

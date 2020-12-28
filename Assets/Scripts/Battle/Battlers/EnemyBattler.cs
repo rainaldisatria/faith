@@ -5,13 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyBattler : Battler
 {
-    [SerializeField] public NavMeshAgent _navMeshAgent; // get
-    [SerializeField] public Vector3 Home; // get
+    [HideInInspector] public NavMeshAgent NavMeshAgent; // get
+    [HideInInspector] public Vector3 Home; // get
 
-    private void Awake()
+    private bool isAttacking;
+
+    protected override void Awake()
     {
-        _animators = GetComponentsInChildren<Animator>(); 
-        _navMeshAgent = GetComponent<NavMeshAgent>();
+        base.Awake();
+
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+        NavMeshAgent.speed = Data.MoveSpeed;
 
         Home = this.transform.position;
     } 
@@ -19,5 +23,23 @@ public class EnemyBattler : Battler
     protected override void OnDeath()
     { 
 
+    }
+
+    public override void OnAttack()
+    {
+        StartCoroutine(Attack());
+    }
+
+    private IEnumerator Attack()
+    {
+        if (!isAttacking)
+        {
+            isAttacking = true;
+
+            yield return new WaitForSeconds(Random.Range(1.5f, 5));
+            Debug.Log("Attacking");
+
+            isAttacking = false;
+        }
     }
 }
