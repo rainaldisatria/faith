@@ -9,18 +9,20 @@ public class Sword : MonoBehaviour
 
     private List<GameObject> damagedObject = new List<GameObject>(); 
     
-    private void OnCollisionEnter(Collision col)
-    { 
+    private void OnTriggerEnter(Collider col)
+    {
+        Debug.Log("Test 2");
         Damage(col);
     } 
 
-    private void OnCollisionExit(Collision col)
+    private void OnTriggerExit(Collider col)
     {
         Damage(col);
     }
 
-    private void Damage(Collision col)
+    private void Damage(Collider col)
     {
+        Debug.Log("Test");
         if (ableToAttack)
         {
             if (col.gameObject.GetComponent<IDamageable>() != null)

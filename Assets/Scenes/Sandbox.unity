@@ -365,6 +365,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
+--- !u!1 &302049253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1809680881062764, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
+  m_PrefabInstance: {fileID: 1705604185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302049254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302049253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155a80c97059c544b91867e4e40fdbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swords: []
 --- !u!4 &342748549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}
@@ -900,6 +918,87 @@ MonoBehaviour:
   m_AmplitudeGain: 0.15
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1 &504151724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 504151725}
+  - component: {fileID: 504151728}
+  - component: {fileID: 504151727}
+  - component: {fileID: 504151726}
+  m_Layer: 8
+  m_Name: SwordTrigger
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &504151725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504151724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1451538984}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &504151726
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504151724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.5}
+--- !u!54 &504151727
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504151724}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &504151728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504151724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fcefbfc90504a42ad0581d8b04d5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ableToAttack: 0
+--- !u!4 &584531459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4751933960884044, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
+  m_PrefabInstance: {fileID: 1705604185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &586193107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1959,7 +2058,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114545866}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 3}
@@ -2001,12 +2100,88 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114545866}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.5
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!1 &1163018193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163018194}
+  - component: {fileID: 1163018197}
+  - component: {fileID: 1163018196}
+  - component: {fileID: 1163018195}
+  m_Layer: 8
+  m_Name: SwordTrigger
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1163018194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163018193}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -0.297, y: -1.949, z: -1.427}
+  m_LocalScale: {x: 0.5999999, y: 0.59999985, z: 0.59999937}
+  m_Children: []
+  m_Father: {fileID: 584531459}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
+--- !u!136 &1163018195
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163018193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.5}
+--- !u!54 &1163018196
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163018193}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1163018197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163018193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fcefbfc90504a42ad0581d8b04d5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ableToAttack: 0
 --- !u!1 &1174700670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,6 +2435,11 @@ MonoBehaviour:
   m_AmplitudeGain: 0.15
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!4 &1451538984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4034945448174342, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
+  m_PrefabInstance: {fileID: 1705604185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1499058511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,6 +2620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkeletonOutlaw_Armor - LOD0
       objectReference: {fileID: 0}
+    - target: {fileID: 1809680881062764, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4847383057965624, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 304.95
@@ -2573,7 +2757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4847383057965624, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 310.29
+      value: 315.32
       objectReference: {fileID: 0}
     - target: {fileID: 4847383057965624, guid: cbba07a6ac8fd9648a0ee26df90297e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31181,7 +31365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155a80c97059c544b91867e4e40fdbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sword: {fileID: 1114545869}
+  _swords:
+  - {fileID: 1114545869}
 --- !u!95 &8572145592723936920
 Animator:
   serializedVersion: 3
