@@ -7,22 +7,33 @@ public class Sword : MonoBehaviour
 {
     public bool ableToAttack = false;
 
-    private List<GameObject> damagedObject = new List<GameObject>();
+    private List<GameObject> damagedObject = new List<GameObject>(); 
+    
+    private void OnCollisionEnter(Collision col)
+    { 
+        Damage(col);
+    }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionStay(Collision collision)
+    {
+        Damage(collision);
+    }
+
+    private void OnCollisionExit(Collision col)
+    {
+        Damage(col);
+    }
+
+    private void Damage(Collision col)
     {
         if (ableToAttack)
         {
-            if (other.CompareTag("Enemy"))
+            if (col.gameObject.GetComponent<IDamageable>() != null)
             {
-                if (!damagedObject.Contains(other.gameObject))
+                if (!damagedObject.Contains(col.gameObject))
                 {
-                    damagedObject.Add(other.gameObject);
-                    other.GetComponent<Enemy>().TakeDamage(1);
-                }
-                else
-                {
-                    Debug.Log("Contained already");
+                    damagedObject.Add(col.gameObject);
+                    col.gameObject.GetComponent<IDamageable>().TakeDamage(1);
                 }
             }
         }
@@ -36,7 +47,6 @@ public class Sword : MonoBehaviour
     public void Disable()
     {
         ableToAttack = false;
-        damagedObject.Clear();
-
+        damagedObject.Clear(); 
     }
 }
