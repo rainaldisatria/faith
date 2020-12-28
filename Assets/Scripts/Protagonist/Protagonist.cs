@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// <para>This component consumes input on the InputReader and stores its values. The input is then read, and manipulated, by the StateMachines's Actions.</para>
 /// </summary>
-public class Protagonist : MonoBehaviour
+public class Protagonist : Battler
 {
 	[SerializeField] private InputReader _inputReader = default; 
 
@@ -62,5 +62,10 @@ public class Protagonist : MonoBehaviour
 		_previousMovementInput = movement;
 	}
 
-	private void OnAttack() => attackInputPressed = true;
+	public override void OnAttack() => attackInputPressed = true; 
+
+	protected override void OnDeath()
+	{
+		 
+	} 
 }

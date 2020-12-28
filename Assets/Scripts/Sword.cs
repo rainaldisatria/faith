@@ -7,8 +7,14 @@ public class Sword : MonoBehaviour
 {
     public bool ableToAttack = false;
 
-    private List<GameObject> damagedObject = new List<GameObject>(); 
-    
+    private List<GameObject> damagedObject = new List<GameObject>();
+    private string userTag;
+
+    private void Awake()
+    {
+        userTag = gameObject.tag;
+    }
+
     private void OnTriggerEnter(Collider col)
     { 
         Damage(col);
@@ -23,12 +29,15 @@ public class Sword : MonoBehaviour
     { 
         if (ableToAttack)
         {
-            if (col.gameObject.GetComponent<IDamageable>() != null)
+            if (!col.CompareTag(userTag))
             {
-                if (!damagedObject.Contains(col.gameObject))
+                if (col.gameObject.GetComponent<IDamageable>() != null)
                 {
-                    damagedObject.Add(col.gameObject);
-                    col.gameObject.GetComponent<IDamageable>().TakeDamage(1);
+                    if (!damagedObject.Contains(col.gameObject))
+                    {
+                        damagedObject.Add(col.gameObject);
+                        col.gameObject.GetComponent<IDamageable>().TakeDamage(1);
+                    }
                 }
             }
         }
