@@ -19,12 +19,8 @@ public abstract class Battler : MonoBehaviour, IDamageable
         _data.HP -= damage;
 
         this._animators.PlayAll(
-            (i) => this._animators[i].SetBool("isHitted", true)
-            );
-
-        this._animators.PlayAll(
-            (i) => this._animators[i].SetBool("isHitted", false)
-            );
+            (i) => this._animators[i].Play("isHitted", -1, 0)
+            ); 
 
         CheckCondition();
     }
