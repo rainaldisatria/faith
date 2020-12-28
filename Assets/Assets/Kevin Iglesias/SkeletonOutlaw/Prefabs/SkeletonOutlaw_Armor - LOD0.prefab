@@ -2285,10 +2285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d548a3dddeb1d314094e68199ea11f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 9f2619f9fb4fa1d40b68da4c85090c65, type: 2}
+  Data: {fileID: 11400000, guid: 9f2619f9fb4fa1d40b68da4c85090c65, type: 2}
   IsHitted: 0
-  _navMeshAgent: {fileID: 1778163466}
-  isChasing: 0
+  NavMeshAgent: {fileID: 0}
+  Home: {x: 0, y: 0, z: 0}
 --- !u!114 &1778163465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,7 +2296,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809680881062764}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eeda163c70b3cb4ebb88ba92f608fd8, type: 3}
   m_Name: 
@@ -2314,10 +2314,10 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809680881062764}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

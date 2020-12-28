@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  HP: -409
-  Damage: 0
+  HP: 393
+  Damage: 5
+  MoveSpeed: 4

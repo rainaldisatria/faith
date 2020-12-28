@@ -5,4 +5,5 @@ public class BattlerData : ScriptableObject
 {
     public int HP;
     public int Damage;
+    public float MoveSpeed;
 }
