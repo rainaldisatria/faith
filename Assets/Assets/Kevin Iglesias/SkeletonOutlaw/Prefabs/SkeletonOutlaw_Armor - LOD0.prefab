@@ -2210,6 +2210,7 @@ GameObject:
   - component: {fileID: 1705604187}
   - component: {fileID: 1705604188}
   - component: {fileID: 1778163465}
+  - component: {fileID: 1778163466}
   m_Layer: 8
   m_Name: SkeletonOutlaw_Armor - LOD0
   m_TagString: Enemy
@@ -2286,6 +2287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 9f2619f9fb4fa1d40b68da4c85090c65, type: 2}
   IsHitted: 0
+  _navMeshAgent: {fileID: 1778163466}
+  isChasing: 0
 --- !u!114 &1778163465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2293,7 +2296,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809680881062764}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eeda163c70b3cb4ebb88ba92f608fd8, type: 3}
   m_Name: 
@@ -2304,6 +2307,28 @@ MonoBehaviour:
     appendConditionsInfo: 1
     appendActionsInfo: 1
     currentState: 
+--- !u!195 &1778163466
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809680881062764}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 4
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1813734462565108
 GameObject:
   m_ObjectHideFlags: 0
