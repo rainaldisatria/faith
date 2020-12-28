@@ -8,19 +8,20 @@ public class PlayerBetweenRadiusConditionSO : StateConditionSO<BetweenRadiusCond
 
 public class BetweenRadiusCondition : Condition
 {
-    private Vector3 _playerPos;
+    private GameObject _playerPos;
     private Vector3 _currentPos;
     private PlayerBetweenRadiusConditionSO _originSO => (PlayerBetweenRadiusConditionSO)base.OriginSO;
 
     public override void Awake(StateMachine stateMachine)
     {
-        _playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        _playerPos = GameObject.FindGameObjectWithTag("Player");
         _currentPos = stateMachine.transform.position;
     }
 
     protected override bool Statement()
     {
-        if(Vector3.Distance(_currentPos, _playerPos) > _originSO.Radius)
+
+        if (Vector3.Distance(_currentPos, _playerPos.transform.position) < _originSO.Radius)
         {
             return true;
         }
