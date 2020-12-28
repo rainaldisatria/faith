@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
   m_Name: Battler_Hitted_Condition
   m_EditorClassIdentifier: 
-  _actions:
-  - {fileID: 11400000, guid: 576c5706d129a6b4fa83f3c02e720910, type: 2}
-  - {fileID: 11400000, guid: 42c71de37764465479d9b6ed3ce95ac0, type: 2}
+  _actions: []

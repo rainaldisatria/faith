@@ -45,6 +45,7 @@ public class Sword : MonoBehaviour
 
     public void Enable()
     {
+        damagedObject.Clear();
         ableToAttack = true;
     }
 

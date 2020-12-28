@@ -2007,7 +2007,7 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 1.83
   m_Height: 4
-  m_Direction: 1
+  m_Direction: 2
   m_Center: {x: 0, y: 0.3, z: -1.5}
 --- !u!1 &1174700670
 GameObject:

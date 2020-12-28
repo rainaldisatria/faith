@@ -83,9 +83,7 @@ namespace UOP1.StateMachine.Editor
 					if (SerializedTransition.FromState.objectReferenceValue == null)
 						Debug.LogException(new ArgumentNullException("FromState"));
 					else if (SerializedTransition.ToState.objectReferenceValue == null)
-						Debug.LogException(new ArgumentNullException("ToState"));
-					else if (SerializedTransition.FromState.objectReferenceValue == SerializedTransition.ToState.objectReferenceValue)
-						Debug.LogException(new InvalidOperationException("FromState and ToState are the same."));
+						Debug.LogException(new ArgumentNullException("ToState")); 
 					else
 					{
 						_editor.AddTransition(SerializedTransition);
