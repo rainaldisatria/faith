@@ -20,7 +20,6 @@ public class BetweenRadiusCondition : Condition
 
     protected override bool Statement()
     {
-
         if (Vector3.Distance(_currentPos, _playerPos.transform.position) < _originSO.Radius)
         {
             return true;

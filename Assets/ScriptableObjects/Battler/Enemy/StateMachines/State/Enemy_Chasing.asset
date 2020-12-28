@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
   m_Name: Enemy_Chasing
   m_EditorClassIdentifier: 
-  _actions: []
+  _actions:
+  - {fileID: 11400000, guid: e6c8f880911ee5e438708bf076026be7, type: 2}
+  - {fileID: 11400000, guid: e9453cfccaf529841ac28f77358fba0b, type: 2}
+  - {fileID: 11400000, guid: c8425f94704d4b74880086c2ac0eb010, type: 2}
+  - {fileID: 11400000, guid: 109d41c85d223fa4f84b1f37d858445b, type: 2}
