@@ -1,27 +1,29 @@
 ﻿using UnityEngine;
 
-public abstract class Battler : MonoBehaviour, IDamageable
+public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
     [SerializeField] protected BattlerData Data;
     protected Animator[] _animators;
 
+    // Fields for SM.
     [HideInInspector] public bool IsHitted;
+
+    // DI
+    public DamageDealer _damageDealer;
 
 
     protected virtual void Awake()
     {
         _animators = GetComponentsInChildren<Animator>();
+
+        _damageDealer = new DamageDealer(GetComponentsInChildren<DamageDealerTrigger>());
     }
 
     public virtual void TakeDamage(int damage)
     {
         IsHitted = true;
 
-        Data.HP -= damage;
-
-        this._animators.PlayAll(
-            (i) => this._animators[i].Play("isHitted", -1, 0)
-            ); 
+        Data.HP -= damage; 
 
         CheckCondition();
     }
@@ -37,5 +39,15 @@ public abstract class Battler : MonoBehaviour, IDamageable
     }
 
     protected abstract void OnDeath();
+
+    public void DealDamageStart()
+    {
+        _damageDealer.DealDamageStart();
+    }
+
+    public void DealDamageEnded()
+    {
+        _damageDealer.DealDamageEnded();
+    }
 }
 

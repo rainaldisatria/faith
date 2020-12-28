@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class Sword : MonoBehaviour
+public class DamageDealerTrigger : MonoBehaviour
 {
     public bool ableToAttack = false;
-
     private List<GameObject> damagedObject = new List<GameObject>();
     private string userTag;
 
@@ -17,15 +16,15 @@ public class Sword : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     { 
-        Damage(col);
+        DealDamage(col);
     } 
 
     private void OnTriggerExit(Collider col)
     {
-        Damage(col);
+        DealDamage(col);
     }
 
-    private void Damage(Collider col)
+    private void DealDamage(Collider col)
     { 
         if (ableToAttack)
         {
