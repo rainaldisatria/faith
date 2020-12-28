@@ -11,9 +11,11 @@ public class AttackPlayerActionSO : StateActionSO<AttackPlayerAction>
 public class AttackPlayerAction : StateAction
 {
     private EnemyBattler _enemyBattler;
+    private Transform _enemyTrans;
 
     public override void Awake(StateMachine stateMachine)
     {
+        _enemyTrans = GameObject.FindGameObjectWithTag("Player").transform;
         _enemyBattler = stateMachine.GetComponent<EnemyBattler>();
     }
 
