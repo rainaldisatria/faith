@@ -17,7 +17,7 @@ public class EnemyIsInHomeCondition : Condition
 
     protected override bool Statement()
     {
-        if (Vector3.Distance(_enemyBattler.transform.position, _enemyBattler.Home) <= 0.01f)
+        if (Vector3.Distance(_enemyBattler.transform.position, _enemyBattler.Home) <= 4f)
         {
             return true;
         }

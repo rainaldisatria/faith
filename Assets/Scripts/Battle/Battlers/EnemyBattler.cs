@@ -36,7 +36,7 @@ public class EnemyBattler : Battler
         {
             isAttacking = true;
 
-            yield return new WaitForSeconds(Random.Range(1.5f, 5));
+            yield return new WaitForSeconds(Random.Range(1.5f, 3));
             Debug.Log("Attacking");
 
             isAttacking = false;
