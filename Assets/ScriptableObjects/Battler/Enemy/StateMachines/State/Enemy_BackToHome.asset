@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
-  m_Name: Enemy_Chasing
+  m_Name: Enemy_BackToHome
   m_EditorClassIdentifier: 
   _actions:
-  - {fileID: 11400000, guid: e9453cfccaf529841ac28f77358fba0b, type: 2}
-  - {fileID: 11400000, guid: 109d41c85d223fa4f84b1f37d858445b, type: 2}
-  - {fileID: 11400000, guid: 07410b804c289a74d919f6b261439455, type: 2}
+  - {fileID: 11400000, guid: 7f719dfb713c74749b25159071441ffd, type: 2}
