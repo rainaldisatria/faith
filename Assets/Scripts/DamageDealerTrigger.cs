@@ -29,11 +29,11 @@ public class DamageDealerTrigger : MonoBehaviour
         if (ableToAttack)
         {
             if (!col.CompareTag(userTag))
-            {
+            { 
                 if (col.gameObject.GetComponent<IDamageable>() != null)
-                {
+                {  
                     if (!damagedObject.Contains(col.gameObject))
-                    {
+                    { 
                         damagedObject.Add(col.gameObject);
                         col.gameObject.GetComponent<IDamageable>().TakeDamage(1);
                     }

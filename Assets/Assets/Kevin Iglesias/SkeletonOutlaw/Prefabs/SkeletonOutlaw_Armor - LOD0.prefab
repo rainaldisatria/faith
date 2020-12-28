@@ -2363,7 +2363,6 @@ GameObject:
   - component: {fileID: 1705604188}
   - component: {fileID: 1778163465}
   - component: {fileID: 1778163466}
-  - component: {fileID: 302049254}
   m_Layer: 8
   m_Name: SkeletonOutlaw_Armor - LOD0
   m_TagString: Enemy
@@ -2482,21 +2481,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &302049254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809680881062764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155a80c97059c544b91867e4e40fdbee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _swords:
-  - {fileID: 504151728}
-  - {fileID: 1163018197}
 --- !u!1 &1813734462565108
 GameObject:
   m_ObjectHideFlags: 0
