@@ -8,6 +8,7 @@ public class DamageDealerTrigger : MonoBehaviour
     public bool ableToAttack = false;
     private List<GameObject> damagedObject = new List<GameObject>();
     private string userTag;
+    private int _damage;
 
     private void Awake()
     {
@@ -35,15 +36,16 @@ public class DamageDealerTrigger : MonoBehaviour
                     if (!damagedObject.Contains(col.gameObject))
                     { 
                         damagedObject.Add(col.gameObject);
-                        col.gameObject.GetComponent<IDamageable>().TakeDamage(1);
+                        col.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
                     }
                 }
             }
         }
     }
 
-    public void Enable()
+    public void Enable(int damage)
     {
+        _damage = damage;
         damagedObject.Clear();
         ableToAttack = true;
     }

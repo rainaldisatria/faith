@@ -66,6 +66,6 @@ public class Protagonist : Battler
 
 	protected override void OnDeath()
 	{
-		 
+		Debug.Log("Game Over");
 	} 
 }
