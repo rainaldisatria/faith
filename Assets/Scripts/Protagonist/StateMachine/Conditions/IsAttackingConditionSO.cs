@@ -16,6 +16,12 @@ public class IsAttackingCondition : Condition
 
     protected override bool Statement()
     {
-        return _protagonist.attackInputPressed;
+        if(this._protagonist.attackInputPressed)
+        {
+            this._protagonist.attackInputPressed = false;
+            return true;
+        }
+
+        return false;
     }
 }
