@@ -17,7 +17,7 @@ public class IsAttackingCondition : Condition
     protected override bool Statement()
     {
         if(this._protagonist.attackInputPressed)
-        { 
+        {
             return true;
         }
 
