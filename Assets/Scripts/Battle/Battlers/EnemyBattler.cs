@@ -5,39 +5,19 @@ using UnityEngine.AI;
 
 public class EnemyBattler : Battler
 {
-    [SerializeField] private NavMeshAgent _navMeshAgent;
-    public bool isChasing = false;
-    private Vector3 firstLocation;
-
-    private GameObject player;
+    [SerializeField] public NavMeshAgent _navMeshAgent; // get
+    [SerializeField] public Vector3 Home; // get
 
     private void Awake()
     {
-        _animators = GetComponentsInChildren<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        _animators = GetComponentsInChildren<Animator>(); 
         _navMeshAgent = GetComponent<NavMeshAgent>();
 
-        firstLocation = this.transform.position;
-    }
-
-    private void Update()
-    {
-        if (isChasing)
-        {
-            Chase(player.transform.position);
-        }
-        else
-        {
-            Chase(firstLocation);
-        }
-    }
+        Home = this.transform.position;
+    } 
 
     protected override void OnDeath()
     { 
-    }
 
-    private void Chase(Vector3 target)
-    {
-        _navMeshAgent.SetDestination(target);
     }
 }

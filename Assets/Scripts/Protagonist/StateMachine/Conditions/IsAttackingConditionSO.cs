@@ -18,6 +18,7 @@ public class IsAttackingCondition : Condition
     {
         if(this._protagonist.attackInputPressed)
         {
+            _protagonist.attackInputPressed = false;
             return true;
         }
 
