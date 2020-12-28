@@ -12,12 +12,7 @@ public class Sword : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     { 
         Damage(col);
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        Damage(collision);
-    }
+    } 
 
     private void OnCollisionExit(Collision col)
     {
