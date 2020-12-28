@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class EnemyBattler : Battler
 {
-    public override void TakeDamage(int damage)
+    protected override void OnDeath()
     {
-        base.TakeDamage(damage);
-    }
-
-    public override void OnDeath()
-    {
-
+        
     }
 }

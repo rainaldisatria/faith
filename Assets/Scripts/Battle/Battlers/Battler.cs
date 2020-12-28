@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Battler : MonoBehaviour, IDamageable
 {
     [SerializeField] private BattlerData _data;
     protected Animator[] _animators;
+
+    [HideInInspector] public bool IsHitted;
+
 
     private void Awake()
     {
@@ -14,7 +15,7 @@ public abstract class Battler : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(int damage)
     {
-        Debug.Log("Damaged");
+        IsHitted = true;
 
         _data.HP -= damage;
 
@@ -25,7 +26,7 @@ public abstract class Battler : MonoBehaviour, IDamageable
         CheckCondition();
     }
 
-    public virtual void CheckCondition()
+    protected virtual void CheckCondition()
     {
         if(_data.HP <= 0)
         {
@@ -33,6 +34,6 @@ public abstract class Battler : MonoBehaviour, IDamageable
         }
     }
 
-    public abstract void OnDeath();
+    protected abstract void OnDeath();
 }
 
