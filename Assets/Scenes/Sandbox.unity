@@ -384,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 9f2619f9fb4fa1d40b68da4c85090c65, type: 2}
   IsHitted: 0
+  _damageDealer: {fileID: 0}
   _inputReader: {fileID: 11400000, guid: 836094130663a7c49841a366acbd455f, type: 2}
   jumpInput: 0
   attackInputPressed: 0
@@ -2423,7 +2424,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699358690}
-  m_LocalRotation: {x: -0.22737113, y: -0.6401999, z: 0.1988711, w: 0.70632625}
+  m_LocalRotation: {x: -0.22737113, y: -0.64019996, z: 0.19887112, w: 0.7063262}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31187,8 +31188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155a80c97059c544b91867e4e40fdbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swords:
-  - {fileID: 1114545869}
+  _triggers: []
 --- !u!95 &8572145592723936920
 Animator:
   serializedVersion: 3
