@@ -9,10 +9,10 @@ public class DamageDealer : IDamageDealer
         _triggers = triggers;
     }
 
-    public void DealDamageStart()
+    public void DealDamageStart(int damage)
     {
         foreach (DamageDealerTrigger trigger in _triggers)
-            trigger.Enable();
+            trigger.Enable(damage);
     }
 
     public void DealDamageEnded()
@@ -23,7 +23,7 @@ public class DamageDealer : IDamageDealer
 }
 
 public interface IDamageDealer
-{
-    void DealDamageStart();
+{ 
+    void DealDamageStart(int damage);
     void DealDamageEnded();
 }

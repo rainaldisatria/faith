@@ -17,12 +17,13 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         _animators = GetComponentsInChildren<Animator>();
 
         _damageDealer = new DamageDealer(GetComponentsInChildren<DamageDealerTrigger>());
+
+        Data = Instantiate(Data);
     }
 
     public virtual void TakeDamage(int damage)
-    {
-        IsHitted = true;
-        Debug.Log("takeDamage");
+    { 
+        IsHitted = true; 
 
         Data.HP -= damage; 
 
@@ -41,9 +42,9 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     protected abstract void OnDeath();
 
-    public void DealDamageStart()
+    public void DealDamageStart(int damage)
     {
-        _damageDealer.DealDamageStart();
+        _damageDealer.DealDamageStart(Data.Damage);
     }
 
     public void DealDamageEnded()

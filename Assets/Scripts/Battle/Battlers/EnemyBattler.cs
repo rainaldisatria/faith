@@ -21,8 +21,8 @@ public class EnemyBattler : Battler
     } 
 
     protected override void OnDeath()
-    { 
-
+    {
+        Destroy(this.gameObject);
     }
 
     public override void OnAttack()
