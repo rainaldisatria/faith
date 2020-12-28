@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Enemy_IsPlayerBetweenAttackRadius_7
   m_EditorClassIdentifier: 
   cacheResult: 1
-  Radius: 7
+  Radius: 4
