@@ -50,7 +50,7 @@ public class EnemyBattler : Battler
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", true));
 
-            yield return null; 
+            for (int i = 0; i < 5; i++) yield return null; 
 
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", false));
