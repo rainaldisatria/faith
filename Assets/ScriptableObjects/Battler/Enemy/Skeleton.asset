@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
-  m_Name: SkeletonTesting
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  MaxHP: 7000
-  HP: 7000
+  MaxHP: 1100
+  HP: 3100
   Damage: 100
-  MoveSpeed: 3
+  MoveSpeed: 4

@@ -2437,7 +2437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d548a3dddeb1d314094e68199ea11f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: 9f2619f9fb4fa1d40b68da4c85090c65, type: 2}
+  Data: {fileID: 11400000, guid: 1dc480cb698974f4cbcb29e0b076f634, type: 2}
   isAttacking: 0
   IsHitted: 0
   NavMeshAgent: {fileID: 0}
@@ -2458,8 +2458,8 @@ MonoBehaviour:
   _transitionTableSO: {fileID: 11400000, guid: 0410147d2af6456478851a63d1ad1b30, type: 2}
   _debugger:
     debugTransitions: 0
-    appendConditionsInfo: 1
-    appendActionsInfo: 1
+    appendConditionsInfo: 0
+    appendActionsInfo: 0
     currentState: 
 --- !u!195 &1778163466
 NavMeshAgent:

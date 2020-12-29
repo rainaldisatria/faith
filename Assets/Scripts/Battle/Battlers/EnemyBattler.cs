@@ -33,14 +33,17 @@ public class EnemyBattler : Battler
     }
 
     public override void OnAttack()
-    {
-        StartCoroutine(Attack());
-    }
+    { 
+        StartCoroutine("Attack");
+    } 
 
     private IEnumerator Attack()
     {
         if (!isAttacking)
         {
+            if (IsHitted)
+                isAttacking = false;
+
             isAttacking = true;
 
             yield return new WaitForSeconds(Random.Range(0.5f, 1));
@@ -52,7 +55,7 @@ public class EnemyBattler : Battler
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", false));
 
-            yield return new WaitForSeconds(Random.Range(1, 2));
+            yield return new WaitForSeconds(Random.Range(0.3f, 2));
 
             isAttacking = false;
         }

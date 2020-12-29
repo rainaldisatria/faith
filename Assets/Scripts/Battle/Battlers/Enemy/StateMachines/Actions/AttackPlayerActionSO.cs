@@ -22,10 +22,5 @@ public class AttackPlayerAction : StateAction
     public override void OnUpdate()
     {
         _enemyBattler.OnAttack();
-    }
-
-    public override void OnStateExit()
-    {
-        base.OnStateExit();
-    }
+    } 
 }
