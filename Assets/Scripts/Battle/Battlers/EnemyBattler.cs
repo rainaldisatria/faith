@@ -6,9 +6,7 @@ using UnityEngine.AI;
 public class EnemyBattler : Battler
 {
     [HideInInspector] public NavMeshAgent NavMeshAgent; // get
-    [HideInInspector] public Vector3 Home; // get
-
-    private bool isAttacking;
+    [HideInInspector] public Vector3 Home; // get 
 
     protected override void Awake()
     {
@@ -40,9 +38,12 @@ public class EnemyBattler : Battler
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", true));
 
-            yield return new WaitForSeconds(Random.Range(1, 2));
+            yield return null; 
+
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", false));
+
+            yield return new WaitForSeconds(Random.Range(1, 2));
 
             isAttacking = false;
         }

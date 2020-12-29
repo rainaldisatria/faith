@@ -36,7 +36,7 @@ public class DamageDealerTrigger : MonoBehaviour
                     if (!damagedObject.Contains(col.gameObject))
                     { 
                         damagedObject.Add(col.gameObject);
-                        col.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
+                        col.gameObject.GetComponent<IDamageable>().TakeDamage(_damage, transform.root);
                     }
                 }
             }

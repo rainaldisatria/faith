@@ -7,18 +7,19 @@ public class IsAttackingConditionSO : StateConditionSO<IsAttackingCondition> { }
 
 public class IsAttackingCondition : Condition
 {
-    private Protagonist _protagonist;
+    private Battler _battler;
 
     public override void Awake(StateMachine stateMachine)
     {
-        _protagonist = stateMachine.GetComponent<Protagonist>();
+        _battler = stateMachine.GetComponent<Battler>();
     }
 
     protected override bool Statement()
     {
-        if(this._protagonist.attackInputPressed)
+        if(this._battler.isAttacking)
         {
-            _protagonist.attackInputPressed = false;
+            if(_battler is Protagonist)
+                _battler.isAttacking = false;
             return true;
         }
 
