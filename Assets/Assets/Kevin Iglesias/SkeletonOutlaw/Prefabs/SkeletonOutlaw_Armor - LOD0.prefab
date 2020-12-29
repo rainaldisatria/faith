@@ -2442,6 +2442,7 @@ MonoBehaviour:
   IsHitted: 0
   NavMeshAgent: {fileID: 0}
   Home: {x: 0, y: 0, z: 0}
+  OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
 --- !u!114 &1778163465
 MonoBehaviour:
   m_ObjectHideFlags: 0

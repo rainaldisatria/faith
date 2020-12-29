@@ -8,6 +8,8 @@ public class EnemyBattler : Battler
     [HideInInspector] public NavMeshAgent NavMeshAgent; // get
     [HideInInspector] public Vector3 Home; // get 
 
+    [SerializeField] private HealthbarEventChannelSO OnHitted;
+
     protected override void Awake()
     {
         base.Awake();
@@ -16,7 +18,14 @@ public class EnemyBattler : Battler
         NavMeshAgent.speed = Data.MoveSpeed;
 
         Home = this.transform.position;
-    } 
+    }
+
+    public override void TakeDamage(int damage, Transform damager)
+    {
+        base.TakeDamage(damage, damager);
+
+        OnHitted.RaiseEvent(gameObject.GetInstanceID(), transform, Data);
+    }
 
     protected override void OnDeath()
     {

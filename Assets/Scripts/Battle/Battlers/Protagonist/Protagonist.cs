@@ -9,8 +9,7 @@ public class Protagonist : Battler
 	[SerializeField] private InputReader _inputReader = default; 
 
 	private Vector2 _previousMovementInput;
-	 
-	[HideInInspector] public bool jumpInput;
+	  
 	[HideInInspector] public Vector3 movementInput;  
 	[HideInInspector] public Vector3 movementVector;
 
