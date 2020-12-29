@@ -42,12 +42,12 @@ public class UIHealthbarManager : MonoBehaviour
     private bool IsCurrentlyActive(int instanceID)
     {
         for(int i = 0; i < _currentlyActiveHealthbars.Count; i++)
-        {
-            if(_currentlyActiveHealthbars[i].GetInstanceID() == instanceID)
+        { 
+            if(_currentlyActiveHealthbars[i].InstanceID == instanceID)
             {
                 _currentlyActiveHealthbars[i].ResetTimer();
                 return true;
-            }
+            } 
         }
 
         return false;
