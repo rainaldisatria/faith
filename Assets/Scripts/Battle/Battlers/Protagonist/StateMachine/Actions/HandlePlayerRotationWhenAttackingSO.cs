@@ -21,12 +21,12 @@ public class HandlePlayerRotationWhenAttackingAction : StateAction
 
     public override void OnStateEnter()
     {
+        Debug.Log("Enter");
         faceDirection.x = _protagonist.movementInput.x;
         faceDirection.y = 0;
         faceDirection.z = _protagonist.movementInput.z;
 
-        _protagonist.transform.forward = Vector3.Slerp(_protagonist.transform.forward.normalized,
-            -faceDirection, _originSO.turnSpeed * Time.deltaTime);
+        _protagonist.transform.forward = (-faceDirection * _originSO.turnSpeed);
     }
 
     public override void OnUpdate() { }
