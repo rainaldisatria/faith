@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02869ac8cf0e3934f8b0f2c7239662aa, type: 3}
   m_Name: HealthbarFactory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4216930080433478654, guid: cc82f4d237d9c494486a92165e658c1f, type: 3}
+  prefab: {fileID: 8285668451448799268, guid: 7ed941b346b594f49aa8652cea0ff6dc, type: 3}
