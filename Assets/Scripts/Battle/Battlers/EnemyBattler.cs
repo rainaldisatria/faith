@@ -24,7 +24,7 @@ public class EnemyBattler : Battler
     {
         base.TakeDamage(damage, damager);
 
-        OnHitted.RaiseEvent(gameObject.GetInstanceID(), transform, Data);
+        OnHitted.RaiseEvent(gameObject.GetInstanceID(), _head, Data);
     }
 
     protected override void OnDeath()

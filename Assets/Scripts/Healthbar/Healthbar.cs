@@ -8,6 +8,7 @@ public class Healthbar : MonoBehaviour
 {
     [SerializeField] private Image _healthImage;
     [SerializeField] private float duration = 5;
+    [SerializeField] private Vector3 offset;
 
     public event UnityAction<Healthbar> OnHealthbarFinishedDisplaying;
     public int InstanceID { get; private set; }
@@ -29,9 +30,9 @@ public class Healthbar : MonoBehaviour
     {
         startTime = Time.time;
 
-        while(startTime + duration > Time.time)
+        while(startTime + duration > Time.time && trans != null)
         {
-            this.transform.position = Camera.main.WorldToScreenPoint(trans.position);
+            this.transform.position = Camera.main.WorldToScreenPoint(trans.position + offset);
 
             this._healthImage.fillAmount = Mathf.Lerp(this._healthImage.fillAmount, ((float)data.HP) / data.MaxHP, 5);
 

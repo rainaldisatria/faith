@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthImage: {fileID: 7089303579378671619}
   duration: 60
+  offset: {x: 0, y: 0.2, z: 0}
 --- !u!1 &1912663110337212479
 GameObject:
   m_ObjectHideFlags: 0
