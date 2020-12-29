@@ -22,7 +22,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     }
 
     public virtual void TakeDamage(int damage)
-    { 
+    {
         IsHitted = true; 
 
         Data.HP -= damage; 
