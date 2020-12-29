@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
     [SerializeField] protected BattlerData Data;
     protected Animator[] _animators;
 
+    // Event
+
+
     // Fields for SM.
-    [HideInInspector] public bool IsHitted;
+    [HideInInspector] public bool IsHitted; 
 
     // DI
     public DamageDealer _damageDealer;

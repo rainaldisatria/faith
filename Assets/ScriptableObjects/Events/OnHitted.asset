@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
-  m_Name: Protagonist
+  m_Script: {fileID: 11500000, guid: 331774d697529624f861ab9e80a822ef, type: 3}
+  m_Name: OnHitted
   m_EditorClassIdentifier: 
-  MaxHP: 1000
-  HP: 1000
-  Damage: 55
-  MoveSpeed: 8
+  description: 'Subject: Protagonist
+
+    Observer: Statusbar'
