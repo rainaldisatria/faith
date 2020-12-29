@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a15fa8881bcee049a84ddeecbe4da22, type: 3}
   m_Name: HandlePlayerRotationWhenAttacking
   m_EditorClassIdentifier: 
-  turnSpeed: 100
+  turnSpeed: 15

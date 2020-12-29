@@ -46,7 +46,7 @@ public class EnemyBattler : Battler
 
             isAttacking = true;
 
-            yield return new WaitForSeconds(Random.Range(0.5f, 1));
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", true));
 
@@ -55,7 +55,7 @@ public class EnemyBattler : Battler
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", false));
 
-            yield return new WaitForSeconds(Random.Range(0.3f, 2));
+            yield return new WaitForSeconds(Random.Range(0.3f, 1));
 
             isAttacking = false;
         }
