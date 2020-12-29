@@ -20,16 +20,6 @@ public class DamageDealerTrigger : MonoBehaviour
         DealDamage(col);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        DealDamage(other);
-    }
-
-    private void OnTriggerExit(Collider col)
-    {
-        DealDamage(col);
-    }
-
     private void DealDamage(Collider col)
     { 
         if (ableToAttack)

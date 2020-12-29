@@ -261,7 +261,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bf7788210755a664db7ee612ab1cc059, type: 2}
+  m_Motion: {fileID: 7400000, guid: f67addcec76e1ad45b7d5b101c8f38d3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -434,7 +434,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Savero Animator 1
+  m_Name: Savero Animator 2
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isWalking
@@ -676,7 +676,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1a4e9adc69ea4bc40ad65e891cc68d0d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 07e7b2b9db9c12f47a01fda0f055c00f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -730,7 +730,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 308621798778a5e4b88c57ff680e04d9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1ece9bed4c425d7449fccd552fe5aa0a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HittedToIdleDuration
   m_EditorClassIdentifier: 
   cacheResult: 1
-  timerLength: 0.25
+  timerLength: 0.4
