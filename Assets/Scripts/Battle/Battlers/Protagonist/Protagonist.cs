@@ -36,7 +36,11 @@ public class Protagonist : Battler
 	public override void TakeDamage(int damage, Transform damagerTrans)
 	{
 		base.TakeDamage(damage, damagerTrans);
+
 		OnHitted.RaiseEvent((float)Data.HP / Data.MaxHP);
+
+		this.transform.LookAt(damagerTrans);
+		transform.eulerAngles = new Vector3(0, damagerTrans.eulerAngles.y, 0); 
 	}
 
 	protected override void OnDeath()
