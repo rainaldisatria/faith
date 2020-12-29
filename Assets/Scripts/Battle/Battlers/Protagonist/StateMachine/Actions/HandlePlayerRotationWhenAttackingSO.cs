@@ -20,8 +20,7 @@ public class HandlePlayerRotationWhenAttackingAction : StateAction
     }
 
     public override void OnStateEnter()
-    {
-        Debug.Log("Enter");
+    { 
         faceDirection.x = _protagonist.movementInput.x;
         faceDirection.y = 0;
         faceDirection.z = _protagonist.movementInput.z;

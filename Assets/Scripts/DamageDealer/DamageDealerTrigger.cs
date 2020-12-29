@@ -18,7 +18,12 @@ public class DamageDealerTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     { 
         DealDamage(col);
-    } 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        DealDamage(other);
+    }
 
     private void OnTriggerExit(Collider col)
     {

@@ -19,16 +19,12 @@ public class Healthbar : MonoBehaviour
     {
         InstanceID = instanceID;
         StartCoroutine(SetHealthbarRoutine(trans, data));
-    }
-
-    public void DisableHealthbar()
-    {
-        this.gameObject.SetActive(false);
-    }
+    } 
 
     private IEnumerator SetHealthbarRoutine(Transform trans, BattlerData data)
     {
         startTime = Time.time;
+        this.gameObject.SetActive(true);
 
         while(startTime + duration > Time.time && trans != null)
         {

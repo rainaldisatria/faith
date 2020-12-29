@@ -56,7 +56,7 @@ public class UIHealthbarManager : MonoBehaviour
     private void OnHealthbarFinishedPlaying(Healthbar healthbar)
     {
         healthbar.OnHealthbarFinishedDisplaying -= OnHealthbarFinishedPlaying;
-        healthbar.DisableHealthbar();
+        _currentlyActiveHealthbars.Remove(healthbar); 
         this._healthbarPoolSO.Return(healthbar);
     }
 }
