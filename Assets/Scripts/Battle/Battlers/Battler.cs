@@ -6,8 +6,8 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [SerializeField] protected BattlerData Data;
     protected Animator[] _animators;
 
-    // Event
 
+    [HideInInspector] public bool isAttacking; 
 
     // Fields for SM.
     [HideInInspector] public bool IsHitted; 
@@ -25,11 +25,14 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data = Instantiate(Data);
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, Transform damager)
     {
         IsHitted = true; 
 
-        Data.HP -= damage; 
+        Data.HP -= damage;
+
+        this.transform.LookAt(damager);
+        transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
 
         CheckCondition();
     }

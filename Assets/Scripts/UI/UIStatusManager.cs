@@ -20,15 +20,13 @@ public class UIStatusManager : MonoBehaviour
     }
 
     public void SetHealth(float hpFillTarget)
-    {
-        Debug.Log("Called");
+    { 
         StopCoroutine("ApplyHealth");
         StartCoroutine("ApplyHealth", hpFillTarget);
     }
 
     public void SetMana(float manaFillTraget)
-    {
-        Debug.Log("Called");
+    { 
         StopCoroutine("ApplyMana");
         StartCoroutine("ApplyMana", manaFillTraget);
     }

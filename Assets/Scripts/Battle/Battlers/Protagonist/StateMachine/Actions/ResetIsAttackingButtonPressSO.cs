@@ -16,7 +16,7 @@ public class ResetIsAttackingButtonPressAction : StateAction
 
     public override void OnStateEnter()
     { 
-        _protagonist.attackInputPressed = false;
+        _protagonist.isAttacking = false;
     }
 
     public override void OnUpdate(){}

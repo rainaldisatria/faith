@@ -11,7 +11,6 @@ public class Protagonist : Battler
 	private Vector2 _previousMovementInput;
 	 
 	[HideInInspector] public bool jumpInput;
-	[HideInInspector] public bool attackInputPressed;
 	[HideInInspector] public Vector3 movementInput;  
 	[HideInInspector] public Vector3 movementVector;
 
@@ -34,9 +33,9 @@ public class Protagonist : Battler
 		RecalculateMovement();
 	}
 
-	public override void TakeDamage(int damage)
+	public override void TakeDamage(int damage, Transform damagerTrans)
 	{
-		base.TakeDamage(damage);
+		base.TakeDamage(damage, damagerTrans);
 		OnHitted.RaiseEvent((float)Data.HP / Data.MaxHP);
 	}
 
@@ -51,7 +50,7 @@ public class Protagonist : Battler
 		_previousMovementInput = movement;
 	}
 
-	public override void OnAttack() => attackInputPressed = true;
+	public override void OnAttack() => isAttacking = true;
     #endregion
 
     #region Helper methods
