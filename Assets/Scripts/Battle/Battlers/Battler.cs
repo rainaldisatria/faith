@@ -4,7 +4,8 @@ using UnityEngine.Events;
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
     [SerializeField] protected BattlerData Data;
-    protected Animator[] _animators; 
+    protected Animator[] _animators;
+    protected Transform _head;
 
     [HideInInspector] public bool isAttacking;  
     [HideInInspector] public bool IsHitted; 
@@ -14,6 +15,10 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     protected virtual void Awake()
     {
         _animators = GetComponentsInChildren<Animator>();
+
+        _head = transform.Find("Head");
+        if (_head == null)
+            Debug.LogError("Battler has no head referenced");
 
         _damageDealer = new DamageDealer(GetComponentsInChildren<DamageDealerTrigger>());
 
