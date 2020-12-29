@@ -10,12 +10,13 @@ public class Healthbar : MonoBehaviour
     [SerializeField] private float duration = 5;
 
     public event UnityAction<Healthbar> OnHealthbarFinishedDisplaying;
-    public int InstanceID { get; }
+    public int InstanceID { get; private set; }
 
     private float startTime;
 
     public void SetHealthbar(int instanceID, Transform trans, BattlerData data)
     {
+        InstanceID = instanceID;
         StartCoroutine(SetHealthbarRoutine(trans, data));
     }
 
