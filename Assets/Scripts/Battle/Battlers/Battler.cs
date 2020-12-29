@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
@@ -26,12 +27,19 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     }
 
     public virtual void TakeDamage(int damage, Transform damager)
-    { 
-        IsHitted = true; 
+    {
+        StartCoroutine(Hitted());
 
         Data.HP -= damage;
 
         CheckCondition();
+    }
+
+    private IEnumerator Hitted()
+    {
+        IsHitted = true;
+        yield return null;
+        IsHitted = false;
     }
 
     protected virtual void CheckCondition()
