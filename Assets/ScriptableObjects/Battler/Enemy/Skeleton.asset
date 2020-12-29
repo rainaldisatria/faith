@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  MaxHP: 1100
-  HP: 1000
+  MaxHP: 3300
+  HP: 3300
   Damage: 100
   MoveSpeed: 4
