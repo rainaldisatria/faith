@@ -31,9 +31,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
         Data.HP -= damage;
 
-        this.transform.LookAt(damager);
-        transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
-
         CheckCondition();
     }
 
