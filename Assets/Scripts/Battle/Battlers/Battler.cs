@@ -4,18 +4,13 @@ using UnityEngine.Events;
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
     [SerializeField] protected BattlerData Data;
-    protected Animator[] _animators;
+    protected Animator[] _animators; 
 
-
-    [HideInInspector] public bool isAttacking; 
-
-    // Fields for SM.
+    [HideInInspector] public bool isAttacking;  
     [HideInInspector] public bool IsHitted; 
-
-    // DI
-    public DamageDealer _damageDealer;
-
-
+     
+    private DamageDealer _damageDealer;
+     
     protected virtual void Awake()
     {
         _animators = GetComponentsInChildren<Animator>();
@@ -26,15 +21,13 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     }
 
     public virtual void TakeDamage(int damage, Transform damager)
-    {
+    { 
         IsHitted = true; 
 
         Data.HP -= damage;
 
         CheckCondition();
     }
-
-    public abstract void OnAttack();
 
     protected virtual void CheckCondition()
     {
@@ -45,6 +38,8 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     }
 
     protected abstract void OnDeath();
+
+    public abstract void OnAttack();
 
     public void DealDamageStart(int damage)
     {

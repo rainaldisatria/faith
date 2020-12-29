@@ -9,7 +9,7 @@ public abstract class ComponentPoolSO<T> : PoolSO<T> where T : Component
     {
         get
         {
-            if(_poolRoot = null)
+            if(_poolRoot == null)
             {
                 _poolRoot = new GameObject(name).transform;
                 _poolRoot.SetParent(_parent);
@@ -44,7 +44,7 @@ public abstract class ComponentPoolSO<T> : PoolSO<T> where T : Component
     protected override T Create()
     {
         T newMember = base.Create();
-        newMember.transform.SetParent(PoolRoot.transform);
+        newMember.transform.SetParent(PoolRoot);
         newMember.gameObject.SetActive(false);
         return newMember;
     }
