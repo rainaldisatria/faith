@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Experiment : MonoBehaviour
 {
-    public SkinnedMeshRenderer[] skins;
+    public UnityEvent action;
+    public UnityEvent Action2;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        skins = GetComponentsInChildren<SkinnedMeshRenderer>();
-    } 
+        action?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        Action2?.Invoke();
+    }
 }
