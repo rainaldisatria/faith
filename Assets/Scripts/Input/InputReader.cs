@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName="InputReader", menuName ="Input/InputReader")]
-public class InputReader : ScriptableObject, GameInput.IGameplayActions
+public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInput.IDialogueActions
 {
     // Gameplay
     public event UnityAction<Vector2> MoveEvent;
@@ -18,6 +18,9 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
     public event UnityAction PauseEvent;
     public event UnityAction<Vector2> CameraEvent;
 
+    // Dialogue
+    public event UnityAction AdvanceDialogue;
+
     private GameInput gameInput;
 
     private void OnEnable()
@@ -28,12 +31,25 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
             gameInput.Enable();
 
             gameInput.Gameplay.SetCallbacks(this);
+            gameInput.Dialogue.SetCallbacks(this);
         }
     }
 
     private void OnDisable()
     {
         gameInput.Disable();
+    }
+
+    public void EnableGameplayInput()
+    {
+        gameInput.Gameplay.Enable();
+        gameInput.Dialogue.Disable();
+    }
+
+    public void EnableDialogueInput()
+    {
+        gameInput.Gameplay.Disable();
+        gameInput.Dialogue.Enable();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -63,5 +79,13 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
     {
         if (context.phase == InputActionPhase.Performed)
             CameraEvent?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    public void OnAdvanceDialogue(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            AdvanceDialogue?.Invoke();
+        }
     }
 }

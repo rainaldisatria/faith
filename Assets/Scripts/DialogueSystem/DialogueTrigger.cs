@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueData _dialogueData;
-    [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private ManagerSO _dialogueManager;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            _dialogueManager.DisplayDialogue(_dialogueData); 
+            ((DialogueManager)(_dialogueManager.Manager)).DisplayDialogue(_dialogueData); 
         }
     } 
 }

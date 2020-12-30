@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +9,16 @@ public class DialogueBox
 {
     public GameObject Go { get => _go; }
     public Image Figure { get => _figure; }
-    public Text Name { get => _name; }
-    public Text Message { get => _message; }
+    public TMP_Text Name { get => _name; }
+    public TMP_Text Message { get => _message; }
     public ChoiceBox ChoiceBox { get => _choiceBox; }
     public Button AdvanceButton { get => _advanceButton; }
     
 
     [SerializeField] private GameObject _go;
     [SerializeField] private Image _figure;
-    [SerializeField] private Text _name;
-    [SerializeField] private Text _message;
+    [SerializeField] private TMP_Text _name;
+    [SerializeField] private TMP_Text _message;
     [SerializeField] private Button _advanceButton;
     [SerializeField] private ChoiceBox _choiceBox;
 
