@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539610279, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: _dialogueBox._choiceBox._contentTrans
+      value: 
+      objectReference: {fileID: 539610276}
+    - target: {fileID: 539610279, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: _dialogueBox._choiceBox._choiceButton
+      value: 
+      objectReference: {fileID: 539610275}
+    - target: {fileID: 1342429868, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342429869, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1920.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342429869, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1078.8119
+      objectReference: {fileID: 0}
     - target: {fileID: 1473738103724718929, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -218,5 +238,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1473738103912154435, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163648324592521049, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+--- !u!1 &539610275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8264341417123931773, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+  m_PrefabInstance: {fileID: 539610274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &539610276 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7634661384678745628, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+  m_PrefabInstance: {fileID: 539610274}
+  m_PrefabAsset: {fileID: 0}

@@ -2,9 +2,7 @@
 using UnityEditorInternal;
 using UnityEngine;
 using static UnityEditor.EditorGUI;
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	internal class TransitionDisplayHelper
 	{
 		internal SerializedTransition SerializedTransition { get; }
@@ -153,5 +151,4 @@ namespace UOP1.StateMachine.Editor
 					EditorGUI.DrawRect(rect, ContentStyle.ZebraLight);
 			};
 		}
-	}
-}
+	} 

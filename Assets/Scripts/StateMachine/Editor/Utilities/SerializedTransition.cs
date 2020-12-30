@@ -1,7 +1,5 @@
 ﻿using UnityEditor;
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	internal readonly struct SerializedTransition
 	{
 		internal readonly SerializedProperty Transition;
@@ -43,5 +41,4 @@ namespace UOP1.StateMachine.Editor
 			ToState.objectReferenceValue = null;
 			Conditions.ClearArray();
 		}
-	}
-}
+	} 

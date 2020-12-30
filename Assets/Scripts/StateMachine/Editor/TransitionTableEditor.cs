@@ -4,9 +4,7 @@ using UnityEditor;
 using UnityEngine; 
 using static UnityEditor.EditorGUILayout;
 using Object = UnityEngine.Object;
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	[CustomEditor(typeof(TransitionTableSO))]
 	internal class TransitionTableEditor : UnityEditor.Editor
 	{
@@ -409,5 +407,4 @@ namespace UOP1.StateMachine.Editor
 			foreach (var fromState in _fromStates)
 				_transitionsByFromStates.Add(groupedTransitions[fromState]);
 		}
-	}
-}
+	} 
