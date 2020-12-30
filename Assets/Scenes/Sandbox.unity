@@ -2280,6 +2280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1158763488, guid: 2bdbc34c6abe44717aca1013ebad4f6e, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1615335249088072, guid: 2bdbc34c6abe44717aca1013ebad4f6e, type: 3}
       propertyPath: m_Name
       value: Dwarf BerserkerM

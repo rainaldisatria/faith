@@ -13,8 +13,7 @@ public class DialogueManager : Manager
     private bool _endOfDialogue { get => _counter >= _currentDialogueData.DialogueLines.Count; }
 
     private void OnEnable()
-    {
-        Debug.Log("Binded");
+    { 
         _input.AdvanceDialogue += AdvanceDialogue;
     }
 
@@ -45,8 +44,7 @@ public class DialogueManager : Manager
     }
 
     public void AdvanceDialogue()
-    {
-        Debug.Log("Advanced");
+    { 
         _counter++;
 
         if (_counter < _currentDialogueData.DialogueLines.Count)

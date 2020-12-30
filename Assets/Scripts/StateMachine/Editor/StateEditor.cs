@@ -1,9 +1,7 @@
 ﻿using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	[CustomEditor(typeof(StateSO))]
 	public class StateEditor : UnityEditor.Editor
 	{
@@ -80,5 +78,4 @@ namespace UOP1.StateMachine.Editor
 					EditorGUI.DrawRect(rect, ContentStyle.ZebraLight);
 			};
 		}
-	}
-}
+	} 

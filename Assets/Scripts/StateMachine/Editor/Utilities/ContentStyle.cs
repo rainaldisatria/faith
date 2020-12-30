@@ -1,8 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	internal static class ContentStyle
 	{
 		internal static Color DarkGray { get; private set; }
@@ -55,5 +53,4 @@ namespace UOP1.StateMachine.Editor
 				normal = guiStyleStateNormal,
 			};
 		}
-	}
-}
+	} 

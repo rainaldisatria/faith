@@ -3,9 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
  
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	internal class TransitionTableEditorWindow : EditorWindow
 	{
 		private static TransitionTableEditorWindow _window;
@@ -15,7 +13,7 @@ namespace UOP1.StateMachine.Editor
 
 		private UnityEditor.Editor _transitionTableEditor;
 
-		[MenuItem("Transition Table Editor", menuItem = "ChopChop/State Machine/Transition Table Editor")]
+		[MenuItem("Transition Table Editor", menuItem = "Window/State Machine/Transition Table Editor")]
 		internal static void Display()
 		{
 			if (_window == null)
@@ -139,5 +137,4 @@ namespace UOP1.StateMachine.Editor
 
 			return assets;
 		}
-	}
-}
+	} 

@@ -2,10 +2,8 @@
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using static UnityEditor.EditorGUI;
+using static UnityEditor.EditorGUI; 
 
-namespace UOP1.StateMachine.Editor
-{
 	internal class AddTransitionHelper : IDisposable
 	{
 		internal SerializedTransition SerializedTransition { get; }
@@ -167,5 +165,4 @@ namespace UOP1.StateMachine.Editor
 		{
 			public TransitionTableSO.TransitionItem Item = default;
 		}
-	}
-}
+	} 

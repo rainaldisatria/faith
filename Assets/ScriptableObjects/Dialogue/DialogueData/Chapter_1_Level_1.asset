@@ -19,8 +19,4 @@ MonoBehaviour:
     Sentence: There are intruder in this town
   - Actor: {fileID: 11400000, guid: 1b5fa6131abd8bb4e9d5b5c3d532ec90, type: 2}
     Sentence: Please kill them for me
-  Choices:
-  - _optionName: Sure thing!
-    _response: {fileID: 0}
-  - _optionName: Leave it to me!
-    _response: {fileID: 0}
+  Choices: []

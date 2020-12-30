@@ -1,8 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-
-namespace UOP1.StateMachine.Editor
-{
+ 
 	[CustomPropertyDrawer(typeof(InitOnlyAttribute))]
 	public class InitOnlyAttributeDrawer : PropertyDrawer
 	{
@@ -34,5 +32,4 @@ namespace UOP1.StateMachine.Editor
 
 			return height;
 		}
-	}
-}
+	} 
