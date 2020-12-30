@@ -6,15 +6,30 @@ using UnityEngine.Events;
 public class Experiment : MonoBehaviour
 {
     public UnityEvent action;
+    public float actionDelay;
+
     public UnityEvent Action2;
+    public float actonDelay2;
 
     private void OnEnable()
     {
-        action?.Invoke();
+        StartCoroutine(ActionDelay(actionDelay));
     }
 
     private void OnDisable()
     {
+        StartCoroutine(Action2Delay(actionDelay));
+    }
+
+    private IEnumerator ActionDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
+    }
+
+    private IEnumerator Action2Delay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         Action2?.Invoke();
     }
 }
