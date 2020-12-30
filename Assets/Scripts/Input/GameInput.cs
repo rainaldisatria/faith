@@ -226,6 +226,44 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""3aed0835-e714-4acb-a08b-c9fbd1e2fbeb"",
+            ""actions"": [
+                {
+                    ""name"": ""AdvanceDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5b62c57-772a-4b66-bf8d-a618feaa8eae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""62b1c2b4-da37-49d7-929c-276728893c2f"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f24d929d-3098-4491-a3ca-22e307897af3"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -237,6 +275,9 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_CameraMove = m_Gameplay.FindAction("CameraMove", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_AdvanceDialogue = m_Dialogue.FindAction("AdvanceDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -347,6 +388,39 @@ public class @GameInput : IInputActionCollection, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_AdvanceDialogue;
+    public struct DialogueActions
+    {
+        private @GameInput m_Wrapper;
+        public DialogueActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AdvanceDialogue => m_Wrapper.m_Dialogue_AdvanceDialogue;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @AdvanceDialogue.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnAdvanceDialogue;
+                @AdvanceDialogue.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnAdvanceDialogue;
+                @AdvanceDialogue.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnAdvanceDialogue;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @AdvanceDialogue.started += instance.OnAdvanceDialogue;
+                @AdvanceDialogue.performed += instance.OnAdvanceDialogue;
+                @AdvanceDialogue.canceled += instance.OnAdvanceDialogue;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     public interface IGameplayActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -354,5 +428,9 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnCameraMove(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnAdvanceDialogue(InputAction.CallbackContext context);
     }
 }

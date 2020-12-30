@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : Manager
 {
     public bool IsCompleted { get => _endOfDialogue && _noChoice; }
 
+    [SerializeField] private InputReader _input;
     [SerializeField] private DialogueBox _dialogueBox;
 
     private DialogueData _currentDialogueData;
@@ -11,18 +12,23 @@ public class DialogueManager : MonoBehaviour
     private bool _noChoice;
     private bool _endOfDialogue { get => _counter >= _currentDialogueData.DialogueLines.Count; }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AdvanceDialogue();
-        }
+        Debug.Log("Binded");
+        _input.AdvanceDialogue += AdvanceDialogue;
     }
+
+    private void OnDisable()
+    {
+        _input.AdvanceDialogue -= AdvanceDialogue;
+    } 
 
     public void DisplayDialogue(DialogueData dialogueData)
     {
         _currentDialogueData = dialogueData;
         ResetDialogueManager();
+
+        _input.EnableDialogueInput();
 
         PrepareDialogueBox();
     }
@@ -30,18 +36,17 @@ public class DialogueManager : MonoBehaviour
     private void ResetDialogueManager()
     { 
         _counter = 0;
-        _noChoice = false;
-        _dialogueBox.AdvanceButton.gameObject.SetActive(true);
+        _noChoice = false; 
     }
 
     public void CloseDialogueBox()
     {
-        _dialogueBox.Go.SetActive(false);
-        _dialogueBox.AdvanceButton.gameObject.SetActive(false);
+        _dialogueBox.Go.SetActive(false); 
     }
 
     public void AdvanceDialogue()
-    {  
+    {
+        Debug.Log("Advanced");
         _counter++;
 
         if (_counter < _currentDialogueData.DialogueLines.Count)
@@ -68,8 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayChoices()
     {
-        _dialogueBox.ShowChoices(_currentDialogueData.Choices, this);
-        _dialogueBox.AdvanceButton.gameObject.SetActive(false);
+        _dialogueBox.ShowChoices(_currentDialogueData.Choices, this); 
     }
 
     #region Helper methods
