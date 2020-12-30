@@ -1443,6 +1443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf357f7a8dd14b4c95eb0e463c0cf87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chapterButtonPrefab: {fileID: 0}
+  _chapters: []
+  _contentTrans: {fileID: 0}
 --- !u!111 &1114838808
 Animation:
   m_ObjectHideFlags: 0
