@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c684706f4a4907641b647d476b696b16, type: 3}
-  m_Name: Chapter 2 - Downfall
+  m_Script: {fileID: 11500000, guid: baacebd9294ef954c9499741243f9944, type: 3}
+  m_Name: UIManager
   m_EditorClassIdentifier: 
-  _figure: {fileID: 21300000, guid: 12eb7c15a7c413e4ba1d0de592bf2681, type: 3}
-  _levelsData:
-  - {fileID: 11400000, guid: 53262a1dbf964c348b2b5de31b6bf28c, type: 2}
+  Manager: {fileID: 0}

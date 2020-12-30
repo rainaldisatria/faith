@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c684706f4a4907641b647d476b696b16, type: 3}
   m_Name: Chapter 1 - Moment of Recall
   m_EditorClassIdentifier: 
-  _levelsData: []
+  _figure: {fileID: 21300000, guid: f375f7df25420bb46810accf8f8abb0a, type: 3}
+  _levelsData:
+  - {fileID: 11400000, guid: dd9f3a63efea5c64ca66bdea33b73b0e, type: 2}
+  - {fileID: 11400000, guid: 68f221bb29096394fb3d091af7b9686d, type: 2}

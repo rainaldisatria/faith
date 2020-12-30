@@ -4,36 +4,41 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChapterMenuController : MonoBehaviour
+public class ChapterMenuController : MenuWithContent
 {
-    [SerializeField] private GameObject _chapterButtonPrefab;
-    [SerializeField] private List<ChapterDataSO> _chapters;
-    [SerializeField] private Transform _contentTrans;
+    [SerializeField] private LevelMenuController LevelMenuController;
+
+    [SerializeField] private List<ChapterDataSO> _chapters; 
 
     private void OnEnable()
     {
-        for(int i = 0; i < _chapters.Count; i++)
-        { 
-            GameObject _chapterObj = Instantiate(_chapterButtonPrefab, _contentTrans);
-            _chapterObj.name = _chapters[i].name;
+        Open(); 
+    } 
 
-            _chapterObj.transform.Find("Name").GetComponent<TMP_Text>().text = _chapters[i].name;
-            _chapterObj.GetComponent<Button>().onClick.AddListener(delegate
-            {
-                OnChapterButtonClicked(_chapters[i]);
-            });
-        }
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
+    #region Helper methods
     private void OnChapterButtonClicked(ChapterDataSO chapterData)
     {
-        for (int j = 0; j < chapterData.LevelsData.Count; j++)
-        {
-        }
+        LevelMenuController.Open(chapterData);
+        LevelMenuController.gameObject.SetActive(true); 
     }
+
+    public void Open()
+    { 
+        for (int i = 0; i < _chapters.Count; i++)
+        {
+            GameObject _chapterObj = Instantiate(Prefab, ContentTrans);
+            _chapterObj.name = _chapters[i].name;
+
+            _chapterObj.transform.Find("Mask").Find("Image").GetComponent<Image>().sprite = _chapters[i].Figure;
+            _chapterObj.transform.Find("Title").GetComponent<TMP_Text>().text = _chapters[i].name;
+            _chapterObj.transform.Find("Subtitle").GetComponent<TMP_Text>().text = $"Total level: {_chapters[i].LevelsData.Count}";
+
+            int index = i; 
+            _chapterObj.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                OnChapterButtonClicked(_chapters[index]);
+            }); 
+        }
+    } 
+    #endregion
 }
