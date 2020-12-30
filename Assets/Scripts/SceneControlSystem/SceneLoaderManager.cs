@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoaderManager : Manager
 { 
-    [SerializeField] private Manager _screenEffectManagerSO;
+    [SerializeField] private ManagerSO _screenEffectManagerSO;
 
     private AsyncOperation asyncLoad;
 
@@ -21,7 +21,7 @@ public class SceneLoaderManager : Manager
     /// <returns></returns>
     private IEnumerator LoadSceneAsync(string name)
     {
-        ((ScreenEffectManager)(_screenEffectManagerSO)).FadeIn();
+        ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeIn();
 
         asyncLoad = SceneManager.LoadSceneAsync(name);
         asyncLoad.allowSceneActivation = false;
@@ -36,7 +36,7 @@ public class SceneLoaderManager : Manager
             yield return null;
         }
 
-        ((ScreenEffectManager)(_screenEffectManagerSO)).FadeOut();
+        ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeOut();
     }
     #endregion
 }

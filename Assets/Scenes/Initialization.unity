@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _managerSO: {fileID: 11400000, guid: 6b1e16a169ef6d843b290d3cfd3e98c6, type: 2}
-  _screenEffectManagerSO: {fileID: 0}
+  _screenEffectManagerSO: {fileID: 11400000, guid: f5831e5b62a26c24687b73f9498e9ac6, type: 2}
 --- !u!4 &561907093
 Transform:
   m_ObjectHideFlags: 0
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4d9d3e12430474987ab8b147940ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _managerSO: {fileID: 11400000, guid: 9535182d4429fbc4e87fd1373d0f13c8, type: 2}
+  _managerSO: {fileID: 11400000, guid: f5831e5b62a26c24687b73f9498e9ac6, type: 2}
   _fadeEffect:
     _fader: {fileID: 647244648}
 --- !u!114 &717581520
@@ -603,33 +603,23 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 717581519}
-        m_TargetAssemblyTypeName: ScreenEffectManager, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 4
+      - m_Target: {fileID: 561907092}
+        m_TargetAssemblyTypeName: SceneLoaderManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 1
-          m_StringArgument: 
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
+  actionDelay: 1
   Action2:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717581519}
-        m_TargetAssemblyTypeName: ScreenEffectManager, Assembly-CSharp
-        m_MethodName: FadeOut
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  actonDelay2: 1
 --- !u!4 &1464447404
 Transform:
   m_ObjectHideFlags: 0
