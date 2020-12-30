@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "BattlerData", menuName = ("Battle/BattlerData"))]
 public class BattlerData : ScriptableObject
@@ -7,4 +8,5 @@ public class BattlerData : ScriptableObject
     public int HP;
     public int Damage;
     public float MoveSpeed;
+    List<ISkills> Skills;
 }
