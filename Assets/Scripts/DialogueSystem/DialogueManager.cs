@@ -10,24 +10,15 @@ public class DialogueManager : Manager
     private DialogueData _currentDialogueData;
     private int _counter;
     private bool _noChoice;
-    private bool _endOfDialogue { get => _counter >= _currentDialogueData.DialogueLines.Count; }
-
-    private void OnEnable()
-    { 
-        _input.AdvanceDialogue += AdvanceDialogue;
-    }
-
-    private void OnDisable()
-    {
-        _input.AdvanceDialogue -= AdvanceDialogue;
-    } 
+    private bool _endOfDialogue { get => _counter >= _currentDialogueData.DialogueLines.Count; } 
 
     public void DisplayDialogue(DialogueData dialogueData)
-    {
+    { 
         _currentDialogueData = dialogueData;
         ResetDialogueManager();
 
         _input.EnableDialogueInput();
+        _input.AdvanceDialogue += AdvanceDialogue;
 
         PrepareDialogueBox();
     }
@@ -36,11 +27,6 @@ public class DialogueManager : Manager
     { 
         _counter = 0;
         _noChoice = false; 
-    }
-
-    public void CloseDialogueBox()
-    {
-        _dialogueBox.Go.SetActive(false); 
     }
 
     public void AdvanceDialogue()
@@ -61,12 +47,19 @@ public class DialogueManager : Manager
                 DialogueEnded();
             }
         }
-    } 
+    }
 
     public void DialogueEnded()
     { 
         _noChoice = true;
         CloseDialogueBox();
+        _input.AdvanceDialogue -= AdvanceDialogue;
+        _input.EnableGameplayInput();
+    }
+
+    public void CloseDialogueBox()
+    {
+        _dialogueBox.Go.SetActive(false);
     }
 
     public void DisplayChoices()
