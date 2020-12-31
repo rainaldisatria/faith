@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7219bbb7fe46a1ad266029b2fee19, type: 3}
+  m_Name: PublisherReadme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: 64e04fe0c0f07d14f90626ecfc8a4df8, type: 3}
+  title: The Tales Factory
+  sections:
+  - heading: Read Me
+    text: "Thank your for downloading our assets. This pack is made with sample of three other packs. To get a full AAA battlefield environment, please take a look to these assets:"
+    linkText: Bunkers & trenches Pack
+    url: https://assetstore.unity.com/packages/3d/environments/historic/bunkers-trenches-pack-134999
+  - heading: 
+    text: 
+    linkText: Fallen photoscanned Ruins Pack
+    url: https://assetstore.unity.com/packages/3d/environments/historic/fallen-photoscanned-ruins-pack-143956
+  - heading:
+    text: 
+    linkText: Natural Decay photoscanned & PBR vegetation asset
+    url: https://assetstore.unity.com/packages/3d/vegetation/trees/naturaldecay-photoscanned-pbr-vegetation-assets-134994
+  - heading: 
+    text: "Please follow us to stay informed about our next free content"
+    linkText: Youtube
+    url: https://www.youtube.com/channel/UCLQKfrOXz6o426NQiFqP1vA
+  - heading: 
+    text: 
+    linkText: Instagram
+    url: https://www.instagram.com/thetalesfactory/
+  - heading: 
+    text: 
+    linkText: Facebook
+    url: https://www.facebook.com/The-Tales-Factory-294882054509299
+  - heading: Support
+    text: "To get more free AAA content, please support us"
+    linkText: I want to support The Tales Factory! 
+    url: https://assetstore.unity.com/publishers/39058
+  - heading:  Need help ?
+    text: If you need support, if you notice a bug or simply have a question; please write to us, we will be glad to help you.
+    linkText: Ask for help
+    url: https://connect.unity.com/u/the-tales-factory
+  loadedLayout: 1
