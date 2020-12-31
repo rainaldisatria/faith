@@ -3,12 +3,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoaderManager : Manager
-{ 
+{
+    public const string InitializerScene = "InitializerScene";
+
     [SerializeField] private ManagerSO _screenEffectManagerSO;
 
     private AsyncOperation asyncLoad;
 
-    public void ChangeScene(string name)
+    public void LoadScene(string name)
     {
         StartCoroutine(LoadSceneAsync(name));
     }
@@ -19,24 +21,38 @@ public class SceneLoaderManager : Manager
     /// </summary>
     /// <param name="name">Name of the scene.</param>
     /// <returns></returns>
-    private IEnumerator LoadSceneAsync(string name)
+    private IEnumerator LoadSceneAsync(string name, float fadeInDuration = 0.5f, float fadeOutDuration = 0.5f)
     {
-        ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeIn();
+        ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeOut(fadeInDuration); 
 
-        asyncLoad = SceneManager.LoadSceneAsync(name);
+        yield return new WaitForSeconds(fadeInDuration);
+
+        asyncLoad = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
         asyncLoad.allowSceneActivation = false;
 
         while (!asyncLoad.isDone)
         {
             if (asyncLoad.progress >= 0.9f)
             {
-                asyncLoad.allowSceneActivation = true;
+                UnloadScene(); 
+                ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeIn(fadeOutDuration);
+                asyncLoad.allowSceneActivation = true; 
             }
 
-            yield return null;
+            yield return null; 
         }
+    }
 
-        ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeOut();
+    private void UnloadScene()
+    {
+        for(int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if(scene.name != InitializerScene)
+            {
+                SceneManager.UnloadScene(scene);
+            }
+        }
     }
     #endregion
 }

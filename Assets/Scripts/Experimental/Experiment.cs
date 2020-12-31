@@ -9,17 +9,7 @@ public class Experiment : MonoBehaviour
     public float actionDelay;
 
     public UnityEvent Action2;
-    public float actonDelay2;
-
-    private void OnEnable()
-    {
-        StartCoroutine(ActionDelay(actionDelay));
-    }
-
-    private void OnDisable()
-    {
-        StartCoroutine(Action2Delay(actionDelay));
-    }
+    public float actonDelay2; 
 
     private IEnumerator ActionDelay(float delay)
     {

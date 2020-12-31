@@ -6,8 +6,8 @@ public abstract class LevelDataSO : ScriptableObject
 {
     [SerializeField] private string _sceneName;
 
-    public virtual void Execute()
-    {
-
+    public virtual void Execute(SceneLoaderManager sceneLoader)
+    { 
+        sceneLoader.LoadScene(_sceneName);
     }
 }
