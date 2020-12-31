@@ -14,6 +14,7 @@ public class Protagonist : Battler
 	[HideInInspector] public Vector3 movementVector;
 
 	public FloatEventChannelSO OnHitted;
+	public VoidEventChannelSO OnDead;
 	 
 	private void OnEnable()
 	{ 
@@ -44,7 +45,8 @@ public class Protagonist : Battler
 
 	protected override void OnDeath()
 	{
-		Debug.Log("Game Over");
+		base.OnDeath();
+		OnDead?.RaiseEvent();
 	}
 
 	#region Input

@@ -28,8 +28,8 @@ public class EnemyBattler : Battler
     }
 
     protected override void OnDeath()
-    {
-        Destroy(this.gameObject);
+    { 
+        Destroy(this.gameObject, 10);
     }
 
     public override void OnAttack()
@@ -46,7 +46,7 @@ public class EnemyBattler : Battler
 
             isAttacking = true;
 
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
+            yield return new WaitForSeconds(Random.Range(0f, 0.7f));
             this._animators.PlayAll((i) =>
                 this._animators[i].SetBool("isAttacking", true));
 

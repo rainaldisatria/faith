@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 872cbaa965d1f6e4e98365d74e2060df, type: 3}
-  m_Name: EnemyEasyTransitionTable
+  m_Name: DemonTransitionTable
   m_EditorClassIdentifier: 
   _transitions:
   - FromState: {fileID: 11400000, guid: 322f0bd3794849a4dadd980c9b781dfe, type: 2}
@@ -96,7 +96,4 @@ MonoBehaviour:
       Operator: 0
   - FromState: {fileID: 11400000, guid: a51f46df7bae4d04e86e4e0be75591d1, type: 2}
     ToState: {fileID: 11400000, guid: f08905ea302ae17408c643b516719d47, type: 2}
-    Conditions:
-    - ExpectedResult: 0
-      Condition: {fileID: 11400000, guid: b1e949463b90561458fe4fc41a5ed687, type: 2}
-      Operator: 0
+    Conditions: []

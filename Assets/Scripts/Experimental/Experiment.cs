@@ -5,21 +5,10 @@ using UnityEngine.Events;
 
 public class Experiment : MonoBehaviour
 {
-    public UnityEvent action;
-    public float actionDelay;
+    public Collider[] colliders;
 
-    public UnityEvent Action2;
-    public float actonDelay2; 
-
-    private IEnumerator ActionDelay(float delay)
+    private void Awake()
     {
-        yield return new WaitForSeconds(delay);
-        action?.Invoke();
-    }
-
-    private IEnumerator Action2Delay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Action2?.Invoke();
+        colliders = GetComponentsInChildren<Collider>();
     }
 }

@@ -9,7 +9,8 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     protected Transform _head;
 
     [HideInInspector] public bool isAttacking;  
-    [HideInInspector] public bool IsHitted; 
+    [HideInInspector] public bool IsHitted;
+    [HideInInspector] public bool IsDead;
      
     private DamageDealer _damageDealer;
      
@@ -28,29 +29,25 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     public virtual void TakeDamage(int damage, Transform damager)
     {
-        StartCoroutine(Hitted());
+        IsHitted = true;
 
-        Data.HP -= damage;
+        Data.HP -= damage; 
 
         CheckCondition();
-    }
-
-    private IEnumerator Hitted()
-    {
-        IsHitted = true;
-        yield return null;
-        IsHitted = false;
-    }
+    } 
 
     protected virtual void CheckCondition()
     {
         if(Data.HP <= 0)
-        {
+        { 
             OnDeath();
-        }
+        } 
     }
 
-    protected abstract void OnDeath();
+    protected virtual void OnDeath()
+    { 
+        IsDead = true;
+    }
 
     public abstract void OnAttack();
 
