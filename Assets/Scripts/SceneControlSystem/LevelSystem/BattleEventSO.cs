@@ -7,9 +7,8 @@ public class BattleEventSO : LevelDataSO
 {
     [SerializeField] private string BattleData;
 
-    public override void Execute()
+    public override void Execute(SceneLoaderManager sceneLoader)
     {
-        base.Execute();
-        
+        base.Execute(sceneLoader);
     }
 }

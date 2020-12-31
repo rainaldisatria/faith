@@ -18,8 +18,8 @@ public class ChapterMenuController : MenuWithContent
     #region Helper methods
     private void OnChapterButtonClicked(ChapterDataSO chapterData)
     {
+        LevelMenuController.gameObject.SetActive(true);
         LevelMenuController.Open(chapterData);
-        LevelMenuController.gameObject.SetActive(true); 
     }
 
     public void Open()
