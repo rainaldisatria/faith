@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6ba42998711e94587556617c8cbc79, type: 3}
-  m_Name: Chapter 1 - Level 1
+  m_Name: BD_Chapter 1 - Level 1
   m_EditorClassIdentifier: 
   Waves:
   - WaveData:
-    - _enemyPrefab: {fileID: 0}
-      _quantity: 0
-  - WaveData: []
+    - _enemyPrefab: {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+      _quantity: 3
+  - WaveData:
+    - _enemyPrefab: {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
+      _quantity: 2
+    - _enemyPrefab: {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+      _quantity: 1
