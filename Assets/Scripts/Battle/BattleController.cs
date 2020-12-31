@@ -13,12 +13,12 @@ public class BattleController : MonoBehaviour
 
     private void OnEnable()
     {
-        _enemyDead.OnEventRaised += EnemyDead;
+        //_enemyDead.OnEventRaised += EnemyDead;
     }
 
     private void OnDisable()
     {
-        _enemyDead.OnEventRaised -= EnemyDead;
+        //_enemyDead.OnEventRaised -= EnemyDead;
     }
 
     private void EnemyDead()

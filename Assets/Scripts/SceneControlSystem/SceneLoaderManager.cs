@@ -24,7 +24,7 @@ public class SceneLoaderManager : Manager
     }
 
     public void LoadScene(string name)
-    {
+    { 
         StartCoroutine(LoadSceneAsync(name));
     }
 
