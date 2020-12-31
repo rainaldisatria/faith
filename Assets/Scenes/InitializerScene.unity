@@ -218,6 +218,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8104888486292658283, guid: 03d7db1cde5389449833f6f333a6c360, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104888488322953549, guid: 03d7db1cde5389449833f6f333a6c360, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 469.6797
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104888488322953549, guid: 03d7db1cde5389449833f6f333a6c360, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120.64014
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d7db1cde5389449833f6f333a6c360, type: 3}
 --- !u!1001 &539610274
@@ -338,6 +350,10 @@ PrefabInstance:
     - target: {fileID: 1473738103724718933, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473738103912154434, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 214.52979
       objectReference: {fileID: 0}
     - target: {fileID: 1473738103912154435, guid: e7a9117f5f2e93547bc9a5980edce112, type: 3}
       propertyPath: m_IsActive
