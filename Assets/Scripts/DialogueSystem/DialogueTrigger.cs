@@ -7,8 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private DialogueData _dialogueData;
     [SerializeField] private ManagerSO _dialogueManager;
 
-    private Quaternion defaultQuaternion;
-    private float turnSpeed = 5;
+    private Quaternion defaultQuaternion; 
 
     private void Awake()
     {
