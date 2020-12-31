@@ -8,7 +8,20 @@ public class SceneLoaderManager : Manager
 
     [SerializeField] private ManagerSO _screenEffectManagerSO;
 
+    [Header("Event")]
+    [SerializeField] private StringEventChannelSO _loadScene;
+
     private AsyncOperation asyncLoad;
+
+    private void OnEnable()
+    {
+        _loadScene.OnEventRaised += LoadScene;
+    }
+
+    private void OnDisable()
+    {
+        _loadScene.OnEventRaised -= LoadScene;
+    }
 
     public void LoadScene(string name)
     {

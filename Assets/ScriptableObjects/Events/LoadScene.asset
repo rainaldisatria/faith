@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baacebd9294ef954c9499741243f9944, type: 3}
-  m_Name: ScreenLoaderManager
+  m_Script: {fileID: 11500000, guid: 24a63813815c5f342bd6983c435974c6, type: 3}
+  m_Name: LoadScene
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
+  description: 

@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e7921f009ac7034d895da60b450fed8, type: 3}
-  m_Name: Townsfolk
+  m_Script: {fileID: 11500000, guid: 4b02c0f91c6ae62458f1eda3dd23712f, type: 3}
+  m_Name: OnProtagonistDead
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: fef27f32c962ac743aa3bef8b0a8df35, type: 3}
+  description: 'Subject: Protagonist
+
+    Listener: GameChecker'
