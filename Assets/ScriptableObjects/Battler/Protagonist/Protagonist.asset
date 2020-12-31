@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Protagonist
   m_EditorClassIdentifier: 
   MaxHP: 1000
-  HP: 1
+  HP: 1000
   Damage: 55
   MoveSpeed: 8
