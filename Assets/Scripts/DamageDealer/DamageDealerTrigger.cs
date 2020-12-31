@@ -12,7 +12,7 @@ public class DamageDealerTrigger : MonoBehaviour
 
     private void Awake()
     {
-        userTag = gameObject.tag;
+        userTag = gameObject.transform.root.tag;
     }
 
     private void OnTriggerEnter(Collider col)

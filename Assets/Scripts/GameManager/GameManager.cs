@@ -29,7 +29,7 @@ public class GameManager : Manager
         { 
             isPlayerDead = true;
             Time.timeScale = 0.3f;
-            yield return new WaitForSecondsRealtime(4);
+            yield return new WaitForSecondsRealtime(4f);
             ((SceneLoaderManager)(_sceneLoaderManagerSO.Manager)).LoadScene("GameOver");
             Time.timeScale = 1f;
         }
