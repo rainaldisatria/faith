@@ -2954,6 +2954,7 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: a1c92c203f7fbba4a95ab2fdfc730034, type: 2}
   isAttacking: 0
   IsHitted: 0
+  IsDead: 0
   NavMeshAgent: {fileID: 0}
   Home: {x: 0, y: 0, z: 0}
   OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
@@ -3244,7 +3245,7 @@ GameObject:
   - component: {fileID: 4241696781095720282}
   m_Layer: 8
   m_Name: SwordTrigger
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3349,8 +3350,8 @@ GameObject:
   - component: {fileID: 4241696781756159014}
   - component: {fileID: 4241696781756159015}
   m_Layer: 8
-  m_Name: SwordTrigger
-  m_TagString: Enemy
+  m_Name: Trigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

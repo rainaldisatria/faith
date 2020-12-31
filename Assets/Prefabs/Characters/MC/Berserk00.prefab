@@ -28534,10 +28534,12 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 1dc480cb698974f4cbcb29e0b076f634, type: 2}
   isAttacking: 0
   IsHitted: 0
+  IsDead: 0
   _inputReader: {fileID: 11400000, guid: 836094130663a7c49841a366acbd455f, type: 2}
   movementInput: {x: 0, y: 0, z: 0}
   movementVector: {x: 0, y: 0, z: 0}
   OnHitted: {fileID: 11400000, guid: e38ce1dfbe6f1814380408831a4d9304, type: 2}
+  OnDead: {fileID: 11400000, guid: f6c75e3503f49d846bf189ffb7f78ba0, type: 2}
 --- !u!114 &4986935298267018069
 MonoBehaviour:
   m_ObjectHideFlags: 0
