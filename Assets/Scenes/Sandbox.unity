@@ -2486,6 +2486,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3729903826759383820, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383820, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Height
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383820, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383826, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383826, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Height
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383826, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383827, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383827, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Height
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383827, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729903826759383827, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
+      propertyPath: m_Center.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4986935298267018070, guid: 30a7d2f4bffb8244bbd22e1756ad254b, type: 3}
       propertyPath: m_Name
       value: Berserk00
