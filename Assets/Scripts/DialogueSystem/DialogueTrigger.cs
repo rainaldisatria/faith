@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private ManagerSO _dialogueManager; 
 
     private void OnTriggerEnter(Collider other)
-    {
+    { 
         if (IsPlayer(other))
         { 
             EnableInteraction(other);
@@ -16,8 +16,11 @@ public class DialogueTrigger : MonoBehaviour
     } 
 
     private void OnTriggerExit(Collider other)
-    { 
-        DisableInteraction();
+    {
+        if (IsPlayer(other))
+        { 
+            DisableInteraction();
+        }
     }
 
     private void EnableInteraction(Collider other)
