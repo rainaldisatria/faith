@@ -4,10 +4,10 @@ using UnityEngine;
  
 public abstract class LevelDataSO : ScriptableObject
 {
-    [SerializeField] private string _sceneName;
+    public string SceneName;
 
     public virtual void Execute(SceneLoaderManager sceneLoader)
     { 
-        sceneLoader.LoadScene(_sceneName);
+        sceneLoader.LoadScene(SceneName);
     }
 }
