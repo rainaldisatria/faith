@@ -34,10 +34,10 @@ public class EnemyBattler : Battler
 
     public override void Attack()
     { 
-        StartCoroutine("StartAttacking");
+        StartCoroutine("StartAttack");
     } 
 
-    private IEnumerator StartAttacking()
+    private IEnumerator StartAttack()
     {
         if (!isAttacking)
         {

@@ -14,6 +14,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
      
     private DamageDealer _damageDealer;
      
+    // Inisialisasi
     protected virtual void Awake()
     {
         _animators = GetComponentsInChildren<Animator>();
@@ -27,7 +28,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data = Instantiate(Data);
     }
 
-    #region Interface implementations
     public virtual void TakeDamage(int damage, Transform damager)
     {
         IsHitted = true;
@@ -46,9 +46,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     {
         _damageDealer.DealDamageEnded();
     }
-    #endregion
 
-    #region Methods
     protected virtual void CheckCondition()
     {
         if (Data.HP <= 0)
@@ -62,7 +60,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         IsDead = true;
     }
 
-    public abstract void Attack(); 
-    #endregion
+    public abstract void Attack();
 }
 

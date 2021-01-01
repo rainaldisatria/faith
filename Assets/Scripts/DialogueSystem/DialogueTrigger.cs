@@ -5,14 +5,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private DialogueData _dialogueData;
-    [SerializeField] private ManagerSO _dialogueManager;
-
-    private Quaternion defaultQuaternion; 
-
-    private void Awake()
-    {
-        defaultQuaternion = transform.rotation;
-    }
+    [SerializeField] private ManagerSO _dialogueManager; 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,20 +13,10 @@ public class DialogueTrigger : MonoBehaviour
         { 
             EnableInteraction(other);
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (IsPlayer(other))
-        {
-            transform.LookAt(other.transform);
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y, 0), 1);
-        } 
-    }
+    } 
 
     private void OnTriggerExit(Collider other)
-    {
-        transform.rotation = defaultQuaternion;
+    { 
         DisableInteraction();
     }
 
