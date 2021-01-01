@@ -27,17 +27,17 @@ public class EnemyBattler : Battler
         OnHitted.RaiseEvent(gameObject.GetInstanceID(), _head, Data);
     }
 
-    protected override void OnDeath()
+    protected override void Dead()
     { 
         Destroy(this.gameObject, 10);
     }
 
-    public override void OnAttack()
+    public override void Attack()
     { 
-        StartCoroutine("Attack");
+        StartCoroutine("StartAttacking");
     } 
 
-    private IEnumerator Attack()
+    private IEnumerator StartAttacking()
     {
         if (!isAttacking)
         {

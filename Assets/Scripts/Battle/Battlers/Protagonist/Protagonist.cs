@@ -19,18 +19,18 @@ public class Protagonist : Battler
 	private void OnEnable()
 	{ 
 		_inputReader.MoveEvent += OnMove;
-		_inputReader.AttackEvent += OnAttack;
+		_inputReader.AttackEvent += Attack;
 	}
 	 
 	private void OnDisable()
 	{ 
 		_inputReader.MoveEvent -= OnMove;
-		_inputReader.AttackEvent -= OnAttack;
+		_inputReader.AttackEvent -= Attack;
 	}
 
 	private void Update()
 	{
-		RecalculateMovement();
+		GetUserInput();
 	}
 
 	public override void TakeDamage(int damage, Transform damagerTrans)
@@ -43,9 +43,9 @@ public class Protagonist : Battler
 		transform.eulerAngles = new Vector3(0, damagerTrans.eulerAngles.y, 0); 
 	}
 
-	protected override void OnDeath()
+	protected override void Dead()
 	{
-		base.OnDeath();
+		base.Dead();
 		OnDead?.RaiseEvent();
 	}
 
@@ -55,11 +55,11 @@ public class Protagonist : Battler
 		_previousMovementInput = movement;
 	}
 
-	public override void OnAttack() => isAttacking = true;
+	public override void Attack() => isAttacking = true;
     #endregion
 
     #region Helper methods
-    private void RecalculateMovement()
+    private void GetUserInput()
 	{
 		Vector3 cameraForward = Camera.main.transform.forward;
 		cameraForward.y = 0f;

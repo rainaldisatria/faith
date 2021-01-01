@@ -21,6 +21,6 @@ public class AttackPlayerAction : StateAction
 
     public override void OnUpdate()
     {
-        _enemyBattler.OnAttack();
+        _enemyBattler.Attack();
     } 
 }

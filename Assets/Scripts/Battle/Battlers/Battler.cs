@@ -27,6 +27,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data = Instantiate(Data);
     }
 
+    #region Interface implementations
     public virtual void TakeDamage(int damage, Transform damager)
     {
         IsHitted = true;
@@ -35,21 +36,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
         CheckCondition();
     } 
-
-    protected virtual void CheckCondition()
-    {
-        if(Data.HP <= 0)
-        { 
-            OnDeath();
-        } 
-    }
-
-    protected virtual void OnDeath()
-    { 
-        IsDead = true;
-    }
-
-    public abstract void OnAttack();
 
     public void DealDamageStart(int damage)
     {
@@ -60,5 +46,23 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     {
         _damageDealer.DealDamageEnded();
     }
+    #endregion
+
+    #region Methods
+    protected virtual void CheckCondition()
+    {
+        if (Data.HP <= 0)
+        {
+            Dead();
+        }
+    }
+
+    protected virtual void Dead()
+    {
+        IsDead = true;
+    }
+
+    public abstract void Attack(); 
+    #endregion
 }
 
