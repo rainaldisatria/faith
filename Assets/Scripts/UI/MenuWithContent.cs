@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Animations;
 
-public class MenuWithContent : MonoBehaviour
+public abstract class MenuWithContent : MonoBehaviour
 {
     [SerializeField] protected GameObject Prefab;
     

@@ -37,8 +37,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     private void OnDisable()
     {
-        gameInput.Disable();
-        gameInput.Dialogue.Disable();
+        EnableGameplayInput();
     }
 
     public void EnableGameplayInput()

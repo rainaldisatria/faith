@@ -5,12 +5,18 @@ public class DialogueManager : Manager
     public bool IsCompleted { get => _endOfDialogue && _noChoice; }
 
     [SerializeField] private InputReader _input;
-    [SerializeField] private DialogueBox _dialogueBox;
+    [SerializeField] private ManagerSO UIDialogueManagerSO;
 
+    private UIDialogueManager _uiDialogueManager; 
     private DialogueData _currentDialogueData;
     private int _counter;
     private bool _noChoice;
-    private bool _endOfDialogue { get => _counter >= _currentDialogueData.DialogueLines.Count; } 
+    private bool _endOfDialogue { get => _counter >= _currentDialogueData.DialogueLines.Count; }
+
+    private void Start()
+    {
+        _uiDialogueManager = ((UIDialogueManager)(UIDialogueManagerSO.Manager));
+    }
 
     public void DisplayDialogue(DialogueData dialogueData)
     { 
@@ -20,7 +26,7 @@ public class DialogueManager : Manager
         _input.EnableDialogueInput();
         _input.AdvanceDialogue += AdvanceDialogue;
 
-        PrepareDialogueBox();
+        _uiDialogueManager.ShowDialogueBox(_currentDialogueData.DialogueLines[_counter]);
     }
 
     private void ResetDialogueManager()
@@ -34,13 +40,13 @@ public class DialogueManager : Manager
         _counter++;
 
         if (_counter < _currentDialogueData.DialogueLines.Count)
-            PrepareDialogueBox();
+            _uiDialogueManager.ShowDialogueBox(_currentDialogueData.DialogueLines[_counter]);
 
         if (_endOfDialogue)
         {
             if(_currentDialogueData.Choices.Count > 0)    // If there are any choices that player has to made.
             {
-                DisplayChoices();
+                _uiDialogueManager.DisplayChoices(_currentDialogueData.Choices);
             }
             else
             {
@@ -52,43 +58,10 @@ public class DialogueManager : Manager
     public void DialogueEnded()
     { 
         _noChoice = true;
-        CloseDialogueBox();
+        _uiDialogueManager.CloseDialogueBox();
         _input.AdvanceDialogue -= AdvanceDialogue;
         _input.EnableGameplayInput();
-    }
-
-    public void CloseDialogueBox()
-    {
-        _dialogueBox.Go.SetActive(false);
-    }
-
-    public void DisplayChoices()
-    {
-        _dialogueBox.ShowChoices(_currentDialogueData.Choices, this); 
-    }
-
+    }   
     #region Helper methods
-    /// <summary>
-    /// Show dialogue with updated text from DialogueData
-    /// </summary>
-    private void PrepareDialogueBox()
-    {
-        _dialogueBox.Go.SetActive(true);
-
-        if (_currentDialogueData.DialogueLines[_counter].Actor != null)
-        {
-            _dialogueBox.Figure.gameObject.SetActive(true);
-            _dialogueBox.Name.gameObject.SetActive(true);
-            _dialogueBox.Figure.sprite = _currentDialogueData.DialogueLines[_counter].Actor.Sprite;
-            _dialogueBox.Name.text = _currentDialogueData.DialogueLines[_counter].Actor.name;
-        }
-        else
-        { 
-            _dialogueBox.Figure.gameObject.SetActive(false);
-            _dialogueBox.Name.gameObject.SetActive(false);
-        }
-
-        _dialogueBox.Message.text = _currentDialogueData.DialogueLines[_counter].Sentence;
-    }
     #endregion 
 }
