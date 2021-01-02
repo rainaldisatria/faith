@@ -5,10 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SceneControl/Levels/Battle")]
 public class BattleEventSO : LevelDataSO
 {
-    [SerializeField] private string BattleData;
+    [Header("Battle Event Data")]
+    [SerializeField] private BattleData BattleData;
+    [SerializeField] private ManagerSO _battleManagerSO;
 
     public override void Execute(SceneLoaderManager sceneLoader)
     {
-        base.Execute(sceneLoader);
+        base.Execute(sceneLoader); 
     }
 }

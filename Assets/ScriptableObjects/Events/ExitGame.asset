@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0fc815eb0dd6f44aad2d5f5f9526053, type: 3}
-  m_Name: Chapter 1 - Level 1
+  m_Script: {fileID: 11500000, guid: 4b02c0f91c6ae62458f1eda3dd23712f, type: 3}
+  m_Name: ExitGame
   m_EditorClassIdentifier: 
-  SceneName: Chapter_1_Level_1
-  BattleData: 
+  description: 
