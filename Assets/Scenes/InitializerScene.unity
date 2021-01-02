@@ -1084,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _managerSO: {fileID: 11400000, guid: 0676788d1d4e988459756fab23f7ea6d, type: 2}
+  _sceneLoaderManagerSO: {fileID: 11400000, guid: 6b1e16a169ef6d843b290d3cfd3e98c6, type: 2}
 --- !u!4 &1805223349
 Transform:
   m_ObjectHideFlags: 0

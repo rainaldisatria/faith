@@ -11,6 +11,7 @@ public class BattleEventSO : LevelDataSO
 
     public override void Execute(SceneLoaderManager sceneLoader)
     {
-        base.Execute(sceneLoader); 
+        base.Execute(sceneLoader);
+        ((BattleManager)(_battleManagerSO.Manager)).SetBattleData(BattleData);
     }
 }
