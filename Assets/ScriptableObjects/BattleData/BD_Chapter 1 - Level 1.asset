@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: BD_Chapter 1 - Level 1
   m_EditorClassIdentifier: 
   Waves:
-  - WaveData:
-    - _enemyPrefab: {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
-      _quantity: 3
-  - WaveData:
-    - _enemyPrefab: {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
-      _quantity: 2
-    - _enemyPrefab: {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
-      _quantity: 1
+  - delay: 3
+    Troops:
+    - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+  - delay: 3
+    Troops:
+    - {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
+    - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+    - {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}

@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemyBattler : Battler
 {
@@ -9,6 +11,7 @@ public class EnemyBattler : Battler
     [HideInInspector] public Vector3 Home; // get 
 
     [SerializeField] private HealthbarEventChannelSO OnHitted;
+    public Action OnDead;
 
     protected override void Awake()
     {
@@ -28,8 +31,9 @@ public class EnemyBattler : Battler
     }
 
     protected override void Dead()
-    { 
-        Destroy(this.gameObject, 10);
+    {
+        OnDead?.Invoke();
+        Destroy(this.gameObject, 0.1f);
     }
 
     public override void Attack()

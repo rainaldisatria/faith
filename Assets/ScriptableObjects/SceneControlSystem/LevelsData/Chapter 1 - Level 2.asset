@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Chapter_1_Level_1
   BattleData: {fileID: 11400000, guid: e9814a6d485ac604db3c96c314c1067d, type: 2}
-  _battleManagerSO: {fileID: 0}
+  _battleManagerSO: {fileID: 11400000, guid: 0676788d1d4e988459756fab23f7ea6d, type: 2}

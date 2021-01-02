@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMainMenuManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+public class UIMainMenuController : MonoBehaviour
+{ 
+    public void ExitGame()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
