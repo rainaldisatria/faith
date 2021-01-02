@@ -6,17 +6,21 @@ public class GameManager : Manager
 {
     [SerializeField] private ManagerSO _sceneLoaderManagerSO;
     [SerializeField] private VoidEventChannelSO _onPlayerDeadSO;
+    [SerializeField] private VoidEventChannelSO _exitGameSO;
 
     private void OnEnable()
     {
         _onPlayerDeadSO.OnEventRaised += OnPlayerDead;
+        _exitGameSO.OnEventRaised += ExitGame;
     }
 
     private void OnDisable()
     {
         _onPlayerDeadSO.OnEventRaised -= OnPlayerDead;
+        _exitGameSO.OnEventRaised -= ExitGame;
     }
 
+    #region OnPlayerDead
     bool isPlayerDead;
     public void OnPlayerDead()
     {
@@ -33,5 +37,11 @@ public class GameManager : Manager
             ((SceneLoaderManager)(_sceneLoaderManagerSO.Manager)).LoadScene("GameOver");
             Time.timeScale = 1f;
         }
+    }
+    #endregion
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

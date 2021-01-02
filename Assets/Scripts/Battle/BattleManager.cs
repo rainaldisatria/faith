@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour
+public class BattleManager : Manager
 {
-    [SerializeField] private BattleData _battleData;
+    private BattleData _battleData;
+
+    public void PlayBattleData(BattleData battleData)
+    {
+        _battleData = battleData;
+    }
 }

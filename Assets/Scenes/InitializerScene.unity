@@ -600,6 +600,7 @@ MonoBehaviour:
   _managerSO: {fileID: 11400000, guid: 0eacdd78a121eae4fb69b9a4b448b997, type: 2}
   _sceneLoaderManagerSO: {fileID: 11400000, guid: 6b1e16a169ef6d843b290d3cfd3e98c6, type: 2}
   _onPlayerDeadSO: {fileID: 11400000, guid: f6c75e3503f49d846bf189ffb7f78ba0, type: 2}
+  _exitGameSO: {fileID: 11400000, guid: f89976ffce4a86e4a91c097f4548919e, type: 2}
 --- !u!4 &796152601
 Transform:
   m_ObjectHideFlags: 0
@@ -1082,7 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0997149ff5656874894b3d1d5a9e2a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _battleData: {fileID: 0}
+  _managerSO: {fileID: 11400000, guid: 0676788d1d4e988459756fab23f7ea6d, type: 2}
 --- !u!4 &1805223349
 Transform:
   m_ObjectHideFlags: 0
