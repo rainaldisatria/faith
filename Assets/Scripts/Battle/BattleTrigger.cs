@@ -18,7 +18,10 @@ public class BattleTrigger : MonoBehaviour
     private void Start()
     {
         _battleManager = ((BattleManager)(_battleManagerSO.Manager));
-        _battleData = _battleManager.BattleData;
+        if(_battleManager.BattleData != null)
+        {
+            _battleData = _battleManager.BattleData;
+        }
     }
 
     private void OnTriggerStay(Collider other)
