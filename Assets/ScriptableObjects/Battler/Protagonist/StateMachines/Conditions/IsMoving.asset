@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IsMoving
   m_EditorClassIdentifier: 
   cacheResult: 1
-  _treshold: 0
+  _treshold: 0.2
