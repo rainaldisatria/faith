@@ -68,5 +68,11 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Debug.Log("First skill clicked");
         StartCoroutine(Data.Skills[0].Execute(this));
     }
+
+    protected void SecondSkill()
+    {
+        Debug.Log("First skill clicked");
+        StartCoroutine(Data.Skills[1].Execute(this));
+    }
 }
 
