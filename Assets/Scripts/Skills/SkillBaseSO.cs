@@ -4,11 +4,15 @@ using UnityEngine;
 
 public abstract class SkillBaseSO : ScriptableObject, ISkills
 {
-    [SerializeField] protected string _skillName;
-    [SerializeField] protected GameObject _effect;
-    [SerializeField] protected float delay;
+    [SerializeField] protected string SkillName;
+    [SerializeField] protected string AnimationToPlay;
+    [SerializeField] private float transitionDuration;
+    [SerializeField] protected float Delay; 
 
-    public string SkillName { get => _skillName;}
-
-    public abstract IEnumerator Execute(Transform posToExecute);
+    public virtual IEnumerator Execute(Battler battler)
+    {
+        battler.IsUsingSkill = true;
+        battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(SkillName), transitionDuration);
+        yield return new WaitForSeconds(Delay);
+    }
 }

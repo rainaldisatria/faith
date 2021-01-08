@@ -20,12 +20,14 @@ public class Protagonist : Battler
 	{ 
 		_inputReader.MoveEvent += OnMove;
 		_inputReader.AttackEvent += Attack;
+		_inputReader.FirstSkillEvent += FirstSkill;
 	}
 	 
 	private void OnDisable()
 	{ 
 		_inputReader.MoveEvent -= OnMove;
 		_inputReader.AttackEvent -= Attack;
+		_inputReader.FirstSkillEvent -= FirstSkill;
 	}
 
 	private void Update()

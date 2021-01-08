@@ -16,3 +16,5 @@ MonoBehaviour:
   HP: 1000
   Damage: 55
   MoveSpeed: 8
+  Skills:
+  - {fileID: 11400000, guid: c27b0d95e16e201458cf498ada2a5130, type: 2}

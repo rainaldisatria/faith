@@ -8,5 +8,5 @@ public class BattlerData : ScriptableObject
     public int HP;
     public int Damage;
     public float MoveSpeed;
-    List<ISkills> Skills;
+    public List<SkillBaseSO> Skills;
 }
