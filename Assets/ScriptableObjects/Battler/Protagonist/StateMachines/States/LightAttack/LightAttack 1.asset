@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LightAttack 1
   m_EditorClassIdentifier: 
   _actions:
-  - {fileID: 11400000, guid: 8e930b0e346365c4f967e1ed19bfb7b8, type: 2}
   - {fileID: 11400000, guid: b3687f659567adf428fee988a6502d4f, type: 2}
   - {fileID: 11400000, guid: 920b03d452a51694da999878d4214b2d, type: 2}
   - {fileID: 11400000, guid: 51d0bab4b773f7b4d9bdfb37b9a26da0, type: 2}
   - {fileID: 11400000, guid: e1882e7d924b0d34a8e6732e50f119b2, type: 2}
+  - {fileID: 11400000, guid: 7720166ad6ad2df4ea411cc0a58c2279, type: 2}
