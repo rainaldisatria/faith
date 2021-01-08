@@ -17,9 +17,7 @@ public class IsAttackingCondition : Condition
     protected override bool Statement()
     {
         if(this._battler.isAttacking)
-        {
-            if(_battler is Protagonist)
-                _battler.isAttacking = false;
+        { 
             return true;
         }
 
