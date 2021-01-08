@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51906608d719a2418ccda9e94662c4e, type: 3}
   m_Name: PlayAnimationHitted
   m_EditorClassIdentifier: 
-  animationStateName: isHitted
-  transitionDuration: 0.25
+  animationStateName: Hit
+  transitionDuration: 0
