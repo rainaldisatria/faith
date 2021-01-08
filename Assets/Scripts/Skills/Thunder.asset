@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d28774f3dc47f84a80a9b675010deab, type: 3}
-  m_Name: Strike
+  m_Script: {fileID: 11500000, guid: 5e5899b6be88f5c40ad5c6c501aacbdc, type: 3}
+  m_Name: Thunder
   m_EditorClassIdentifier: 
-  SkillName: Strike
-  AnimationToPlay: Strike
+  SkillName: Thunder
+  AnimationToPlay: Magic
   transitionDuration: 0.25
   Delay: 0.5
   Duration: 1
+  effect: {fileID: 100000, guid: 31af41b0280a62247a609a692897beb2, type: 3}

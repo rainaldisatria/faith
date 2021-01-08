@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SecondSkill",
+                    "type": "Button",
+                    "id": "9686ab42-5f81-421f-bc7f-d9ab7774f6ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -283,6 +291,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "FirstSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a83ca24e-7820-49be-af19-89c9743c0420",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

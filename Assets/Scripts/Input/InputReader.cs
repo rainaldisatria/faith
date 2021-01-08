@@ -15,9 +15,11 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event UnityAction MovePerformed;
     public event UnityAction AttackEvent;
     public event UnityAction FirstSkillEvent;
+    public event UnityAction SecondSkillEvent;
     public event UnityAction InteractEvent;
     public event UnityAction PauseEvent;
     public event UnityAction<Vector2> CameraEvent;
+ 
 
     // Dialogue
     public event UnityAction AdvanceDialogue;
@@ -95,6 +97,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         if (context.phase == InputActionPhase.Started)
         {
             FirstSkillEvent?.Invoke();
+        }
+    }
+
+    public void OnSecondSkill(InputAction.CallbackContext context)
+    { 
+        if (context.phase == InputActionPhase.Started)
+        {
+            SecondSkillEvent?.Invoke();
         }
     }
 }

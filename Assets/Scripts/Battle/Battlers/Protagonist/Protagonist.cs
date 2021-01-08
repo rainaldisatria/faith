@@ -21,6 +21,7 @@ public class Protagonist : Battler
 		_inputReader.MoveEvent += OnMove;
 		_inputReader.AttackEvent += Attack;
 		_inputReader.FirstSkillEvent += FirstSkill;
+		_inputReader.SecondSkillEvent += SecondSkill;
 	}
 	 
 	private void OnDisable()
@@ -28,6 +29,7 @@ public class Protagonist : Battler
 		_inputReader.MoveEvent -= OnMove;
 		_inputReader.AttackEvent -= Attack;
 		_inputReader.FirstSkillEvent -= FirstSkill;
+		_inputReader.SecondSkillEvent -= SecondSkill; 
 	}
 
 	private void Update()
