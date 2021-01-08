@@ -3,5 +3,5 @@ using UnityEngine;
 
 public interface ISkills
 {
-    IEnumerator Execute(Transform posToExecute);
+    IEnumerator Execute(Battler battler);
 }

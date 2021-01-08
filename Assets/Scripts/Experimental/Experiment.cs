@@ -18,6 +18,7 @@ public class Experiment : MonoBehaviour
 
     private void Start()
     {
+        animators = GetComponentsInChildren<Animator>();
         swordDefaultPos = sword.transform.localPosition;
         swordDefaultRot = sword.transform.localEulerAngles;
     }
@@ -25,16 +26,16 @@ public class Experiment : MonoBehaviour
     public void Warp()
     { 
         GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
+        Destroy(clone.GetComponent<Experiment>().sword.gameObject);
         Destroy(clone.GetComponent<Protagonist>());
-        Destroy(clone.GetComponent<StateMachine>());
+        Destroy(clone.GetComponent<StateMachine>()); 
+        Destroy(clone.GetComponent<Collider>());
 
         Animator[] cloneAnimators = clone.GetComponentsInChildren<Animator>();
         foreach(Animator cloneAnimator in cloneAnimators)
         {
             Destroy(cloneAnimator);
         }
-
-        Destroy(clone.GetComponent<Collider>());
 
         // Actually moving the object 
         transform.DOMove(targetTrans.position, duration, false).SetEase(Ease.InExpo).OnComplete(() => FinishWrap());
@@ -52,7 +53,7 @@ public class Experiment : MonoBehaviour
         swordDefaultPos = sword.transform.localPosition;
         sword.parent = null;
         sword.DOMove(targetTrans.position, duration / 2);
-        sword.DORotate(new Vector3(0, 90, 0), .3f);
+        sword.DOLookAt(targetTrans.position, .2f, AxisConstraint.None);
     }
 
     public void FinishWrap()

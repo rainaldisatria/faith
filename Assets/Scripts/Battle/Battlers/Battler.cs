@@ -11,6 +11,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [HideInInspector] public bool isAttacking;  
     [HideInInspector] public bool IsHitted;
     [HideInInspector] public bool IsDead;
+    [HideInInspector] public bool IsUsingSkill;
      
     private DamageDealer _damageDealer;
      
@@ -60,6 +61,12 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         IsDead = true;
     }
 
-    public abstract void Attack();
+    public abstract void Attack(); 
+
+    protected void FirstSkill()
+    {
+        Debug.Log("First skill clicked");
+        StartCoroutine(Data.Skills[0].Execute(this));
+    }
 }
 
