@@ -40,7 +40,6 @@ public class Protagonist : Battler
 		OnHitted.RaiseEvent((float)Data.HP / Data.MaxHP);
 
 		this.transform.LookAt(damagerTrans);
-		transform.eulerAngles = new Vector3(0, damagerTrans.eulerAngles.y, 0); 
 	}
 
 	protected override void Dead()

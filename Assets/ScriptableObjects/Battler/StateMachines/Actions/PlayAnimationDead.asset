@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51906608d719a2418ccda9e94662c4e, type: 3}
   m_Name: PlayAnimationDead
   m_EditorClassIdentifier: 
-  animationStateName: Death
+  animationStateName: Dead
   transitionDuration: 0.25

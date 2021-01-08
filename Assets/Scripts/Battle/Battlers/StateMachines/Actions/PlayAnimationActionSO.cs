@@ -30,7 +30,7 @@ public class PlayAnimationAction : StateAction
     public override void OnStateEnter()
     {
         _animators.PlayAll(
-            (i) => _animators[i].CrossFade(_parameterHash, _baseOrigin.transitionDuration));
+            (i) => _animators[i].CrossFade(_parameterHash, _baseOrigin.transitionDuration, -1, 0));
     }
 
     public override void OnUpdate()
