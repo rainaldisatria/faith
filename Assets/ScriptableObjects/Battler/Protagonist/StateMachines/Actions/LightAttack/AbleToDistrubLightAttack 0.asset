@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AbleToDistrubLightAttack 0
   m_EditorClassIdentifier: 
   cacheResult: 1
-  timerLength: 0.4
+  timerLength: 0.7
