@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class Experiment : MonoBehaviour
-{
-    public Transform targetTrans;
+{ 
     public float duration = 1;
     public Animator[] animators;
 
@@ -23,8 +22,11 @@ public class Experiment : MonoBehaviour
         swordDefaultRot = sword.transform.localEulerAngles;
     }
 
-    public void Warp()
-    { 
+    public void Warp(Transform target)
+    {
+        if (target == null)
+            return;
+
         GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
         Destroy(clone.GetComponent<Experiment>().sword.gameObject);
         Destroy(clone.GetComponent<Protagonist>());
@@ -38,7 +40,7 @@ public class Experiment : MonoBehaviour
         }
 
         // Actually moving the object 
-        transform.DOMove(targetTrans.position, duration, false).SetEase(Ease.InExpo).OnComplete(() => FinishWrap());
+        transform.DOMove(target.position, duration, false).SetEase(Ease.InExpo).OnComplete(() => FinishWrap());
 
         // Freeze animation
         animators = GetComponentsInChildren<Animator>();
@@ -52,8 +54,8 @@ public class Experiment : MonoBehaviour
         // Setup the sword
         swordDefaultPos = sword.transform.localPosition;
         sword.parent = null;
-        sword.DOMove(targetTrans.position, duration / 2);
-        sword.DOLookAt(targetTrans.position, .2f, AxisConstraint.None);
+        sword.DOMove(target.position, duration / 2);
+        sword.DOLookAt(target.position, .2f, AxisConstraint.None);
     }
 
     public void FinishWrap()

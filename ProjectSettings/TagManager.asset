@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - NPC
   - Targetable
+  - PlayerSword
   layers:
   - Default
   - TransparentFX

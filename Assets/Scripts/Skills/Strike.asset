@@ -17,3 +17,4 @@ MonoBehaviour:
   transitionDuration: 0.25
   Delay: 0.5
   Duration: 1
+  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
