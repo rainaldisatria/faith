@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
-  m_Name: Battler_Dead_Condition
+  m_Script: {fileID: 11500000, guid: 559342ad91db65e489d28f6556d40515, type: 3}
+  m_Name: Battler_IsUsingSkill
   m_EditorClassIdentifier: 
-  _actions:
-  - {fileID: 11400000, guid: 8d89ac9b531eb1a4280abb7b7a6935f3, type: 2}
+  cacheResult: 1
