@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DamageDealerTrigger : MonoBehaviour
 {
-    public bool ableToAttack = false;
+    private bool ableToAttack = false;
     private List<GameObject> damagedObject = new List<GameObject>();
     private string _userTag;
     private int _damage;
