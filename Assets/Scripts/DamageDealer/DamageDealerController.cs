@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class DamageDealer
+public class DamageDealerController
 {
     [SerializeField] private DamageDealerTrigger[] _triggers;
 
-    public DamageDealer(DamageDealerTrigger[] triggers)
+    public DamageDealerController(DamageDealerTrigger[] triggers)
     {
         _triggers = triggers;
     }
@@ -20,10 +20,4 @@ public class DamageDealer
         foreach (DamageDealerTrigger trigger in _triggers)
             trigger.Disable();
     } 
-}
-
-public interface IDamageDealer
-{ 
-    void DealDamageStart();
-    void DealDamageEnded(); 
 }
