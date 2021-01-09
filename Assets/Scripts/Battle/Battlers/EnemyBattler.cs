@@ -46,8 +46,7 @@ public class EnemyBattler : Battler
     }
 
     protected override void Dead()
-    {
-        ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
+    { 
         OnDead?.Invoke();
         Destroy(this.gameObject, 0.1f);
     }

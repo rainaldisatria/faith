@@ -10,6 +10,8 @@ public class DamageDealerTrigger : MonoBehaviour
     private string _userTag;
     private int _damage;
 
+    [SerializeField] private TrailRenderer _trailRenderer;
+
     private void Awake()
     {
         _userTag = gameObject.transform.root.tag; 
@@ -44,14 +46,18 @@ public class DamageDealerTrigger : MonoBehaviour
     }
 
     public void Enable(int damage)
-    { 
+    {
+        if (_trailRenderer != null)
+            _trailRenderer.emitting = true;
         _damage = damage;
         damagedObject.Clear();
         ableToAttack = true;  
     }
 
     public void Disable()
-    { 
+    {
+        if (_trailRenderer != null)
+            _trailRenderer.emitting = false;
         damagedObject.Clear();
         ableToAttack = false; 
     } 
