@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class EnemyBattler : Battler
+public class EnemyBattler : Battler, ITargetable
 {
     [SerializeField] private ManagerSO _targetManager;
 
@@ -23,19 +24,12 @@ public class EnemyBattler : Battler
         NavMeshAgent.speed = Data.MoveSpeed;
 
         Home = this.transform.position;
-    }
+    } 
 
     protected virtual void Update()
     {
-        
-        if (Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(Mid.position)))
-        {
-            ((TargetManager)(_targetManager.Manager)).AddTarget(Mid);
-        }
-        else
-        {
-            ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
-        }
+        OnObjectOutsideScreenSpace();
+        OnObjectWithinScreenSpace();
     }
 
     public override void TakeDamage(int damage, Transform damager)
@@ -78,5 +72,21 @@ public class EnemyBattler : Battler
 
             isAttacking = false;
         }
-    } 
+    }
+
+    public void OnObjectWithinScreenSpace()
+    { 
+        if (Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(Mid.position)))
+        {
+            ((TargetManager)(_targetManager.Manager)).AddTarget(transform);
+        }
+    }
+
+    public void OnObjectOutsideScreenSpace()
+    {
+        if (!Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(Mid.position)))
+        {
+            ((TargetManager)(_targetManager.Manager)).RemoveTarget(transform);
+        }
+    }
 }

@@ -13,18 +13,32 @@ public class StrikeSkill : SkillBaseSO
     {
         battler.IsUsingSkill = true;
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
+
+        Transform target = ((TargetManager)(_targetManager.Manager)).Target; 
+
+        battler.transform.LookAt(target); 
+        battler.transform.eulerAngles = new Vector3(0, battler.transform.eulerAngles.y, 0);
+         
         yield return new WaitForSeconds(Delay);
-        Transform target = ((TargetManager)(_targetManager.Manager)).Target.parent.transform;
+        
         Warp(target, battler);
-        battler.transform.rotation = Quaternion.LookRotation(target.position - battler.transform.position);
         battler.StartCoroutine(Done(battler));
     }
 
     public void Warp(Transform target, Battler user)
-    {
-
+    { 
         if (target == null)
             return;
+         
+        GameObject sword = GameObject.FindGameObjectWithTag("PlayerSword");
+        Vector3 swordDefaultPos = sword.transform.localPosition;
+        Vector3 swordDefaultRot = sword.transform.localEulerAngles;
+        Transform swordHand = sword.transform.parent; 
+
+        sword.transform.parent = null;
+        sword.transform.DOMove(target.position, speed / 2);
+        sword.transform.DOLookAt(target.position, .2f, AxisConstraint.None);
+        sword.GetComponentInChildren<TrailRenderer>().emitting = true;
 
         GameObject clone = Instantiate(user.gameObject, user.transform.position, user.transform.rotation);
         Destroy(clone, speed);
@@ -38,12 +52,6 @@ public class StrikeSkill : SkillBaseSO
             Destroy(cloneAnimator);
         }
 
-         
-        GameObject sword = GameObject.FindGameObjectWithTag("PlayerSword");
-        Vector3 swordDefaultPos = sword.transform.localPosition;
-        Vector3 swordDefaultRot = sword.transform.localEulerAngles;
-        Transform swordHand = sword.transform.parent;
-
         user.transform.DOMove(target.position, speed, false).SetEase(Ease.InExpo)
             .OnComplete(() => FinishWrap(user, swordDefaultPos, swordDefaultRot, swordHand));
 
@@ -55,12 +63,6 @@ public class StrikeSkill : SkillBaseSO
         });
 
         ShowBody(false, user);
-
-        
-        sword.transform.parent = null;
-        sword.transform.DOMove(target.position, speed / 2);
-        sword.transform.DOLookAt(target.position, .2f, AxisConstraint.None);
-        sword.GetComponentInChildren<TrailRenderer>().emitting = true;
     } 
 
     public void FinishWrap(Battler user, Vector3 swordDefaultPos, Vector3 swordDefaultRot, Transform swordHand)
