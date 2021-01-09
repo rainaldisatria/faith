@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed = 2;
+    [SerializeField] private float duration = 2;
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -15,12 +16,12 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2);
+        Destroy(gameObject, duration);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _rigidbody.AddForce(transform.forward * Time.deltaTime * speed, ForceMode.Acceleration);
+        _rigidbody.velocity = transform.forward * speed * Time.deltaTime; 
     }
 }
