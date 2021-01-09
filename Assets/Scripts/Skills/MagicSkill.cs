@@ -10,7 +10,8 @@ public class MagicSkill : SkillBaseSO
     public override IEnumerator Execute(Battler battler)
     {
         yield return base.Execute(battler);
-        Instantiate(effect, battler.transform); 
+        GameObject obj = Instantiate(effect, battler.transform.position, battler.transform.rotation);
+        obj.GetComponent<DamageDealerTrigger>().SetUserTag(battler.tag);
 
         battler.StartCoroutine(Done(battler));
     }

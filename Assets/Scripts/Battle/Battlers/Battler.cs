@@ -36,16 +36,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data.HP -= damage; 
 
         CheckCondition();
-    } 
-
-    public void DealDamageStart(int damage)
-    {
-        _damageDealer.DealDamageStart(Data.Damage);
-    }
-
-    public void DealDamageEnded()
-    {
-        _damageDealer.DealDamageEnded();
     }
 
     protected virtual void CheckCondition()
@@ -61,18 +51,30 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         IsDead = true;
     }
 
-    public abstract void Attack(); 
+    public abstract void Attack();
 
+    #region Skills
     protected void FirstSkill()
-    {
-        Debug.Log("First skill clicked");
+    { 
         StartCoroutine(Data.Skills[0].Execute(this));
     }
 
     protected void SecondSkill()
-    {
-        Debug.Log("First skill clicked");
+    { 
         StartCoroutine(Data.Skills[1].Execute(this));
     }
+    #endregion
+
+    #region IDamageDealer
+    public void DealDamageStart()
+    {
+        _damageDealer.Start(Data.Damage);
+    }
+
+    public void DealDamageEnded()
+    {
+        _damageDealer.End();
+    }
+    #endregion
 }
 
