@@ -8,8 +8,7 @@ public class StrikeSkill : SkillBaseSO
     public override IEnumerator Execute(Battler battler)
     {
         yield return base.Execute(battler);
-        battler.GetComponent<Experiment>().Warp();
-
+        battler.GetComponent<Experiment>().Warp(); 
         battler.StartCoroutine(Done(battler));
     }
 }
