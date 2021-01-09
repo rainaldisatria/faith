@@ -18,7 +18,7 @@ public class Protagonist : Battler
 	 
 	private void OnEnable()
 	{ 
-		_inputReader.MoveEvent += OnMove;
+		_inputReader.MoveEvent += Move;
 		_inputReader.AttackEvent += Attack;
 		_inputReader.FirstSkillEvent += FirstSkill;
 		_inputReader.SecondSkillEvent += SecondSkill;
@@ -26,7 +26,7 @@ public class Protagonist : Battler
 	 
 	private void OnDisable()
 	{ 
-		_inputReader.MoveEvent -= OnMove;
+		_inputReader.MoveEvent -= Move;
 		_inputReader.AttackEvent -= Attack;
 		_inputReader.FirstSkillEvent -= FirstSkill;
 		_inputReader.SecondSkillEvent -= SecondSkill; 
@@ -53,7 +53,7 @@ public class Protagonist : Battler
 	}
 
 	#region Input
-	private void OnMove(Vector2 movement)
+	private void Move(Vector2 movement)
 	{
 		_userInput = movement;
 	}
