@@ -18,8 +18,7 @@ public class IsUsingSkillCondition : Condition
     }
 
     protected override bool Statement()
-    {
-        Debug.Log(_battler.IsUsingSkill + " test ");
+    { 
         return _battler.IsUsingSkill;
     }
 }
