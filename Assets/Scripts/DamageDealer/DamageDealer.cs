@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DamageDealer : IDamageDealer
+public class DamageDealer
 {
     [SerializeField] private DamageDealerTrigger[] _triggers;
 
@@ -9,21 +9,21 @@ public class DamageDealer : IDamageDealer
         _triggers = triggers;
     }
 
-    public void DealDamageStart(int damage)
+    public void Start(int damage)
     {
         foreach (DamageDealerTrigger trigger in _triggers)
             trigger.Enable(damage);
     }
 
-    public void DealDamageEnded()
+    public void End()
     {
         foreach (DamageDealerTrigger trigger in _triggers)
             trigger.Disable();
-    }
+    } 
 }
 
 public interface IDamageDealer
 { 
-    void DealDamageStart(int damage);
-    void DealDamageEnded();
+    void DealDamageStart();
+    void DealDamageEnded(); 
 }

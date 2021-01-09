@@ -17,4 +17,4 @@ MonoBehaviour:
   transitionDuration: 0.25
   Delay: 0.5
   Duration: 1
-  effect: {fileID: 100000, guid: 31af41b0280a62247a609a692897beb2, type: 3}
+  effect: {fileID: 100010, guid: a8d60f6853b51ee4ba75f1966f4f358f, type: 3}

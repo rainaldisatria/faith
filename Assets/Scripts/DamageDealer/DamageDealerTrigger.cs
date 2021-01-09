@@ -7,24 +7,29 @@ public class DamageDealerTrigger : MonoBehaviour
 {
     public bool ableToAttack = false;
     private List<GameObject> damagedObject = new List<GameObject>();
-    private string userTag;
+    private string _userTag;
     private int _damage;
 
     private void Awake()
     {
-        userTag = gameObject.transform.root.tag;
+        _userTag = gameObject.transform.root.tag; 
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     { 
         DealDamage(col);
+    }
+
+    public void SetUserTag(string userTag)
+    {
+        _userTag = userTag;
     }
 
     private void DealDamage(Collider col)
     { 
         if (ableToAttack)
         {
-            if (!col.CompareTag(userTag))
+            if (!col.CompareTag(_userTag))
             { 
                 if (col.gameObject.GetComponent<IDamageable>() != null)
                 {  
@@ -39,15 +44,15 @@ public class DamageDealerTrigger : MonoBehaviour
     }
 
     public void Enable(int damage)
-    {
+    { 
         _damage = damage;
         damagedObject.Clear();
-        ableToAttack = true;
+        ableToAttack = true;  
     }
 
     public void Disable()
-    {
-        ableToAttack = false;
-        damagedObject.Clear(); 
-    }
+    { 
+        damagedObject.Clear();
+        ableToAttack = false; 
+    } 
 }
