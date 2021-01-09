@@ -5,8 +5,9 @@ using UnityEngine.Events;
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
     [SerializeField] protected BattlerData Data;
-    protected Animator[] _animators;
-    protected Transform _head;
+    protected Animator[] Animators;
+    protected Transform Head;
+    protected Transform Mid;
 
     [HideInInspector] public bool isAttacking;  
     [HideInInspector] public bool IsHitted;
@@ -18,11 +19,15 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     // Inisialisasi
     protected virtual void Awake()
     {
-        _animators = GetComponentsInChildren<Animator>();
+        Animators = GetComponentsInChildren<Animator>();
 
-        _head = transform.Find("Head");
-        if (_head == null)
+        Head = transform.Find("Head");
+        if (Head == null)
             Debug.LogError("Battler has no head referenced");
+
+        Mid = transform.Find("Mid");
+        if (Mid == null)
+            Debug.LogError("Battler has no mid referenced");
 
         _damageDealer = new DamageDealerController(GetComponentsInChildren<DamageDealerTrigger>());
 

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1234135368512766305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604512242950818019}
+  m_Layer: 8
+  m_Name: Mid
+  m_TagString: Targetable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1604512242950818019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234135368512766305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4236954952317028529}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4240139317799573721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,6 +2933,7 @@ Transform:
   - {fileID: 4238952863743648351}
   - {fileID: 4236841792540037815}
   - {fileID: 4241696781357397113}
+  - {fileID: 1604512242950818019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2955,6 +2986,8 @@ MonoBehaviour:
   isAttacking: 0
   IsHitted: 0
   IsDead: 0
+  IsUsingSkill: 0
+  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
   NavMeshAgent: {fileID: 0}
   Home: {x: 0, y: 0, z: 0}
   OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
@@ -3276,7 +3309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fcefbfc90504a42ad0581d8b04d5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ableToAttack: 0
 --- !u!54 &4241696781095720285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3382,7 +3414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fcefbfc90504a42ad0581d8b04d5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ableToAttack: 0
 --- !u!54 &4241696781756159014
 Rigidbody:
   m_ObjectHideFlags: 0
