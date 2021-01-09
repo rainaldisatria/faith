@@ -13,7 +13,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [HideInInspector] public bool IsDead;
     [HideInInspector] public bool IsUsingSkill;
      
-    private DamageDealer _damageDealer;
+    private DamageDealerController _damageDealer;
      
     // Inisialisasi
     protected virtual void Awake()
@@ -24,7 +24,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         if (_head == null)
             Debug.LogError("Battler has no head referenced");
 
-        _damageDealer = new DamageDealer(GetComponentsInChildren<DamageDealerTrigger>());
+        _damageDealer = new DamageDealerController(GetComponentsInChildren<DamageDealerTrigger>());
 
         Data = Instantiate(Data);
     }
