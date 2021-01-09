@@ -24,12 +24,7 @@ public class TargetManager : Manager
     }
 
     private void Update()
-    {
-        if(Target != null)
-        {
-            Debug.Log(Target);
-        }
-
+    {  
         if (Targets.Count <= 0)
             return;
 
