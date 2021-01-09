@@ -24,4 +24,4 @@ public class Projectile : MonoBehaviour
     {
         _rigidbody.velocity = transform.forward * speed * Time.deltaTime; 
     }
-}
+}   

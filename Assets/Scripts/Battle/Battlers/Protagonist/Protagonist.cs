@@ -35,6 +35,7 @@ public class Protagonist : Battler
 	private void Update()
 	{
 		CalculateMovement();
+		Debug.Log(IsUsingSkill);
 	}
 
 	public override void TakeDamage(int damage, Transform damagerTrans)
