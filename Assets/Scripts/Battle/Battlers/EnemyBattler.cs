@@ -61,12 +61,7 @@ public class EnemyBattler : Battler, ITargetable
 
             yield return new WaitForSeconds(Random.Range(1f, 1f));
             this.Animators.PlayAll((i) =>
-                this.Animators[i].SetBool("isAttacking", true));
-
-            yield return null; 
-
-            this.Animators.PlayAll((i) =>
-                this.Animators[i].SetBool("isAttacking", false));
+                this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0)); 
 
             yield return new WaitForSeconds(Random.Range(0.3f, 1));
 

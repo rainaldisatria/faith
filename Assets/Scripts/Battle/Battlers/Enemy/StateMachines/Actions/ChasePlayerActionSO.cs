@@ -5,14 +5,15 @@ using UnityEngine.AI;
 
 [CreateAssetMenu(fileName = "ChasePlayer", menuName = "State Machines/Actions/Chase Player")]
 public class ChasePlayerActionSO : StateActionSO<ChasePlayerAction> 
-{ 
-
+{
+    public float Treshold = 4;
 }
 
 public class ChasePlayerAction : StateAction
 {
     private NavMeshAgent _battler;
     private Transform _playerTrans;
+    private ChasePlayerActionSO _originSO => (ChasePlayerActionSO)base.OriginSO;
 
     public override void Awake(StateMachine stateMachine)
     {
@@ -22,6 +23,16 @@ public class ChasePlayerAction : StateAction
 
     public override void OnUpdate()
     {
-        _battler.SetDestination(_playerTrans.position);
+        Debug.Log(Vector3.Distance(_battler.transform.position, _playerTrans.position));
+
+        if (Vector3.Distance(_battler.transform.position, _playerTrans.position) > 4)
+        {
+            _battler.SetDestination(_playerTrans.position - _battler.transform.forward * _originSO.Treshold);
+            Debug.Log(Vector3.Distance(_battler.transform.position, _playerTrans.position));
+        }
+        else
+        {
+            _battler.SetDestination(_battler.transform.position);
+        }
     }
 }
