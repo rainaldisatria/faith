@@ -10,6 +10,7 @@ public class DamageDealerTrigger : MonoBehaviour
     private List<GameObject> damagedObject = new List<GameObject>();
     private string _userTag;
     private int _damage;
+    private float _drawBack = 1f;
 
     [SerializeField] private TrailRenderer _trailRenderer;
 
@@ -41,18 +42,21 @@ public class DamageDealerTrigger : MonoBehaviour
                         damagedObject.Add(col.gameObject);
                         col.gameObject.GetComponent<IDamageable>().TakeDamage(_damage, transform.root);
 
-                        col.transform.DOMove(col.transform.position + transform.root.forward, .5f);
+                        col.transform.DOMove(col.transform.position + transform.root.forward * 2f, .5f);
                     }
                 }
             }
         }
     }
 
-    public void Enable(int damage)
+    public void Enable(int damage, float drawBack = 1)
     {
         if (_trailRenderer != null)
             _trailRenderer.emitting = true;
+
         _damage = damage;
+        _drawBack = drawBack;
+
         damagedObject.Clear();
         ableToAttack = true;  
     }
