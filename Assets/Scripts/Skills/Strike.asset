@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Strike
   AnimationToPlay: Strike
-  transitionDuration: 0.25
+  TransitionDuration: 0
   Delay: 0.5
   Duration: 1
   _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
+  speed: 0.35

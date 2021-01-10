@@ -25,6 +25,12 @@ public class StrikeSkill : SkillBaseSO
         battler.StartCoroutine(Done(battler));
     }
 
+    protected override IEnumerator Done(Battler battler)
+    {
+        yield return base.Done(battler);
+        battler.DealDamageEnded();
+    }
+
     public void Warp(Transform target, Battler user)
     { 
         if (target == null)
@@ -52,7 +58,7 @@ public class StrikeSkill : SkillBaseSO
             Destroy(cloneAnimator);
         }
 
-        user.transform.DOMove(target.position, speed, false).SetEase(Ease.InExpo)
+        user.transform.DOMove(target.position, speed).SetEase(Ease.InExpo)
             .OnComplete(() => FinishWrap(user, swordDefaultPos, swordDefaultRot, swordHand));
 
         
@@ -66,13 +72,16 @@ public class StrikeSkill : SkillBaseSO
     } 
 
     public void FinishWrap(Battler user, Vector3 swordDefaultPos, Vector3 swordDefaultRot, Transform swordHand)
-    {
+    { 
         Animator[] animators = user.GetComponentsInChildren<Animator>();
         animators.PlayAll((int id) =>
         {
             animators[id].speed = 1;
         });
         ShowBody(true, user);
+
+        Protagonist protagonist = user as Protagonist;
+        protagonist.DealDamageStart(); 
 
         GameObject sword = GameObject.FindGameObjectWithTag("PlayerSword");
 

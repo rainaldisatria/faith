@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +40,8 @@ public class DamageDealerTrigger : MonoBehaviour
                     { 
                         damagedObject.Add(col.gameObject);
                         col.gameObject.GetComponent<IDamageable>().TakeDamage(_damage, transform.root);
+
+                        col.transform.DOMove(col.transform.position + transform.root.forward, .5f);
                     }
                 }
             }

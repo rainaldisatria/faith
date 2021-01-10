@@ -17,7 +17,7 @@ public abstract class SkillBaseSO : ScriptableObject, ISkills
         yield return new WaitForSeconds(Delay);
     }
 
-    protected IEnumerator Done(Battler battler)
+    protected virtual IEnumerator Done(Battler battler)
     { 
         yield return new WaitForSeconds(Duration);
         battler.IsUsingSkill = false;
