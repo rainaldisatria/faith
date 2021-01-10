@@ -10,6 +10,10 @@ public abstract class SkillBaseSO : ScriptableObject, ISkills
     [SerializeField] protected float Delay;
     [SerializeField] protected float Duration;
 
+    /// <summary>
+    /// Play skill animation then wait for delay.
+    /// </summary>
+    /// <param name="battler"></param>
     public virtual IEnumerator Execute(Battler battler)
     { 
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
