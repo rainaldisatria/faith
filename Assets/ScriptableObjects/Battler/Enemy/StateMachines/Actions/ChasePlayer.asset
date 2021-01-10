@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cdd75d04a39d0438474dcfcd1f324c, type: 3}
   m_Name: ChasePlayer
   m_EditorClassIdentifier: 
+  Treshold: 3.6
