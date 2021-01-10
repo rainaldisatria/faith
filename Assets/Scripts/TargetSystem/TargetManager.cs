@@ -41,6 +41,7 @@ public class TargetManager : Manager
         else
         {
             _targetImage.gameObject.SetActive(false);
+            Debug.Log("Null");
         }
     }
 

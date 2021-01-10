@@ -3023,7 +3023,7 @@ NavMeshAgent:
   m_Acceleration: 2000
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 3
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3309,6 +3309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fcefbfc90504a42ad0581d8b04d5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trailRenderer: {fileID: 0}
 --- !u!54 &4241696781095720285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3414,6 +3415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fcefbfc90504a42ad0581d8b04d5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trailRenderer: {fileID: 0}
 --- !u!54 &4241696781756159014
 Rigidbody:
   m_ObjectHideFlags: 0
