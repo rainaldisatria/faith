@@ -76,17 +76,17 @@ public class EnemyBattler : Battler, ITargetable
 
     public void OnObjectWithinScreenSpace()
     { 
-        if (Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(transform.position)))
+        if (Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(Mid.position)))
         {
-            ((TargetManager)(_targetManager.Manager)).AddTarget(transform);
+            ((TargetManager)(_targetManager.Manager)).AddTarget(Mid);
         }
     }
 
     public void OnObjectOutsideScreenSpace()
     {
-        if (!Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(transform.position)))
+        if (!Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(Mid.position)))
         {
-            ((TargetManager)(_targetManager.Manager)).RemoveTarget(transform);
+            ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
         }
     }
 }

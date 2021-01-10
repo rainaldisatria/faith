@@ -20,8 +20,7 @@ public class IsHittedCondition : Condition
     protected override bool Statement()
     {
         if (_battler.IsHitted)
-        {
-            Debug.Log("Is hitted");
+        { 
             _battler.IsHitted = false;
             return true;
         }

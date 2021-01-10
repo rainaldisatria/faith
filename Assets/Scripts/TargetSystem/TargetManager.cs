@@ -40,7 +40,7 @@ public class TargetManager : Manager
         if (CamTarget != null)
         {
             _camTargetImage.gameObject.SetActive(true);
-            _camTargetImage.transform.position = Camera.main.WorldToScreenPoint(CamTarget.position);
+            _camTargetImage.transform.position = Camera.main.WorldToScreenPoint(CamTarget.position + new Vector3(0, 0, 0));
         }
         else 
         {
