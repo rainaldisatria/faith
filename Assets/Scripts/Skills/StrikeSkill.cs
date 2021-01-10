@@ -20,8 +20,11 @@ public class StrikeSkill : SkillBaseSO
             GameObject dummy= new GameObject();
             dummy.transform.position = battler.transform.position + battler.transform.forward * 15;
 
-
             target = dummy.transform;
+        }
+        else
+        {
+            target = target.root;
         }
 
         battler.transform.LookAt(target); 
