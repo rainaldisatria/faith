@@ -42,7 +42,7 @@ public class DamageDealerTrigger : MonoBehaviour
                         damagedObject.Add(col.gameObject);
                         col.gameObject.GetComponent<IDamageable>().TakeDamage(_damage, transform.root);
 
-                        col.transform.DOMove(col.transform.position + transform.root.forward * 2f, .5f);
+                        col.transform.DOMove(col.transform.position + transform.root.forward * 2.1f, .5f);
                     }
                 }
             }
