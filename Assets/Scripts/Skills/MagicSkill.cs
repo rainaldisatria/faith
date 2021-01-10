@@ -12,7 +12,7 @@ public class MagicSkill : DamageSkill
     { 
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
 
-        Transform target = ((TargetManager)(_targetManager.Manager)).Target;
+        Transform target = ((TargetManager)(_targetManager.Manager)).Target.root;
         if(target == null)
         {
             target = battler.transform;

@@ -66,7 +66,7 @@ public class StrikeSkill : SkillBaseSO
             Destroy(cloneAnimator);
         }
 
-        user.transform.DOMove(target.position, speed).SetEase(Ease.InExpo)
+        user.transform.DOMove(target.root.position, speed).SetEase(Ease.InExpo)
             .OnComplete(() => FinishWrap(user, swordDefaultPos, swordDefaultRot, swordHand));
 
         
