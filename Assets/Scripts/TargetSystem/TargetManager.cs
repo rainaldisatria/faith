@@ -33,9 +33,9 @@ public class TargetManager : Manager
             CamTarget = null;
             return;
         }
-             
-        Target = Targets[GetNearestTargetID()];
-        CamTarget = Targets[GetNearestCamTargetID()];
+
+        Target = GetNearestTarget();
+        CamTarget = Targets[GetNearestCamTargetID()]; 
 
         if (CamTarget != null)
         {
@@ -49,11 +49,8 @@ public class TargetManager : Manager
     }
      
     private int GetNearestCamTargetID()
-    {
-        if (Targets.Count <= 0)
-            return -1;
-
-        int index = -1;
+    {  
+        int index = 0;
         float[] distances = new float[Targets.Count];
 
         for (int i = 0; i < distances.Length; i++)
@@ -77,23 +74,22 @@ public class TargetManager : Manager
         return index;
     }
 
-    private int GetNearestTargetID()
-    { 
-        if (Targets.Count <= 0)
-            return -1;
+    private Transform GetNearestTarget()
+    {
+        int index = 0;
 
-        int index = -1;
-        float[] distances = new float[Targets.Count];
-
+        float[] distances = new float[Targets.Count]; 
         for (int i = 0; i < distances.Length; i++)
         {
-            if (Targets[i] != null)
+            if (Targets[i] != null && Targets[i].root.CompareTag("Enemy"))
                 distances[i] = Vector2.Distance(Camera.main.WorldToScreenPoint(Targets[i].position), _playerTrans.transform.forward);
             else
-                Targets.RemoveAt(i);
+                distances[i] = float.MaxValue;
         }
 
         float minDistance = Mathf.Min(distances);
+        if (minDistance == float.MaxValue)
+            return null;
 
         for(int i = 0; i < distances.Length; i++)
         {
@@ -103,6 +99,6 @@ public class TargetManager : Manager
             }
         }
 
-        return index;
+        return Targets[index];
     }
 }
