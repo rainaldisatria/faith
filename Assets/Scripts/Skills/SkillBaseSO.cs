@@ -11,8 +11,7 @@ public abstract class SkillBaseSO : ScriptableObject, ISkills
     [SerializeField] protected float Duration;
 
     public virtual IEnumerator Execute(Battler battler)
-    {
-        battler.IsUsingSkill = true;
+    { 
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
         yield return new WaitForSeconds(Delay);
     }
