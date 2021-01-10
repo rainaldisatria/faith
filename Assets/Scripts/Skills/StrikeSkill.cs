@@ -14,7 +14,7 @@ public class StrikeSkill : SkillBaseSO
         battler.IsUsingSkill = true;
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
 
-        Transform target = ((TargetManager)(_targetManager.Manager)).Target;
+        Transform target = ((TargetManager)(_targetManager.Manager)).CamTarget;
         if (target == null)
         {
             GameObject dummy= new GameObject();

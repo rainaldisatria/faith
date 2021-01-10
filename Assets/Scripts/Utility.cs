@@ -4,10 +4,11 @@ using UnityEngine;
 
 public static class Utility
 {  
-    public static bool IsUnitWihthinScreenSpace(Vector2 screenPointPos)
+    public static bool IsUnitWihthinScreenSpace(Vector3 screenPointPos)
     { 
         return screenPointPos.x < Screen.width && screenPointPos.y < Screen.height &&
-                   screenPointPos.x > default(float) && screenPointPos.y > default(float);
+                   screenPointPos.x > default(float) && screenPointPos.y > default(float) &&
+                   screenPointPos.z > 0;
 
     }
 }
