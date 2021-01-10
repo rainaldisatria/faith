@@ -8,7 +8,7 @@ public class MagicSkill : DamageSkill
     [SerializeField] private GameObject effect;
 
     public override IEnumerator Execute(Battler battler)
-    {
+    { 
         yield return base.Execute(battler);
         GameObject obj = Instantiate(effect, battler.transform.position, battler.transform.rotation);
         obj.GetComponent<DamageDealerTrigger>().SetUserTag(battler.tag);

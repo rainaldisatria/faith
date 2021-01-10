@@ -21,6 +21,7 @@ public class IsHittedCondition : Condition
     {
         if (_battler.IsHitted)
         {
+            Debug.Log("Is hitted");
             _battler.IsHitted = false;
             return true;
         }

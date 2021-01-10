@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8affb34675b33bf488490d80a9bd13b5, type: 3}
-  m_Name: SetIsHittedAPToTrue_Enter
+  m_Script: {fileID: 11500000, guid: 3ac053ff419fa4f418febec1f982daf9, type: 3}
+  m_Name: SetIsUsingSkill_False
   m_EditorClassIdentifier: 
-  parameterType: 3
-  parameterName: isHitted
-  boolValue: 1
-  intValue: 0
-  floatValue: 0
-  whenToRun: 0
+  IsUsingSkill: 0

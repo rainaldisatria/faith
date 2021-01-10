@@ -37,13 +37,20 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     public virtual void TakeDamage(int damage, Transform damager)
     {
-        IsHitted = true;
+        StartCoroutine(SetIsHittedToTrue());
 
         DealDamageEnded();
 
         Data.HP -= damage; 
 
         CheckCondition();
+    }
+
+    private IEnumerator SetIsHittedToTrue()
+    {
+        IsHitted = true;
+        yield return null;
+        IsHitted = false;
     }
 
     protected virtual void CheckCondition()
@@ -63,8 +70,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     public void UseSkill()
     {
-        StartCoroutine(_skill.Execute(this));
-        Debug.Log("Use skill called");
+        StartCoroutine(_skill.Execute(this)); 
     }
 
     #region Skills 
