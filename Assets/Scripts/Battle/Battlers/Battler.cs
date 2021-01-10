@@ -15,7 +15,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [HideInInspector] public bool IsUsingSkill;
      
     private DamageDealerController _damageDealer;
-    private ISkills _skill;
+    private ISkill _skill;
      
     // Inisialisasi
     protected virtual void Awake()

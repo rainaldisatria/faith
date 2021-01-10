@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public interface ISkills
+public interface ISkill
 {
     IEnumerator Execute(Battler battler);
 }
