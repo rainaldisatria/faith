@@ -4054,6 +4054,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4686340262096824856, guid: 5c190d224eeb9d243815849fe6ae2111, type: 3}
+      propertyPath: _debugger.debugTransitions
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4686340262096824857, guid: 5c190d224eeb9d243815849fe6ae2111, type: 3}
       propertyPath: m_Name
       value: Berserker Grade 0_Total_Humanoid

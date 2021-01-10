@@ -59,7 +59,7 @@ public class EnemyBattler : Battler, ITargetable
 
             isAttacking = true;
 
-            yield return new WaitForSeconds(Random.Range(20f, 50f));
+            yield return new WaitForSeconds(Random.Range(1f, 1f));
             this.Animators.PlayAll((i) =>
                 this.Animators[i].SetBool("isAttacking", true));
 

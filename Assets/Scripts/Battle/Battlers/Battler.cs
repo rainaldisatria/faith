@@ -38,6 +38,8 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     {
         IsHitted = true;
 
+        DealDamageEnded();
+
         Data.HP -= damage; 
 
         CheckCondition();
@@ -60,13 +62,15 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     #region Skills
     protected void FirstSkill()
-    { 
-        StartCoroutine(Data.Skills[0].Execute(this));
+    {
+        if (IsUsingSkill == false && isAttacking == false)
+            StartCoroutine(Data.Skills[0].Execute(this));
     }
 
     protected void SecondSkill()
     { 
-        StartCoroutine(Data.Skills[1].Execute(this));
+        if(IsUsingSkill == false && isAttacking == false)
+            StartCoroutine(Data.Skills[1].Execute(this));
     }
     #endregion
 
