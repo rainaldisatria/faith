@@ -37,7 +37,7 @@ public class TargetManager : Manager
         Target = Targets[GetNearestTargetID()];
         CamTarget = Targets[GetNearestCamTargetID()];
 
-        if (CamTarget != null && Target != CamTarget)
+        if (CamTarget != null)
         {
             _camTargetImage.gameObject.SetActive(true);
             _camTargetImage.transform.position = Camera.main.WorldToScreenPoint(CamTarget.position);
@@ -45,18 +45,6 @@ public class TargetManager : Manager
         else 
         {
             _camTargetImage.gameObject.SetActive(false);
-        }
-
-        if (Target != null && Target.CompareTag("Enemy"))
-        {
-            //_targetImage.gameObject.SetActive(true); 
-            //_targetImage.transform.position = Camera.main.WorldToScreenPoint(Target.position + new Vector3(0, 1, 0));
-            
-        }
-        else
-        {
-            Target = null;
-            _targetImage.gameObject.SetActive(false); 
         } 
     }
      
