@@ -36,10 +36,5 @@ public class MagicSkill : DamageSkill
         battler.transform.eulerAngles = new Vector3(0, battler.transform.eulerAngles.y, 0);
 
         battler.StartCoroutine(Done(battler));
-    }
-
-    protected override IEnumerator Done(Battler battler)
-    {
-        yield return base.Done(battler); 
-    }
+    } 
 }

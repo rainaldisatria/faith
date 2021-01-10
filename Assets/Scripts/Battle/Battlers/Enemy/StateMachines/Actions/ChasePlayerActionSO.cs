@@ -22,13 +22,10 @@ public class ChasePlayerAction : StateAction
     }
 
     public override void OnUpdate()
-    {
-        Debug.Log(Vector3.Distance(_battler.transform.position, _playerTrans.position));
-
+    { 
         if (Vector3.Distance(_battler.transform.position, _playerTrans.position) > 4)
         {
-            _battler.SetDestination(_playerTrans.position - _battler.transform.forward * _originSO.Treshold);
-            Debug.Log(Vector3.Distance(_battler.transform.position, _playerTrans.position));
+            _battler.SetDestination(_playerTrans.position - _battler.transform.forward * _originSO.Treshold); 
         }
         else
         {
