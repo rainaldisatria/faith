@@ -24,13 +24,13 @@ public class TargetManager : Manager
     }
 
     private void Update()
-    {  
+    {
         if (Targets.Count <= 0)
+        {
+            Target = null;
             return;
-
-        if (GetNearestTargetID() == -1)
-            return;
-
+        }
+             
         Target = Targets[GetNearestTargetID()];
 
         if (Target != null)
@@ -40,17 +40,21 @@ public class TargetManager : Manager
         }
         else
         {
-            _targetImage.gameObject.SetActive(false);
-            Debug.Log("Null");
+            _targetImage.gameObject.SetActive(false); 
         }
+
+
     }
 
     private int GetNearestTargetID()
-    {
+    { 
+        if (Targets.Count <= 0)
+            return -1;
+
         int index = -1;
         float[] distances = new float[Targets.Count];
 
-        for(int i = 0; i < distances.Length; i++)
+        for (int i = 0; i < distances.Length; i++)
         {
             if (Targets[i] != null)
                 distances[i] = Vector2.Distance(Camera.main.WorldToScreenPoint(Targets[i].position), new Vector2(Screen.width / 2, Screen.height / 2));

@@ -14,7 +14,15 @@ public class StrikeSkill : SkillBaseSO
         battler.IsUsingSkill = true;
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
 
-        Transform target = ((TargetManager)(_targetManager.Manager)).Target; 
+        Transform target = ((TargetManager)(_targetManager.Manager)).Target;
+        if (target == null)
+        {
+            GameObject dummy= new GameObject();
+            dummy.transform.position = battler.transform.position + battler.transform.forward * 15;
+
+
+            target = dummy.transform;
+        }
 
         battler.transform.LookAt(target); 
         battler.transform.eulerAngles = new Vector3(0, battler.transform.eulerAngles.y, 0);
@@ -42,7 +50,7 @@ public class StrikeSkill : SkillBaseSO
         Transform swordHand = sword.transform.parent; 
 
         sword.transform.parent = null;
-        sword.transform.DOMove(target.position, speed / 2);
+        sword.transform.DOMove(target.position + new Vector3(0, 1, 0), speed / 2);
         sword.transform.DOLookAt(target.position, .2f, AxisConstraint.None);
         sword.GetComponentInChildren<TrailRenderer>().emitting = true;
 
