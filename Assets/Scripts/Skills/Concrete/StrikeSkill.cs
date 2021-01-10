@@ -32,7 +32,7 @@ public class StrikeSkill : SkillBaseSO
          
         yield return new WaitForSeconds(Delay);
         
-        Warp(target, battler);
+        Strike(target, battler);
         battler.StartCoroutine(Done(battler));
     }
 
@@ -42,7 +42,7 @@ public class StrikeSkill : SkillBaseSO
         battler.DealDamageEnded();
     }
 
-    public void Warp(Transform target, Battler user)
+    public void Strike(Transform target, Battler user)
     { 
         if (target == null)
             return;
@@ -70,7 +70,7 @@ public class StrikeSkill : SkillBaseSO
         }
 
         user.transform.DOMove(target.root.position, speed).SetEase(Ease.InExpo)
-            .OnComplete(() => FinishWrap(user, swordDefaultPos, swordDefaultRot, swordHand));
+            .OnComplete(() => StrikeEnded(user, swordDefaultPos, swordDefaultRot, swordHand));
 
         
         Animator[] animators = user.GetComponentsInChildren<Animator>();
@@ -82,7 +82,7 @@ public class StrikeSkill : SkillBaseSO
         ShowBody(false, user);
     } 
 
-    public void FinishWrap(Battler user, Vector3 swordDefaultPos, Vector3 swordDefaultRot, Transform swordHand)
+    public void StrikeEnded(Battler user, Vector3 swordDefaultPos, Vector3 swordDefaultRot, Transform swordHand)
     { 
         Animator[] animators = user.GetComponentsInChildren<Animator>();
         animators.PlayAll((int id) =>
