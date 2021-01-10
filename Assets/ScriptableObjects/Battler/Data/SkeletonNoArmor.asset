@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 500
   HP: 500
-  Damage: 25
+  Damage: 100
   MoveSpeed: 4
+  Skills: []

@@ -34,8 +34,10 @@ public class TargetManager : Manager
             return;
         }
 
+        Targets.RemoveAll(item => item == null);
+
         Target = GetNearestTarget();
-        CamTarget = Targets[GetNearestCamTargetID()]; 
+        CamTarget = GetNearestCamTarget(); 
 
         if (CamTarget != null)
         {
@@ -48,17 +50,18 @@ public class TargetManager : Manager
         } 
     }
      
-    private int GetNearestCamTargetID()
-    {  
+    private Transform GetNearestCamTarget()
+    {
+        if (Targets.Count <= 0)
+            return null;
+
         int index = 0;
         float[] distances = new float[Targets.Count];
 
         for (int i = 0; i < distances.Length; i++)
         {
-            if (Targets[i] != null)
-                distances[i] = Vector2.Distance(Camera.main.WorldToScreenPoint(Targets[i].position), new Vector2(Screen.width / 2, Screen.height / 2));
-            else
-                Targets.RemoveAt(i);
+            if (Targets[i] != null) 
+                distances[i] = Vector2.Distance(Camera.main.WorldToScreenPoint(Targets[i].position), new Vector2(Screen.width / 2, Screen.height / 2)); 
         }
 
         float minDistance = Mathf.Min(distances);
@@ -71,7 +74,7 @@ public class TargetManager : Manager
             }
         }
 
-        return index;
+        return Targets[index];
     }
 
     private Transform GetNearestTarget()

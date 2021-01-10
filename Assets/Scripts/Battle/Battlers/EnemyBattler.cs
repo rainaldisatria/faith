@@ -41,8 +41,12 @@ public class EnemyBattler : Battler, ITargetable
 
     protected override void Dead()
     { 
+        base.Dead();
         OnDead?.Invoke();
-        Destroy(this.gameObject, 0.1f);
+        Destroy(GetComponent<Collider>());
+        this.enabled = false;
+        Destroy(NavMeshAgent);
+        Destroy(this.gameObject, 5f);
     }
 
     public override void Attack()
@@ -54,12 +58,23 @@ public class EnemyBattler : Battler, ITargetable
     {
         if (!isAttacking)
         {
-            if (IsHitted)
+            if (IsHitted || IsDead)
+            {
                 isAttacking = false;
+                yield break;
+            }
 
             isAttacking = true;
 
             yield return new WaitForSeconds(Random.Range(1f, 1f));
+
+            if (IsHitted || IsDead)
+            {
+                isAttacking = false;
+                yield break;
+            }
+                
+
             this.Animators.PlayAll((i) =>
                 this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0)); 
 
