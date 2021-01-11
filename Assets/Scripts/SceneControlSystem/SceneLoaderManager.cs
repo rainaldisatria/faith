@@ -52,8 +52,10 @@ public class SceneLoaderManager : Manager
                 asyncLoad.allowSceneActivation = true; 
             }
 
-            yield return null; 
+            yield return null;
         }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
     }
 
     private void UnloadScene()
