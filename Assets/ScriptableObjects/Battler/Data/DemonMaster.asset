@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 2000
   HP: 2000
-  Damage: 100
-  MoveSpeed: 4
+  Damage: 200
+  MoveSpeed: 5
+  Skills:
+  - {fileID: 11400000, guid: 757abee0b65905c47848301da7755e39, type: 2}
+  - {fileID: 11400000, guid: b6318cbec7c8b314488239899345eb8c, type: 2}
