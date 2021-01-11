@@ -5,8 +5,13 @@ using UnityEngine;
 public class BattlerData : ScriptableObject
 {
     public int MaxHP;
-    public int HP;
+    [HideInInspector] public int HP;
     public int Damage;
     public float MoveSpeed;
     public List<SkillBaseSO> Skills;
+
+    public BattlerData()
+    {
+        HP = MaxHP;
+    }
 }
