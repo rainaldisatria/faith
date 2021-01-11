@@ -4,8 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Skills/Magic Skill")]
 public class MagicSkill : DamageSkill
-{
-    [SerializeField] private ManagerSO _targetManager;
+{ 
     [SerializeField] private GameObject effect;
 
     public override IEnumerator Execute(Battler battler, Transform target)
