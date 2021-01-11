@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6ba42998711e94587556617c8cbc79, type: 3}
+  m_Name: BD_Chapter 1 - Level 2
+  m_EditorClassIdentifier: 
+  Waves:
+  - delay: 3
+    Troops:
+    - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+    - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+  - delay: 3
+    Troops:
+    - {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
+    - {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
+  - delay: 3
+    Troops:
+    - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
+    - {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
+    - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
