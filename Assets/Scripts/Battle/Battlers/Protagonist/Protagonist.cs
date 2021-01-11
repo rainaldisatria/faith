@@ -17,8 +17,8 @@ public class Protagonist : Battler
     #endregion
 
     #region Events
-    private FloatEventChannelSO OnHitted;
-	private VoidEventChannelSO OnDead;
+    public FloatEventChannelSO OnHitted;
+	public VoidEventChannelSO OnDead;
     #endregion
 
     #region Subscription 

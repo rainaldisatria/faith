@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public abstract class EnemyBattler : Battler, ITargetable
 {
     #region Depedency
-    [SerializeField] private ManagerSO _targetManager;
+    [SerializeField] protected ManagerSO _targetManager;
     #endregion
 
     #region State machine fields
