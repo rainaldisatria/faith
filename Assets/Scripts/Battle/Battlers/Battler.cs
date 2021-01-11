@@ -4,22 +4,24 @@ using UnityEngine.Events;
 
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
+    #region Fields
     [SerializeField] protected BattlerData Data;
     protected Animator[] Animators;
     protected Transform Head;
-    protected Transform Mid;
+    protected Transform Mid;  
+    protected ISkill Skill;
+    protected Transform Target;
+    private DamageDealerController _damageDealer;
+    #endregion
 
+    #region State machine fields
     [HideInInspector] public bool isAttacking;  
     [HideInInspector] public bool IsHitted;
     [HideInInspector] public bool IsDead;
     [HideInInspector] public bool IsUsingSkill;
-     
-    private DamageDealerController _damageDealer;
-    
-    protected ISkill Skill;
-    protected Transform target;
-     
-    // Inisialisasi
+    #endregion 
+
+    // Initialization
     protected virtual void Awake()
     {
         Animators = GetComponentsInChildren<Animator>();
@@ -37,24 +39,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data = Instantiate(Data);
     }
 
-    public virtual void TakeDamage(int damage, Transform damager)
-    {
-        StartCoroutine(SetIsHittedToTrue());
-
-        DealDamageEnded();
-
-        Data.HP -= damage; 
-
-        CheckCondition();
-    }
-
-    private IEnumerator SetIsHittedToTrue()
-    {
-        IsHitted = true;
-        yield return null;
-        IsHitted = false;
-    }
-
+    #region Behaviour
     protected virtual void CheckCondition()
     {
         if (Data.HP <= 0)
@@ -72,8 +57,29 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     public virtual void UseSkill()
     {
-        StartCoroutine(Skill.Execute(this, target)); 
+        StartCoroutine(Skill.Execute(this, Target));
     }
+
+    private IEnumerator SetIsHittedToTrue()
+    {
+        IsHitted = true;
+        yield return null;
+        IsHitted = false;
+    }
+    #endregion
+
+    #region IDamageable
+    public virtual void TakeDamage(int damage, Transform damager)
+    {
+        StartCoroutine(SetIsHittedToTrue());
+
+        DealDamageEnded();
+
+        Data.HP -= damage;
+
+        CheckCondition();
+    }
+    #endregion
 
     #region IDamageDealer
     public void DealDamageStart()
