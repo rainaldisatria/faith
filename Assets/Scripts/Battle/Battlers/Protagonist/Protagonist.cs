@@ -44,12 +44,7 @@ public sealed class Protagonist : Battler
 		CalculateMovementInput();
 	}
 
-	#region Behaviour
-	public override void Attack() 
-	{
-		isAttacking = true; 
-	}
-
+	#region Behaviour  
 	protected override void Dead()
 	{
 		base.Dead();
@@ -60,14 +55,12 @@ public sealed class Protagonist : Battler
 	private void OnFirstSkill()
 	{
 		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
-		IsUsingSkill = true;
 		Skill = Data.Skills[0];
 	}
 
 	private void OnSecondSkill()
 	{
-		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
-		IsUsingSkill = true;
+		Target = ((TargetManager)(_targetManagerSO.Manager)).Target; 
 		Skill = Data.Skills[1];
 	}
 	#endregion

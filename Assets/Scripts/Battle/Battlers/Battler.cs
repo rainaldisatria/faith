@@ -7,15 +7,16 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     #region Fields
     [SerializeField] protected BattlerData Data;
     protected Animator[] Animators;
-    protected Transform Head;
-    protected Transform Mid;  
     protected ISkill Skill;
     protected Transform Target;
+
+    protected Transform Head { get; private set; }
+    protected Transform Mid { get; private set; }
     private DamageDealerController _damageDealer;
     #endregion
 
     #region State machine fields
-    [HideInInspector] public bool isAttacking;  
+    [HideInInspector] public bool IsAttacking;  
     [HideInInspector] public bool IsHitted;
     [HideInInspector] public bool IsDead;
     [HideInInspector] public bool IsUsingSkill;
@@ -53,10 +54,13 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         IsDead = true;
     }
 
-    public abstract void Attack();
+    public virtual void Attack()
+    {
+        IsAttacking = true;
+    }
 
     public virtual void UseSkill()
-    {
+    { 
         StartCoroutine(Skill.Execute(this, Target));
     }
 
