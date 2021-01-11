@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections; 
+﻿using System; 
 using UnityEngine;
-using UnityEngine.AI;
-using Random = UnityEngine.Random;
+using UnityEngine.AI; 
 
 public abstract class EnemyBattler : Battler, ITargetable
 {

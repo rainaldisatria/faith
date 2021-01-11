@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Protagonist : Battler
+public sealed class Protagonist : Battler
 {
     #region Depedency
     [SerializeField] private InputReader _inputReader = default;
