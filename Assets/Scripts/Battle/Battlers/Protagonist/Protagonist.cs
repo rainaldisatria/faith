@@ -28,7 +28,7 @@ public class Protagonist : Battler
 		_inputReader.AttackEvent -= Attack;
 		_inputReader.FirstSkillEvent -= FirstSkill;
 		_inputReader.SecondSkillEvent -= SecondSkill; 
-	}
+	} 
 
 	private void Update()
 	{

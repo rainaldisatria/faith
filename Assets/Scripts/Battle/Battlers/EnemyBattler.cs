@@ -47,7 +47,7 @@ public class EnemyBattler : Battler, ITargetable
         Destroy(GetComponent<EnemyBattler>());
         Destroy(GetComponent<Collider>()); 
         Destroy(NavMeshAgent);
-        Destroy(this.gameObject, 0f);
+        Destroy(this.gameObject, 5f);
     }
 
     public override void Attack()
