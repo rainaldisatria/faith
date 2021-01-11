@@ -5,15 +5,15 @@ public class Protagonist : Battler
 {
 	[SerializeField] private InputReader _inputReader = default;
 	[SerializeField] private ManagerSO _targetManagerSO;
-
-	private Vector2 _userInput;
 	  
 	[HideInInspector] public Vector3 movementInput;  
 	[HideInInspector] public Vector3 movementVector;
 
 	public FloatEventChannelSO OnHitted;
 	public VoidEventChannelSO OnDead;
-	 
+
+	private Vector2 _userInput;
+
 	private void OnEnable()
 	{ 
 		_inputReader.MoveEvent += Move;
@@ -54,14 +54,14 @@ public class Protagonist : Battler
 	#region Skills 
 	private void FirstSkill()
 	{
-		target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
+		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
 		IsUsingSkill = true;
 		Skill = Data.Skills[0];
 	}
 
 	private void SecondSkill()
 	{
-		target = ((TargetManager)(_targetManagerSO.Manager)).Target;
+		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 		IsUsingSkill = true;
 		Skill = Data.Skills[1];
 	}

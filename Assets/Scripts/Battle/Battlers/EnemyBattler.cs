@@ -23,7 +23,7 @@ public class EnemyBattler : Battler, ITargetable
 
         Home = this.transform.position;
 
-        target = GameObject.FindWithTag("Player").transform;
+        Target = GameObject.FindWithTag("Player").transform;
     } 
 
     protected virtual void Update()
