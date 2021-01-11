@@ -16,7 +16,7 @@ public class IsAttackingCondition : Condition
 
     protected override bool Statement()
     {
-        if(this._battler.isAttacking)
+        if(this._battler.IsAttacking)
         { 
             return true;
         }
