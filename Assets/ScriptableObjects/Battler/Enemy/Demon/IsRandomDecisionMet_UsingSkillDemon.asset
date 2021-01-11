@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d28774f3dc47f84a80a9b675010deab, type: 3}
-  m_Name: Strike
+  m_Script: {fileID: 11500000, guid: 1c2cd03ce9f67c340b0f5cba60aa5316, type: 3}
+  m_Name: IsRandomDecisionMet_UsingSkillDemon
   m_EditorClassIdentifier: 
-  SkillName: Strike
-  AnimationToPlay: Strike
-  TransitionDuration: 0.2
-  Delay: 0.45
-  Duration: 0.7
-  speed: 0.35
+  cacheResult: 1
+  FavourableOutcome: 9
+  NumberOfOutcome: 10

@@ -15,7 +15,8 @@ public abstract class SkillBaseSO : ScriptableObject, ISkill
     /// </summary>
     /// <param name="battler"></param>
     public virtual IEnumerator Execute(Battler battler, Transform target)
-    { 
+    {
+        yield return null;
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
         yield return new WaitForSeconds(Delay);
     }
