@@ -8,18 +8,13 @@ public class MagicSkill : DamageSkill
     [SerializeField] private ManagerSO _targetManager;
     [SerializeField] private GameObject effect;
 
-    public override IEnumerator Execute(Battler battler)
+    public override IEnumerator Execute(Battler battler, Transform target)
     { 
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
 
-        Transform target = ((TargetManager)(_targetManager.Manager)).Target;
-        if(target == null)
+        if (target == null)
         {
             target = battler.transform;
-        }
-        else
-        {
-            target = target.root;
         }
 
         battler.transform.LookAt(target);

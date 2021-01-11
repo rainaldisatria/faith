@@ -1,12 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-/// <summary>
-/// <para>This component consumes input on the InputReader and stores its values. The input is then read, and manipulated, by the StateMachines's Actions.</para>
-/// </summary>
 public class Protagonist : Battler
 {
-	[SerializeField] private InputReader _inputReader = default; 
+	[SerializeField] private InputReader _inputReader = default;
+	[SerializeField] private ManagerSO _targetManagerSO;
 
 	private Vector2 _userInput;
 	  
@@ -52,6 +50,22 @@ public class Protagonist : Battler
 		base.Dead();
 		OnDead?.RaiseEvent();
 	}
+
+	#region Skills 
+	private void FirstSkill()
+	{
+		target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
+		IsUsingSkill = true;
+		Skill = Data.Skills[0];
+	}
+
+	private void SecondSkill()
+	{
+		target = ((TargetManager)(_targetManagerSO.Manager)).Target;
+		IsUsingSkill = true;
+		Skill = Data.Skills[1];
+	}
+	#endregion
 
 	#region Input
 	private void Move(Vector2 movement)

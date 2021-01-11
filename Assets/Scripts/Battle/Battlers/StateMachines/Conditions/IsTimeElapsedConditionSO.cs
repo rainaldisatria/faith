@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "TimeElapsed", menuName = "State Machines/Conditions/Time Elapsed")]
 public class IsTimeElapsedConditionSO : StateConditionSO<IsTimeElapsedCondition>

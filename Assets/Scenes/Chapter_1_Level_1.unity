@@ -4147,6 +4147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berserker Grade 0_Total_Humanoid
       objectReference: {fileID: 0}
+    - target: {fileID: 4686340262096824860, guid: 5c190d224eeb9d243815849fe6ae2111, type: 3}
+      propertyPath: _targetManagerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
     - target: {fileID: 4686340262871728837, guid: 5c190d224eeb9d243815849fe6ae2111, type: 3}
       propertyPath: m_TagString
       value: PlayerSword

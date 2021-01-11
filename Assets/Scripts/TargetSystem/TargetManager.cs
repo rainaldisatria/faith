@@ -102,6 +102,6 @@ public class TargetManager : Manager
             }
         }
 
-        return Targets[index];
+        return Targets[index].root;
     }
 }
