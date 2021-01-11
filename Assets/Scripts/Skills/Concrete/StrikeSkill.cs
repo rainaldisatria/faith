@@ -9,23 +9,18 @@ public class StrikeSkill : SkillBaseSO
     [SerializeField] private ManagerSO _targetManager;
     [SerializeField] private float speed = 0.5f;
 
-    public override IEnumerator Execute(Battler battler)
+    public override IEnumerator Execute(Battler battler, Transform target)
     {
         battler.IsUsingSkill = true;
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
 
-        Transform target = ((TargetManager)(_targetManager.Manager)).CamTarget;
         if (target == null)
         {
             GameObject dummy= new GameObject();
             dummy.transform.position = battler.transform.position + battler.transform.forward * 15;
 
             target = dummy.transform;
-        }
-        else
-        {
-            target = target.root;
-        }
+        } 
 
         battler.transform.LookAt(target); 
         battler.transform.eulerAngles = new Vector3(0, battler.transform.eulerAngles.y, 0);

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e5899b6be88f5c40ad5c6c501aacbdc, type: 3}
-  m_Name: Thunder
+  m_Name: ShinningArrow
   m_EditorClassIdentifier: 
-  SkillName: Thunder
+  SkillName: ShinningArrow
   AnimationToPlay: Magic
   TransitionDuration: 0
   Delay: 0.4
   Duration: 1
   Damage: 100
-  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
-  effect: {fileID: 100010, guid: a8d60f6853b51ee4ba75f1966f4f358f, type: 3}
+  _targetManager: {fileID: 0}
+  effect: {fileID: 0}

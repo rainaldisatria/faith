@@ -15,7 +15,9 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [HideInInspector] public bool IsUsingSkill;
      
     private DamageDealerController _damageDealer;
-    private ISkill _skill;
+    
+    protected ISkill Skill;
+    protected Transform target;
      
     // Inisialisasi
     protected virtual void Awake()
@@ -68,24 +70,10 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     public abstract void Attack();
 
-    public void UseSkill()
+    public virtual void UseSkill()
     {
-        StartCoroutine(_skill.Execute(this)); 
+        StartCoroutine(Skill.Execute(this, target)); 
     }
-
-    #region Skills 
-    protected void FirstSkill()
-    {
-        IsUsingSkill = true;
-        _skill = Data.Skills[0];
-    }
-
-    protected void SecondSkill()
-    {
-        IsUsingSkill = true;
-        _skill = Data.Skills[1];
-    }
-    #endregion
 
     #region IDamageDealer
     public void DealDamageStart()

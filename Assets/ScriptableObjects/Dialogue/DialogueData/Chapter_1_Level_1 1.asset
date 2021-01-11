@@ -15,4 +15,6 @@ MonoBehaviour:
   DialogueLines:
   - Actor: {fileID: 11400000, guid: 1b5fa6131abd8bb4e9d5b5c3d532ec90, type: 2}
     Sentence: Thank You
-  Choices: []
+  Choices:
+  - _optionName: Your welcome
+    _response: {fileID: 0}

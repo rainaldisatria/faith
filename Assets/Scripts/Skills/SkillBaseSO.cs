@@ -14,7 +14,7 @@ public abstract class SkillBaseSO : ScriptableObject, ISkill
     /// Play skill animation then wait for delay.
     /// </summary>
     /// <param name="battler"></param>
-    public virtual IEnumerator Execute(Battler battler)
+    public virtual IEnumerator Execute(Battler battler, Transform target)
     { 
         battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
         yield return new WaitForSeconds(Delay);

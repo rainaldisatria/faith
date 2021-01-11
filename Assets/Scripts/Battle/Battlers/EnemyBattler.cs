@@ -22,6 +22,8 @@ public class EnemyBattler : Battler, ITargetable
         NavMeshAgent.speed = Data.MoveSpeed;
 
         Home = this.transform.position;
+
+        target = GameObject.FindWithTag("Player").transform;
     } 
 
     protected virtual void Update()
@@ -80,6 +82,16 @@ public class EnemyBattler : Battler, ITargetable
 
             isAttacking = false;
         }
+    }
+
+    public override void UseSkill()
+    {
+        IsUsingSkill = true;
+
+        int skillDecisionID = Random.Range(0, Data.Skills.Count - 1); 
+        Skill = Data.Skills[skillDecisionID]; 
+
+        base.UseSkill();
     }
 
     public void OnObjectWithinScreenSpace()

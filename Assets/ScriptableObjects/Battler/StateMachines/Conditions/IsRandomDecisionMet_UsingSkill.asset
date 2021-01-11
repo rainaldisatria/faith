@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
-  m_Name: SkeletonNoArmor
+  m_Script: {fileID: 11500000, guid: 1c2cd03ce9f67c340b0f5cba60aa5316, type: 3}
+  m_Name: IsRandomDecisionMet_UsingSkill
   m_EditorClassIdentifier: 
-  MaxHP: 500
-  HP: 500
-  Damage: 100
-  MoveSpeed: 4
-  Skills:
-  - {fileID: 11400000, guid: 757abee0b65905c47848301da7755e39, type: 2}
+  cacheResult: 1
+  FavourableOutcome: 1
+  NumberOfOutcome: 2
