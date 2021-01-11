@@ -1,41 +1,64 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Protagonist : Battler
 {
-	[SerializeField] private InputReader _inputReader = default;
+    #region Depedency
+    [SerializeField] private InputReader _inputReader = default;
 	[SerializeField] private ManagerSO _targetManagerSO;
-	  
-	[HideInInspector] public Vector3 movementInput;  
+    #endregion
+
+    #region State machine fields
+    [HideInInspector] public Vector3 movementInput;  
 	[HideInInspector] public Vector3 movementVector;
+    #endregion
 
-	public FloatEventChannelSO OnHitted;
+    #region Fields
+    private Vector2 _userInput;
+    #endregion
+
+    #region Events
+    public FloatEventChannelSO OnHitted;
 	public VoidEventChannelSO OnDead;
+    #endregion
 
-	private Vector2 _userInput;
-
-	private void OnEnable()
+    #region Subscription 
+    private void OnEnable()
 	{ 
-		_inputReader.MoveEvent += Move;
+		_inputReader.MoveEvent += OnMove;
 		_inputReader.AttackEvent += Attack;
-		_inputReader.FirstSkillEvent += FirstSkill;
-		_inputReader.SecondSkillEvent += SecondSkill;
+		_inputReader.FirstSkillEvent += OnFirstSkill;
+		_inputReader.SecondSkillEvent += OnSecondSkill;
 	}
 	 
 	private void OnDisable()
 	{ 
-		_inputReader.MoveEvent -= Move;
+		_inputReader.MoveEvent -= OnMove;
 		_inputReader.AttackEvent -= Attack;
-		_inputReader.FirstSkillEvent -= FirstSkill;
-		_inputReader.SecondSkillEvent -= SecondSkill; 
-	} 
+		_inputReader.FirstSkillEvent -= OnFirstSkill;
+		_inputReader.SecondSkillEvent -= OnSecondSkill; 
+	}
+    #endregion
 
-	private void Update()
+    private void Update()
 	{
-		CalculateMovement(); 
+		CalculateMovementInput();
 	}
 
-	public override void TakeDamage(int damage, Transform damagerTrans)
+	#region Behaviour
+	public override void Attack() 
+	{
+		isAttacking = true; 
+	}
+
+	protected override void Dead()
+	{
+		base.Dead();
+		OnDead?.RaiseEvent();
+	}
+    #endregion
+
+    #region IDamageable
+    public override void TakeDamage(int damage, Transform damagerTrans)
 	{
 		base.TakeDamage(damage, damagerTrans);
 
@@ -44,22 +67,17 @@ public class Protagonist : Battler
 		this.transform.LookAt(damagerTrans);
 		this.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 	}
-
-	protected override void Dead()
-	{
-		base.Dead();
-		OnDead?.RaiseEvent();
-	}
+    #endregion
 
 	#region Skills 
-	private void FirstSkill()
+	private void OnFirstSkill()
 	{
 		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
 		IsUsingSkill = true;
 		Skill = Data.Skills[0];
 	}
 
-	private void SecondSkill()
+	private void OnSecondSkill()
 	{
 		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 		IsUsingSkill = true;
@@ -67,17 +85,13 @@ public class Protagonist : Battler
 	}
 	#endregion
 
-	#region Input
-	private void Move(Vector2 movement)
+	#region Helper methods
+	private void OnMove(Vector2 movement)
 	{
 		_userInput = movement;
 	}
 
-	public override void Attack() => isAttacking = true;
-    #endregion
-
-    #region Helper methods
-    private void CalculateMovement()
+	private void CalculateMovementInput()
 	{
 		Vector3 cameraForward = Camera.main.transform.forward;
 		cameraForward.y = 0f;

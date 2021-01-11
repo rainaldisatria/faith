@@ -8,12 +8,19 @@ public class EnemyBattler : Battler, ITargetable
 {
     [SerializeField] private ManagerSO _targetManager;
 
-    [HideInInspector] public NavMeshAgent NavMeshAgent; // get
-    [HideInInspector] public Vector3 Home; // get 
+    #region State machine fields
+    [HideInInspector] public NavMeshAgent NavMeshAgent;
+    [HideInInspector] public Vector3 Home;
+    #endregion
 
+    #region Events
     [SerializeField] private HealthbarEventChannelSO OnHitted;
     public Action OnDead;
+    #endregion
 
+    /// <summary>
+    /// Initialization.
+    /// </summary>
     protected override void Awake()
     {
         base.Awake();
@@ -32,28 +39,32 @@ public class EnemyBattler : Battler, ITargetable
         OnObjectWithinScreenSpace();
     }
 
-    public override void TakeDamage(int damage, Transform damager)
+    #region Behaviour 
+    public override void Attack()
     {
-        base.TakeDamage(damage, damager);
-
-        OnHitted.RaiseEvent(gameObject.GetInstanceID(), Head, Data);
+        StartCoroutine("StartAttack");
     }
 
     protected override void Dead()
-    { 
+    {
         base.Dead();
         OnDead?.Invoke();
         ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
-        Destroy(this); 
-        Destroy(GetComponent<Collider>()); 
-        Destroy(NavMeshAgent); 
-        Destroy(this.gameObject, 5f); 
+        Destroy(this);
+        Destroy(GetComponent<Collider>());
+        Destroy(NavMeshAgent);
+        Destroy(this.gameObject, 5f);
     }
 
-    public override void Attack()
-    { 
-        StartCoroutine("StartAttack");
-    } 
+    public override void UseSkill()
+    {
+        IsUsingSkill = true;
+
+        int skillDecisionID = Random.Range(0, Data.Skills.Count - 1);
+        Skill = Data.Skills[skillDecisionID];
+
+        base.UseSkill();
+    }
 
     private IEnumerator StartAttack()
     {
@@ -74,27 +85,28 @@ public class EnemyBattler : Battler, ITargetable
                 isAttacking = false;
                 yield break;
             }
-                
+
 
             this.Animators.PlayAll((i) =>
-                this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0)); 
+                this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0));
 
             yield return new WaitForSeconds(Random.Range(0.3f, 1));
 
             isAttacking = false;
         }
     }
+    #endregion
 
-    public override void UseSkill()
+    #region IDamageable
+    public override void TakeDamage(int damage, Transform damager)
     {
-        IsUsingSkill = true;
+        base.TakeDamage(damage, damager);
 
-        int skillDecisionID = Random.Range(0, Data.Skills.Count - 1); 
-        Skill = Data.Skills[skillDecisionID]; 
-
-        base.UseSkill();
+        OnHitted.RaiseEvent(gameObject.GetInstanceID(), Head, Data);
     }
+    #endregion
 
+    #region ITargetable
     public void OnObjectWithinScreenSpace()
     { 
         if (Utility.IsUnitWihthinScreenSpace(Camera.main.WorldToScreenPoint(Mid.position)))
@@ -110,4 +122,5 @@ public class EnemyBattler : Battler, ITargetable
             ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
         }
     }
+    #endregion
 }
