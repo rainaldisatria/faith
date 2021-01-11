@@ -6,7 +6,7 @@ public class TargetManager : Manager
 {
     [SerializeField] private Image _targetImage;
     [SerializeField] private Image _camTargetImage;
-    [SerializeField] private Transform _playerTrans; 
+    private Transform _playerTrans; 
 
     private List<Transform> Targets = new List<Transform>();
     public Transform Target { get; private set; }
@@ -79,6 +79,9 @@ public class TargetManager : Manager
 
     private Transform GetNearestTarget()
     {
+        if (_playerTrans == null)
+            _playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+
         int index = 0;
 
         float[] distances = new float[Targets.Count]; 
