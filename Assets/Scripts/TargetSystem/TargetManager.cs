@@ -33,6 +33,7 @@ public class TargetManager : Manager
         {
             Target = null;
             CamTarget = null;
+            _camTargetImage.gameObject.SetActive(false);
             return;
         }
 
