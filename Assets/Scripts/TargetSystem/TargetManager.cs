@@ -6,9 +6,9 @@ public class TargetManager : Manager
 {
     [SerializeField] private Image _targetImage;
     [SerializeField] private Image _camTargetImage;
-    [SerializeField] private Transform _playerTrans; // If relative to player trans.
+    [SerializeField] private Transform _playerTrans; 
 
-    public List<Transform> Targets = new List<Transform>();
+    private List<Transform> Targets = new List<Transform>();
     public Transform Target { get; private set; }
     public Transform CamTarget { get; private set; }
 
@@ -26,15 +26,15 @@ public class TargetManager : Manager
     }
 
     private void Update()
-    {
+    { 
+        Targets.RemoveAll(item => item == null);
+
         if (Targets.Count <= 0)
         {
             Target = null;
             CamTarget = null;
             return;
         }
-
-        Targets.RemoveAll(item => item == null);
 
         Target = GetNearestTarget();
         CamTarget = GetNearestCamTarget(); 

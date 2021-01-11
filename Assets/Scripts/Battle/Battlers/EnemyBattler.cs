@@ -43,10 +43,11 @@ public class EnemyBattler : Battler, ITargetable
     { 
         base.Dead();
         OnDead?.Invoke();
-        Destroy(GetComponent<Collider>());
-        this.enabled = false;
+        OnObjectOutsideScreenSpace(); 
+        Destroy(GetComponent<EnemyBattler>());
+        Destroy(GetComponent<Collider>()); 
         Destroy(NavMeshAgent);
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, 0f);
     }
 
     public override void Attack()
