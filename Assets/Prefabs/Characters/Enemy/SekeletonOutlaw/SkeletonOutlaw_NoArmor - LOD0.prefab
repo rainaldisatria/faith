@@ -550,9 +550,9 @@ GameObject:
   - component: {fileID: 7090428472196752433}
   - component: {fileID: 7144279796804298585}
   - component: {fileID: 7095147922314574050}
-  - component: {fileID: 7095147922314574061}
   - component: {fileID: 7095147922314574060}
   - component: {fileID: 7095147922314574063}
+  - component: {fileID: 391980701}
   m_Layer: 8
   m_Name: SkeletonOutlaw_NoArmor - LOD0
   m_TagString: Enemy
@@ -613,27 +613,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &7095147922314574061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7093615761428305361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d548a3dddeb1d314094e68199ea11f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: 442edbec4ff182f47a29bc74088dc1e4, type: 2}
-  isAttacking: 0
-  IsHitted: 0
-  IsDead: 0
-  IsUsingSkill: 0
-  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
-  NavMeshAgent: {fileID: 0}
-  Home: {x: 0, y: 0, z: 0}
-  OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
 --- !u!114 &7095147922314574060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +653,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &391980701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093615761428305361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428924d918ab80f4d9d18082418b069c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 442edbec4ff182f47a29bc74088dc1e4, type: 2}
+  isAttacking: 0
+  IsHitted: 0
+  IsDead: 0
+  IsUsingSkill: 0
+  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
+  NavMeshAgent: {fileID: 0}
+  HomeCoordinate: {x: 0, y: 0, z: 0}
+  OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
 --- !u!1 &7093622908980535357
 GameObject:
   m_ObjectHideFlags: 0
