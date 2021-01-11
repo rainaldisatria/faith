@@ -18,7 +18,7 @@ public class BattleManager : Manager
         yield return new WaitForSeconds(wave.delay); 
         for(int i = 0; i < wave.Troops.Count; i++)
         {
-            GameObject obj = Instantiate(wave.Troops[i], placeToSpawn.position, placeToSpawn.rotation);
+            GameObject obj = Instantiate(wave.Troops[i], placeToSpawn.position, placeToSpawn.rotation, placeToSpawn.parent);
             obj.GetComponent<EnemyBattler>().OnDead += onDead;
         }
     }

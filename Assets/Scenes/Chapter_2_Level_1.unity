@@ -1187,7 +1187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7440145777853553466, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.16414443
+      value: -0.1641444
       objectReference: {fileID: 0}
     - target: {fileID: 7440145777853553466, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1199,7 +1199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7440145777853553466, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.64839596
+      value: 0.6483959
       objectReference: {fileID: 0}
     - target: {fileID: 7440145777853553466, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3654,7 +3654,7 @@ GameObject:
   - component: {fileID: 174215745}
   m_Layer: 0
   m_Name: BattleTrigger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
