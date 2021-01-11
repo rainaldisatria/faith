@@ -23,6 +23,6 @@ public class BackToHomeAction : StateAction
 
     public override void OnUpdate() 
     {
-        _nav.SetDestination(_enemyBattler.Home);
+        _nav.SetDestination(_enemyBattler.HomeCoordinate);
     }
 }
