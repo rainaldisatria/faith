@@ -17,8 +17,8 @@ public class Protagonist : Battler
     #endregion
 
     #region Events
-    public FloatEventChannelSO OnHitted;
-	public VoidEventChannelSO OnDead;
+    private FloatEventChannelSO OnHitted;
+	private VoidEventChannelSO OnDead;
     #endregion
 
     #region Subscription 
@@ -55,19 +55,6 @@ public class Protagonist : Battler
 		base.Dead();
 		OnDead?.RaiseEvent();
 	}
-    #endregion
-
-    #region IDamageable
-    public override void TakeDamage(int damage, Transform damagerTrans)
-	{
-		base.TakeDamage(damage, damagerTrans);
-
-		OnHitted.RaiseEvent((float)Data.HP / Data.MaxHP);
-
-		this.transform.LookAt(damagerTrans);
-		this.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-	}
-    #endregion
 
 	#region Skills 
 	private void OnFirstSkill()
@@ -84,6 +71,19 @@ public class Protagonist : Battler
 		Skill = Data.Skills[1];
 	}
 	#endregion
+	#endregion
+
+	#region IDamageable
+	public override void TakeDamage(int damage, Transform damagerTrans)
+	{
+		base.TakeDamage(damage, damagerTrans);
+
+		OnHitted.RaiseEvent((float)Data.HP / Data.MaxHP);
+
+		this.transform.LookAt(damagerTrans);
+		this.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+	}
+    #endregion
 
 	#region Helper methods
 	private void OnMove(Vector2 movement)
