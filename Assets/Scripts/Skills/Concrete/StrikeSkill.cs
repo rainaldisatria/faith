@@ -5,8 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Skills/Strike Skill")]
 public class StrikeSkill : SkillBaseSO
-{
-    [SerializeField] private ManagerSO _targetManager;
+{ 
     [SerializeField] private float speed = 0.5f;
 
     public override IEnumerator Execute(Battler battler, Transform target)

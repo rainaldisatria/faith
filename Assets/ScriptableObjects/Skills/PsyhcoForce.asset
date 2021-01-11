@@ -15,8 +15,7 @@ MonoBehaviour:
   SkillName: PsyhcoForce
   AnimationToPlay: Magic
   TransitionDuration: 0
-  Delay: 0.4
+  Delay: 0.6
   Duration: 1
   Damage: 100
-  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
   effect: {fileID: 100010, guid: a8d60f6853b51ee4ba75f1966f4f358f, type: 3}
