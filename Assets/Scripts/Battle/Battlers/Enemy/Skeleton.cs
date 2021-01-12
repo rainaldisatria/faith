@@ -31,21 +31,19 @@ public class Skeleton : EnemyBattler
 
     private IEnumerator StartAttack()
     {
-        if (!isAttacking)
+        if (!IsAttacking)
         {
             if (IsHitted || IsDead)
             {
-                isAttacking = false;
+                IsAttacking = false;
                 yield break;
-            }
-
-            isAttacking = true;
+            } 
 
             yield return new WaitForSeconds(Random.Range(1f, 1f));
 
             if (IsHitted || IsDead)
             {
-                isAttacking = false;
+                IsAttacking = false;
                 yield break;
             }
 
@@ -55,7 +53,7 @@ public class Skeleton : EnemyBattler
 
             yield return new WaitForSeconds(Random.Range(0.3f, 1));
 
-            isAttacking = false;
+            IsAttacking = false;
         }
     }
     #endregion
