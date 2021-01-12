@@ -44,6 +44,7 @@ public abstract class EnemyBattler : Battler, ITargetable
     #region Behaviour
     protected override void Dead()
     {
+        IsHitted = true;
         base.Dead();
         OnDead?.Invoke();
         ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);

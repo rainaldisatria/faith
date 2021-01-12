@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28842fe579dab24b857ae0cf40f9bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: c1578c32b14aad2498cf817e2215195a, type: 2}
+  Data: {fileID: 11400000, guid: 442edbec4ff182f47a29bc74088dc1e4, type: 2}
   IsAttacking: 0
   IsHitted: 0
   IsDead: 0
