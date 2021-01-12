@@ -80,7 +80,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     #endregion
 
     #region IDamageDealer
-    public void DealDamageStart()
+    public virtual void DealDamageStart()
     {
         _damageDealer.Start(Data.Damage);
     }

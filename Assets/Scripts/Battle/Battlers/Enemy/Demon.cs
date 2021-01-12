@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Demon : EnemyBattler
 {
+    [SerializeField] private GameObject _effect;
+
     public override void Attack()
     {
         StartCoroutine("StartAttack");
     }
 
-    public void Rage()
+    public override void DealDamageStart()
     {
-
-    }
+        base.DealDamageStart();
+        GameObject effect = Instantiate(_effect);
+        effect.transform.position = transform.position;
+        Destroy(effect, 1);
+    } 
 
     protected override IEnumerator StartAttack()
     {

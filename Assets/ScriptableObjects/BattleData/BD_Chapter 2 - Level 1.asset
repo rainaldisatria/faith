@@ -15,6 +15,9 @@ MonoBehaviour:
   Waves:
   - delay: 3
     Troops:
+    - {fileID: 1778934460649455651, guid: a598185595461464498b8ba0f049e0d3, type: 3}
+  - delay: 3
+    Troops:
     - {fileID: 7093615761428305361, guid: d38643701dbe2f649b6be342a55447a4, type: 3}
     - {fileID: 4241235652389140965, guid: 4a659ed278442e0479eb131e567133d9, type: 3}
   - delay: 3
