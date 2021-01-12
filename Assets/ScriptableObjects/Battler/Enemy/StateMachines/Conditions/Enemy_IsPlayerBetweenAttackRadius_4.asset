@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
-  m_Name: Enemy_Attack
+  m_Script: {fileID: 11500000, guid: 25d52e08eb70b5942a0f88299dd426d7, type: 3}
+  m_Name: Enemy_IsPlayerBetweenAttackRadius_4
   m_EditorClassIdentifier: 
-  _actions:
-  - {fileID: 11400000, guid: 82d09716d6cdacf48b543511a9352bb4, type: 2}
-  - {fileID: 11400000, guid: 4c229792a67c1d1478421ac674f93388, type: 2}
+  cacheResult: 1
+  Radius: 4

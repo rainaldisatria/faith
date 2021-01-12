@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25d52e08eb70b5942a0f88299dd426d7, type: 3}
-  m_Name: Enemy_IsPlayerBetweenAttackRadius_7
+  m_Name: Enemy_IsPlayerBetweenAttackRadius_10
   m_EditorClassIdentifier: 
   cacheResult: 1
-  Radius: 4
+  Radius: 10
