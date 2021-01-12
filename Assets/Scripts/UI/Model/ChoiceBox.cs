@@ -44,7 +44,7 @@ public class ChoiceBox
         if (dialogueData != null)
             dialogueManager.DisplayDialogue(dialogueData);
         else
-            dialogueManager.DialogueEnded();
+            dialogueManager.EndDialogue();
 
         _go.SetActive(false);
     }

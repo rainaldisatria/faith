@@ -29,14 +29,8 @@ public class DialogueManager : Manager
         _uiDialogueManager.ShowDialogueBox(_currentDialogueData.DialogueLines[_counter]);
     }
 
-    private void ResetDialogueManager()
-    { 
-        _counter = 0;
-        _noChoice = false; 
-    }
-
     public void AdvanceDialogue()
-    { 
+    {
         _counter++;
 
         if (_counter < _currentDialogueData.DialogueLines.Count)
@@ -44,24 +38,30 @@ public class DialogueManager : Manager
 
         if (_endOfDialogue)
         {
-            if(_currentDialogueData.Choices.Count > 0)    // If there are any choices that player has to made.
+            if (_currentDialogueData.Choices.Count > 0)    // If there are any choices that player has to made.
             {
                 _uiDialogueManager.DisplayChoices(_currentDialogueData.Choices);
             }
             else
             {
-                DialogueEnded();
+                EndDialogue();
             }
         }
     }
 
-    public void DialogueEnded()
-    { 
+    public void EndDialogue()
+    {
         _noChoice = true;
         _uiDialogueManager.CloseDialogueBox();
         _input.AdvanceDialogue -= AdvanceDialogue;
         _input.EnableGameplayInput();
-    }   
+    }
+
+    private void ResetDialogueManager()
+    { 
+        _counter = 0;
+        _noChoice = false; 
+    }
     #region Helper methods
     #endregion 
 }

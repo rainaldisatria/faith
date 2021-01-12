@@ -18,8 +18,9 @@ public abstract class EnemyBattler : Battler, ITargetable
     #region Events
     public HealthbarEventChannelSO OnHitted;
     public Action OnDead;
-    #endregion
-     
+    #endregion 
+
+    #region Behaviour
     // Initialization. 
     protected override void Awake()
     {
@@ -42,20 +43,19 @@ public abstract class EnemyBattler : Battler, ITargetable
         }
     }
 
-    protected abstract IEnumerator StartAttack();
-
-    #region Behaviour
     protected override void Dead()
     {
         IsDead = true;
         StopCoroutine("StartAttack");
         base.Dead();
         OnDead?.Invoke();
-        ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid); 
+        ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
         Destroy(GetComponent<Collider>());
         Destroy(NavMeshAgent);
         Destroy(this.gameObject, 5f);
     }
+
+    protected abstract IEnumerator StartAttack();
 
     public override void UseSkill()
     {

@@ -53,11 +53,11 @@ public class DialogueDataEditor : Editor
         {
             if (field != null)
             {
-                if (field.name == nameof(DialogueData.DialogueLines))
+                if (field.name == "_dialogueLines")
                 {
                     DialogueList.DoLayoutList(); 
                 }
-                else if (field.name == nameof(DialogueData.Choices))
+                else if (field.name == "_choices")
                 {
                     ResponsesList.DoLayoutList();
                 }
@@ -85,11 +85,11 @@ public class DialogueDataEditor : Editor
 
             this._serializedFields.Add(serializedProperty);
 
-            if (field.Name == nameof(DialogueData.DialogueLines))
+            if (field.Name == "_dialogueLines")
             {
                 DialogueList = new ReorderableList(serializedProperty);
             } 
-            else if (field.Name == nameof(DialogueData.Choices))
+            else if (field.Name == "_choices")
             {
                 ResponsesList = new ReorderableList(serializedProperty);
             }

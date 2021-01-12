@@ -24,7 +24,7 @@ public class UIDialogueManager : Manager
         {
             _dialogueBox.Figure.gameObject.SetActive(true);
             _dialogueBox.Name.gameObject.SetActive(true);
-            _dialogueBox.Figure.sprite = dialogueLine.Actor.Sprite;
+            _dialogueBox.Figure.sprite = dialogueLine.Actor.Face;
             _dialogueBox.Name.text = dialogueLine.Actor.name;
         }
         else
