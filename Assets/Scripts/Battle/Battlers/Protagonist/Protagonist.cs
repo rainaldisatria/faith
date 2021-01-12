@@ -14,6 +14,7 @@ public sealed class Protagonist : Battler
 
     #region Fields
     private Vector2 _userInput;
+	private int skillToUse;
     #endregion
 
     #region Events
@@ -57,18 +58,23 @@ public sealed class Protagonist : Battler
 	}
 
 	#region Skills 
+	public override void UseSkill()
+	{
+		StartCoroutine(Data.Skills[skillToUse].Execute(this, Target));
+	}
+
 	private void OnFirstSkill()
 	{
 		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
 		IsUsingSkill = true;
-		Skill = Data.Skills[0];
+		skillToUse = 0;
 	}
 
 	private void OnSecondSkill()
 	{
 		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 		IsUsingSkill = true;
-		Skill = Data.Skills[1];
+		skillToUse = 1;
 	}
 	#endregion
 	#endregion

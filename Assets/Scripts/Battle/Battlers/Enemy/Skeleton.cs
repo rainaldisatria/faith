@@ -26,9 +26,7 @@ public class Skeleton : EnemyBattler
         IsUsingSkill = true;
 
         int skillDecisionID = Random.Range(0, Data.Skills.Count - 1);
-        Skill = Data.Skills[skillDecisionID];
-
-        base.UseSkill();
+        StartCoroutine(Data.Skills[skillDecisionID].Execute(this, Target));
     }
 
     private IEnumerator StartAttack()

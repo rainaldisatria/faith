@@ -8,8 +8,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [SerializeField] protected BattlerData Data;
     protected Animator[] Animators;
     protected Transform Head;
-    protected Transform Mid;  
-    protected ISkill Skill;
+    protected Transform Mid;   
     protected Transform Target;
     private DamageDealerController _damageDealer;
     #endregion
@@ -55,10 +54,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     public abstract void Attack();
 
-    public virtual void UseSkill()
-    {
-        StartCoroutine(Skill.Execute(this, Target));
-    }
+    public abstract void UseSkill();
 
     private IEnumerator SetIsHittedToTrue()
     {
