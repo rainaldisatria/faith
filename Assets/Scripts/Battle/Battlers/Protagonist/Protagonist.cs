@@ -57,6 +57,24 @@ public sealed class Protagonist : Battler
 		OnDead?.RaiseEvent();
 	}
 
+	private void OnMove(Vector2 movement)
+	{
+		_userInput = movement;
+	}
+
+	private void CalculateMovementInput()
+	{
+		Vector3 cameraForward = Camera.main.transform.forward;
+		cameraForward.y = 0f;
+		Vector3 cameraRight = Camera.main.transform.right;
+		cameraRight.y = 0f;
+
+		Vector3 adjustedMovement = cameraRight.normalized * _userInput.x +
+			cameraForward.normalized * _userInput.y;
+
+		movementInput = Vector3.ClampMagnitude(adjustedMovement, 1f);
+	}
+
 	#region Skills 
 	public override void UseSkill()
 	{
@@ -89,25 +107,5 @@ public sealed class Protagonist : Battler
 		this.transform.LookAt(damagerTrans);
 		this.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 	}
-    #endregion
-
-	#region Helper methods
-	private void OnMove(Vector2 movement)
-	{
-		_userInput = movement;
-	}
-
-	private void CalculateMovementInput()
-	{
-		Vector3 cameraForward = Camera.main.transform.forward;
-		cameraForward.y = 0f;
-		Vector3 cameraRight = Camera.main.transform.right;
-		cameraRight.y = 0f;
-
-		Vector3 adjustedMovement = cameraRight.normalized * _userInput.x +
-			cameraForward.normalized * _userInput.y;
-
-		movementInput = Vector3.ClampMagnitude(adjustedMovement, 1f);
-	}
-    #endregion
+    #endregion 
 }
