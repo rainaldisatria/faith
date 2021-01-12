@@ -1,8 +1,9 @@
-﻿using System.Collections; 
+﻿using DG.Tweening;
+using System.Collections; 
 using UnityEngine;
 
 public class Skeleton : EnemyBattler
-{ 
+{  
     #region Behaviour 
     public override void Attack()
     {
@@ -14,14 +15,18 @@ public class Skeleton : EnemyBattler
         base.TakeDamage(damage, damager);
 
         IsAttacking = false;
-        StopCoroutine("StartAttack");
+        StopCoroutine("StartAttack"); 
+
+        transform.DOMove(transform.position + damager.root.forward * 2.1f, .5f);
     }
 
     private IEnumerator StartAttack()
     {
         if (!IsAttacking)
         {
-            IsAttacking = true; 
+            IsAttacking = true;
+
+            StartCoroutine(LookAtPlayer());
 
             yield return new WaitForSeconds(Random.Range(0.1f, 1f));  
 
@@ -31,6 +36,16 @@ public class Skeleton : EnemyBattler
             yield return new WaitForSeconds(Random.Range(0.3f, 1));
 
             IsAttacking = false;
+        }
+    }
+
+    private IEnumerator LookAtPlayer()
+    {
+        while(IsAttacking == true)
+        {
+            transform.LookAt(Target);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            yield return null;
         }
     }
     #endregion
