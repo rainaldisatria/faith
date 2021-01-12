@@ -1,4 +1,5 @@
-﻿using System; 
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -37,6 +38,8 @@ public abstract class EnemyBattler : Battler, ITargetable
         OnObjectOutsideScreenSpace();
         OnObjectWithinScreenSpace();
     }
+
+    protected abstract IEnumerator StartAttack();
 
     #region Behaviour
     protected override void Dead()

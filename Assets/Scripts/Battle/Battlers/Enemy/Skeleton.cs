@@ -20,7 +20,7 @@ public class Skeleton : EnemyBattler
         transform.DOMove(transform.position + damager.root.forward * 2.1f, .5f);
     }
 
-    private IEnumerator StartAttack()
+    protected override  IEnumerator StartAttack()
     {
         if (!IsAttacking)
         {
@@ -43,8 +43,6 @@ public class Skeleton : EnemyBattler
     {
         while(IsAttacking == true)
         {
-            transform.LookAt(Target);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             yield return null;
         }
     }
