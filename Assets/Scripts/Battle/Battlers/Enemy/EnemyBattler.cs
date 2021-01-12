@@ -1,6 +1,7 @@
 ﻿using System; 
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public abstract class EnemyBattler : Battler, ITargetable
 {
@@ -36,6 +37,26 @@ public abstract class EnemyBattler : Battler, ITargetable
         OnObjectOutsideScreenSpace();
         OnObjectWithinScreenSpace();
     }
+
+    #region Behaviour
+    protected override void Dead()
+    {
+        base.Dead();
+        OnDead?.Invoke();
+        ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
+        Destroy(this);
+        Destroy(GetComponent<Collider>());
+        Destroy(NavMeshAgent);
+        Destroy(this.gameObject, 5f);
+    }
+
+    public override void UseSkill()
+    {
+        IsUsingSkill = true; 
+        int skillDecisionID = Random.Range(0, Data.Skills.Count - 1);
+        StartCoroutine(Data.Skills[skillDecisionID].Execute(this, Target));
+    }
+    #endregion
 
     #region IDamageable
     public override void TakeDamage(int damage, Transform damager)
