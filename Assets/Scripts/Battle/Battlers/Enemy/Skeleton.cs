@@ -33,6 +33,8 @@ public class Skeleton : EnemyBattler
     {
         if (!IsAttacking)
         {
+            IsAttacking = true;
+
             if (IsHitted || IsDead)
             {
                 IsAttacking = false;

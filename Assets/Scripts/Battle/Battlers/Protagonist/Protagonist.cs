@@ -48,7 +48,7 @@ public sealed class Protagonist : Battler
 	#region Behaviour
 	public override void Attack() 
 	{
-		isAttacking = true; 
+		IsAttacking = true; 
 	}
 
 	protected override void Dead()

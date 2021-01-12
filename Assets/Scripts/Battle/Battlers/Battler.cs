@@ -14,7 +14,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     #endregion
 
     #region State machine fields
-    [HideInInspector] public bool isAttacking;  
+    [HideInInspector] public bool IsAttacking;  
     [HideInInspector] public bool IsHitted;
     [HideInInspector] public bool IsDead;
     [HideInInspector] public bool IsUsingSkill;
