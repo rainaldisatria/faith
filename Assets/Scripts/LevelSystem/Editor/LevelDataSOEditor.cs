@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,7 @@ public class LevelDataSOEditor : Editor
     private Type _levelEvent = typeof(LevelDataSO);
 
     private const string NoSceneWarning = "There is no Scene associated to this location yet. Add a new scene with the dropdown below";
-    private static readonly string[] ExcludedProperties = { "m_Script", nameof(LevelDataSO.SceneName) };
+    private static readonly string[] ExcludedProperties = { "m_Script", "_sceneName" };
 
     private LevelDataSO _selectedLevelEvent;
     private string[] _sceneList;
@@ -42,7 +43,8 @@ public class LevelDataSOEditor : Editor
 
     private void DrawSceneList()
     {
-        var sceneName = _selectedLevelEvent.SceneName;
+        SerializedProperty sceneNameField = this.serializedObject.FindProperty("_sceneName");
+        var sceneName = sceneNameField.stringValue;
         EditorGUI.BeginChangeCheck();
         var selectedScene = _sceneList.ToList().IndexOf(sceneName);
 
@@ -55,7 +57,7 @@ public class LevelDataSOEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             Undo.RecordObject(target, "Changed selected scene");
-            _selectedLevelEvent.SceneName = _sceneList[selectedScene];
+            sceneNameField.stringValue = _sceneList[selectedScene];
             MarkAllDirty();
         }
     }

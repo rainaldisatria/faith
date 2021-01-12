@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
  
 public abstract class LevelDataSO : ScriptableObject
-{
-    public string SceneName;
+{ 
+    [SerializeField] private string _sceneName;
 
     public virtual void Execute(SceneLoaderManager sceneLoader)
     { 
-        sceneLoader.LoadScene(SceneName);
+        sceneLoader.LoadScene(_sceneName);
     }
 }
