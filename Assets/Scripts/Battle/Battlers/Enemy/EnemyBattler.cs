@@ -35,8 +35,11 @@ public abstract class EnemyBattler : Battler, ITargetable
 
     protected virtual void Update()
     {
-        OnObjectOutsideScreenSpace();
-        OnObjectWithinScreenSpace();
+        if (!IsDead)
+        {
+            OnObjectOutsideScreenSpace();
+            OnObjectWithinScreenSpace();
+        }
     }
 
     protected abstract IEnumerator StartAttack();
@@ -44,11 +47,11 @@ public abstract class EnemyBattler : Battler, ITargetable
     #region Behaviour
     protected override void Dead()
     {
-        IsHitted = true;
+        IsDead = true;
+        StopCoroutine("StartAttack");
         base.Dead();
         OnDead?.Invoke();
-        ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid);
-        Destroy(this);
+        ((TargetManager)(_targetManager.Manager)).RemoveTarget(Mid); 
         Destroy(GetComponent<Collider>());
         Destroy(NavMeshAgent);
         Destroy(this.gameObject, 5f);
