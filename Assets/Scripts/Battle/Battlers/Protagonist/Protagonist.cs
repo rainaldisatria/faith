@@ -65,15 +65,15 @@ public sealed class Protagonist : Battler
 
 	private void OnFirstSkill()
 	{
-		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
 		IsUsingSkill = true;
+		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
 		skillToUse = 0;
 	}
 
 	private void OnSecondSkill()
 	{
-		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 		IsUsingSkill = true;
+		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 		skillToUse = 1;
 	}
 	#endregion
