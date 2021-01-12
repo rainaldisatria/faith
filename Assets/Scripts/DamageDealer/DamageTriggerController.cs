@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class DamageDealerController
+public class DamageTriggerController
 {
     [SerializeField] private DamageDealerTrigger[] _triggers;
 
-    public DamageDealerController(DamageDealerTrigger[] triggers)
+    public DamageTriggerController(DamageDealerTrigger[] triggers)
     {
         _triggers = triggers;
     }
