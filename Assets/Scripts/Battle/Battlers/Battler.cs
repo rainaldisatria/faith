@@ -12,7 +12,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 
     protected Transform Head;
     protected Transform Mid;   
-    private DamageDealerController _damageDealer;
+    private DamageTriggerController _damageDealer;
     #endregion
 
     #region State machine fields
@@ -35,7 +35,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         if (Mid == null)
             Debug.LogError("Battler has no mid referenced");
 
-        _damageDealer = new DamageDealerController(GetComponentsInChildren<DamageDealerTrigger>());
+        _damageDealer = new DamageTriggerController(GetComponentsInChildren<DamageDealerTrigger>());
 
         Data = Instantiate(Data);
     }
