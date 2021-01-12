@@ -503,8 +503,8 @@ GameObject:
   - component: {fileID: 5310980860492112477}
   - component: {fileID: 865406281}
   - component: {fileID: 865406280}
-  - component: {fileID: 865406282}
   - component: {fileID: 865406283}
+  - component: {fileID: 1355236068}
   m_Layer: 0
   m_Name: demon
   m_TagString: Untagged
@@ -582,27 +582,6 @@ CapsuleCollider:
   m_Height: 0.35
   m_Direction: 1
   m_Center: {x: 0, y: 0.15, z: 0}
---- !u!114 &865406282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778934460649455651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d548a3dddeb1d314094e68199ea11f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: c1578c32b14aad2498cf817e2215195a, type: 2}
-  isAttacking: 0
-  IsHitted: 0
-  IsDead: 0
-  IsUsingSkill: 0
-  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
-  NavMeshAgent: {fileID: 0}
-  Home: {x: 0, y: 0, z: 0}
-  OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
 --- !u!195 &865406283
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -625,6 +604,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1355236068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778934460649455651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428924d918ab80f4d9d18082418b069c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: c1578c32b14aad2498cf817e2215195a, type: 2}
+  IsAttacking: 0
+  IsHitted: 0
+  IsDead: 0
+  IsUsingSkill: 0
+  _targetManager: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
+  NavMeshAgent: {fileID: 0}
+  HomeCoordinate: {x: 0, y: 0, z: 0}
+  OnHitted: {fileID: 11400000, guid: 08177adace5257d459caa2570f5c3ca5, type: 2}
 --- !u!1 &1779568909712688178
 GameObject:
   m_ObjectHideFlags: 0

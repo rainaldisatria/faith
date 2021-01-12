@@ -12,8 +12,9 @@ public class Skeleton : EnemyBattler
     public override void TakeDamage(int damage, Transform damager)
     {
         base.TakeDamage(damage, damager);
-        StopCoroutine("StartAttack");
+
         IsAttacking = false;
+        StopCoroutine("StartAttack");
     }
 
     private IEnumerator StartAttack()
