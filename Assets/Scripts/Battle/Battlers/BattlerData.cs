@@ -10,7 +10,7 @@ public class BattlerData : ScriptableObject
     public float MoveSpeed;
     public List<SkillBaseSO> Skills;
 
-    public BattlerData()
+    private void Awake()
     {
         HP = MaxHP;
     }
