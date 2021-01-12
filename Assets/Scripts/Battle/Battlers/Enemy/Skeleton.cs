@@ -29,26 +29,20 @@ public class Skeleton : EnemyBattler
         StartCoroutine(Data.Skills[skillDecisionID].Execute(this, Target));
     }
 
+    public override void TakeDamage(int damage, Transform damager)
+    {
+        base.TakeDamage(damage, damager);
+        StopCoroutine("StartAttack");
+        IsAttacking = false;
+    }
+
     private IEnumerator StartAttack()
     {
         if (!IsAttacking)
         {
-            IsAttacking = true;
+            IsAttacking = true; 
 
-            if (IsHitted || IsDead)
-            {
-                IsAttacking = false;
-                yield break;
-            } 
-
-            yield return new WaitForSeconds(Random.Range(1f, 1f));
-
-            if (IsHitted || IsDead)
-            {
-                IsAttacking = false;
-                yield break;
-            }
-
+            yield return new WaitForSeconds(Random.Range(1f, 1f));  
 
             this.Animators.PlayAll((i) =>
                 this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0));
