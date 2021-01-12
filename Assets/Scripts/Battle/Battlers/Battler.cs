@@ -6,10 +6,12 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
     #region Fields
     [SerializeField] protected BattlerData Data;
+
     protected Animator[] Animators;
+    protected Transform Target;
+
     protected Transform Head;
     protected Transform Mid;   
-    protected Transform Target;
     private DamageDealerController _damageDealer;
     #endregion
 
@@ -38,7 +40,11 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data = Instantiate(Data);
     }
 
-    #region Behaviour
+    #region Behaviour 
+    public abstract void Attack();
+
+    public abstract void UseSkill();
+
     protected virtual void CheckCondition()
     {
         if (Data.HP <= 0)
@@ -51,10 +57,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     {
         IsDead = true;
     }
-
-    public abstract void Attack();
-
-    public abstract void UseSkill();
 
     private IEnumerator SetIsHittedToTrue()
     {

@@ -23,8 +23,7 @@ public class Skeleton : EnemyBattler
 
     public override void UseSkill()
     {
-        IsUsingSkill = true;
-
+        IsUsingSkill = true; 
         int skillDecisionID = Random.Range(0, Data.Skills.Count - 1);
         StartCoroutine(Data.Skills[skillDecisionID].Execute(this, Target));
     }
