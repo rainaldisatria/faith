@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51906608d719a2418ccda9e94662c4e, type: 3}
-  m_Name: PlayAnimationDead
+  m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
+  m_Name: Demon_Attack
   m_EditorClassIdentifier: 
-  animationStateName: Dead
-  transitionDuration: 0.1
+  _actions:
+  - {fileID: 11400000, guid: 82d09716d6cdacf48b543511a9352bb4, type: 2}
