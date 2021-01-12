@@ -9,7 +9,12 @@ public class Demon : EnemyBattler
         StartCoroutine("StartAttack");
     }
 
-    private IEnumerator StartAttack()
+    public void Rage()
+    {
+
+    }
+
+    protected override IEnumerator StartAttack()
     {
         if (!IsAttacking)
         {
@@ -19,8 +24,7 @@ public class Demon : EnemyBattler
 
             yield return new WaitForSeconds(Random.Range(0f, 0.1f));
 
-            int decision = Random.Range(0, 2); 
-
+            int decision = Random.Range(0, 2);  
             switch (decision)
             {
                 case 0:
