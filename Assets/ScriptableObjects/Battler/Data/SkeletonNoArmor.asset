@@ -16,4 +16,5 @@ MonoBehaviour:
   _maxSP: 0
   _damage: 100
   _moveSpeed: 4
-  _skills: []
+  _skills:
+  - {fileID: 11400000, guid: 757abee0b65905c47848301da7755e39, type: 2}
