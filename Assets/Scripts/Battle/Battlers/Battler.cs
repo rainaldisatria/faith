@@ -22,6 +22,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     [HideInInspector] public bool IsUsingSkill;
     #endregion 
 
+    #region Behaviour  
     // Initialization
     protected virtual void Awake()
     {
@@ -40,7 +41,6 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         Data = Instantiate(Data);
     }
 
-    #region Behaviour 
     public abstract void Attack();
 
     public abstract void UseSkill();
