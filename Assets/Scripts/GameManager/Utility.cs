@@ -11,4 +11,10 @@ public static class Utility
                    screenPointPos.z > 0;
 
     }
+
+    public static void LookAt(Transform obj, Transform objToLookAt)
+    {
+        obj.LookAt(objToLookAt);
+        obj.eulerAngles = new Vector3(0, obj.eulerAngles.y, 0);
+    }
 }
