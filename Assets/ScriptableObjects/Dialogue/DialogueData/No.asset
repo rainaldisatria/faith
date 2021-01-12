@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61a5a7033215de546a943da2393f2b0a, type: 3}
-  m_Name: Chapter_1_Level_1 2
+  m_Name: No
   m_EditorClassIdentifier: 
-  DialogueLines:
-  - Actor: {fileID: 11400000, guid: 1b5fa6131abd8bb4e9d5b5c3d532ec90, type: 2}
-    Sentence: Huh...
-  Choices: []
+  _dialogueLines:
+  - _actor: {fileID: 11400000, guid: 1b5fa6131abd8bb4e9d5b5c3d532ec90, type: 2}
+    _sentence: Huh...?
+  _choices: []

@@ -10,16 +10,6 @@ public class Skeleton : EnemyBattler
         StartCoroutine("StartAttack");
     }
 
-    public override void TakeDamage(int damage, Transform damager)
-    {
-        base.TakeDamage(damage, damager);
-
-        IsAttacking = false;
-        StopCoroutine("StartAttack"); 
-
-        transform.DOMove(transform.position + damager.root.forward * 2.1f, .5f);
-    }
-
     protected override  IEnumerator StartAttack()
     {
         if (!IsAttacking)
@@ -45,6 +35,18 @@ public class Skeleton : EnemyBattler
         {
             yield return null;
         }
+    }
+    #endregion
+
+    #region IDamageable
+    public override void TakeDamage(int damage, Transform damager)
+    {
+        base.TakeDamage(damage, damager);
+
+        IsAttacking = false;
+        StopCoroutine("StartAttack");
+
+        transform.DOMove(transform.position + damager.root.forward * 2.1f, .5f);
     }
     #endregion
 }

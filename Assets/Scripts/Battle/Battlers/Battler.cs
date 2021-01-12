@@ -39,7 +39,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
         _damageDealer = new DamageTriggerController(GetComponentsInChildren<DamageDealerTrigger>());
 
         Data = Instantiate(Data);
-    }
+    } 
 
     public abstract void Attack();
 

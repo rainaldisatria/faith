@@ -5,9 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Dialoguedata", menuName = "DialogueSystem/New Dialogue")]
 public class DialogueData : ScriptableObject
 {    
-    public List<DialogueLine> DialogueLines;
-    [Tooltip("Leave this empty if dialogue has no branch.")]
-    public List<Choice> Choices;
+    public List<DialogueLine> DialogueLines { get => _dialogueLines; }
+    public List<Choice> Choices { get => _choices; }
+
+    [SerializeField] private List<DialogueLine> _dialogueLines; 
+    [SerializeField] private List<Choice> _choices;
 } 
 
 [Serializable]
@@ -23,6 +25,9 @@ public class Choice
 [Serializable]
 public class DialogueLine
 {
-    public Actor Actor; 
-    [TextArea(3, 3)] public string Sentence;  
+    public Actor Actor { get => _actor; }
+    public string Sentence { get => _sentence; }
+
+    [SerializeField] private Actor _actor;
+    [TextArea(3, 3)] [SerializeField] private string _sentence;
 }

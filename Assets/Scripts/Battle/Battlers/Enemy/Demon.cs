@@ -6,6 +6,7 @@ public class Demon : EnemyBattler
 {
     [SerializeField] private GameObject _effect;
 
+    #region Behaviour
     public override void Attack()
     {
         StartCoroutine("StartAttack");
@@ -39,4 +40,5 @@ public class Demon : EnemyBattler
         effect.transform.position = transform.position;
         Destroy(effect, 1);
     }
+    #endregion
 }
