@@ -68,8 +68,8 @@ public abstract class EnemyBattler : Battler, ITargetable
     #region IDamageable
     public override void TakeDamage(int damage, Transform damager)
     {
-        base.TakeDamage(damage, damager);
         OnHitted.RaiseEvent(gameObject.GetInstanceID(), Head, Data);
+        base.TakeDamage(damage, damager);
     }
     #endregion
 
