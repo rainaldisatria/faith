@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections; 
 using UnityEngine;
 
 public abstract class SkillBaseSO : ScriptableObject, ISkill
@@ -24,6 +23,7 @@ public abstract class SkillBaseSO : ScriptableObject, ISkill
     protected virtual IEnumerator Done(Battler battler)
     { 
         yield return new WaitForSeconds(Duration);
+        yield return new WaitForEndOfFrame();
         battler.IsUsingSkill = false;
     }
 }
