@@ -28,7 +28,7 @@ public class Healthbar : MonoBehaviour
 
         while(startTime + duration > Time.time && trans != null)
         {
-            if (data == null | data.HP <= 0)
+            if (data.HP <= 0)
                     OnHealthbarFinishedDisplaying.Invoke(this);
 
             this.transform.position = Camera.main.WorldToScreenPoint(trans.position + offset);
