@@ -14,7 +14,7 @@ public class MagicSkill : DamageSkill
 
         yield return base.Execute(battler, target);
 
-        if (target == null)
+        if (target == null) 
         {
             target = battler.transform;
         }
