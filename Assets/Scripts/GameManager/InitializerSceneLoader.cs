@@ -2,8 +2,7 @@
 using UnityEngine.SceneManagement;
 
 public class InitializerSceneLoader : MonoBehaviour
-{
-#if UNITY_EDITOR
+{ 
     public const string InitializerSceneName = "InitializerScene";
 
     private void Awake()
@@ -18,6 +17,5 @@ public class InitializerSceneLoader : MonoBehaviour
 
         SceneManager.LoadScene(InitializerSceneName, LoadSceneMode.Additive);
         Destroy(this.gameObject);
-    }
-#endif
+    } 
 }
