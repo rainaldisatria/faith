@@ -23,16 +23,18 @@ public class Skeleton : EnemyBattler
             this.Animators.PlayAll((i) =>
                 this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0));
 
-            yield return new WaitForSeconds(Random.Range(0.3f, 1));
+            yield return new WaitForSeconds(Random.Range(0.8f, 1));
 
             IsAttacking = false;
         }
-    }
+    } 
 
     private IEnumerator LookAtPlayer()
     {
-        while(IsAttacking == true)
+        while (IsAttacking)
         {
+            transform.LookAt(Target);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             yield return null;
         }
     }
@@ -45,6 +47,7 @@ public class Skeleton : EnemyBattler
 
         IsAttacking = false;
         StopCoroutine("StartAttack");
+        DealDamageEnded();
 
         transform.DOMove(transform.position + damager.root.forward * 2.1f, .5f);
     }
