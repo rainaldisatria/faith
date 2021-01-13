@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e7921f009ac7034d895da60b450fed8, type: 3}
-  m_Name: Townsfolk
+  m_Script: {fileID: 11500000, guid: baacebd9294ef954c9499741243f9944, type: 3}
+  m_Name: DialogueManager2
   m_EditorClassIdentifier: 
-  _name: Townsfolk
-  _face: {fileID: 21300000, guid: fef27f32c962ac743aa3bef8b0a8df35, type: 3}
+  Manager: {fileID: 0}
