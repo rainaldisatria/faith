@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public sealed class Protagonist : Battler
 {
@@ -83,16 +84,22 @@ public sealed class Protagonist : Battler
 
 	private void OnFirstSkill()
 	{
-		IsUsingSkill = true;
+		StartCoroutine(StartUseSkill());
 		Target = ((TargetManager)(_targetManagerSO.Manager)).CamTarget;
 		skillToUse = 0;
 	}
 
 	private void OnSecondSkill()
 	{
-		IsUsingSkill = true;
+		StartCoroutine(StartUseSkill());
 		Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 		skillToUse = 1;
+	}
+
+	private IEnumerator StartUseSkill()
+	{
+		yield return null;
+		IsUsingSkill = true;
 	}
 	#endregion
 	#endregion
