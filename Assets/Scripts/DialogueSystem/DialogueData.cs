@@ -10,7 +10,7 @@ public class DialogueData : ScriptableObject
 
     [SerializeField] private List<DialogueLine> _dialogueLines; 
     [SerializeField] private List<Choice> _choices;
-} 
+}   
 
 [Serializable]
 public class Choice
