@@ -15,7 +15,7 @@ MonoBehaviour:
   SkillName: ShinningArrow
   AnimationToPlay: Magic
   TransitionDuration: 0
-  Delay: 0.4
-  Duration: 1.2
+  Delay: 1.2
+  Duration: 1
   Damage: 100
   effect: {fileID: 100012, guid: 9826389809c2e1e41a1125953a56a236, type: 3}
