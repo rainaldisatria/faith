@@ -11,8 +11,8 @@ public abstract class EnemyBattler : Battler, ITargetable
     #endregion
 
     #region State machine fields
-    [HideInInspector] public NavMeshAgent NavMeshAgent;
-    [HideInInspector] public Vector3 HomeCoordinate;
+    [HideInInspector] public NavMeshAgent NavMeshAgent { get; private set; }
+    [HideInInspector] public Vector3 HomeCoordinate { get; private set; }
     #endregion
 
     #region Events

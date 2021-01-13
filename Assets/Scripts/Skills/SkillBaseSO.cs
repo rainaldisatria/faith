@@ -1,7 +1,7 @@
 ﻿using System.Collections; 
 using UnityEngine;
 
-public abstract class SkillBaseSO : ScriptableObject, ISkill
+public abstract class SkillBaseSO : ScriptableObject
 {
     [SerializeField] protected string SkillName;
     [SerializeField] protected string AnimationToPlay;

@@ -9,17 +9,15 @@ public class MagicSkill : DamageSkill
 
     public override IEnumerator Execute(Battler battler, Transform target)
     { 
-        battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
+        battler.transform.LookAt(target);
+        battler.transform.eulerAngles = new Vector3(0, battler.transform.eulerAngles.y, 0);
+
+        yield return base.Execute(battler, target);
 
         if (target == null)
         {
             target = battler.transform;
         }
-
-        battler.transform.LookAt(target);
-        battler.transform.eulerAngles = new Vector3(0, battler.transform.eulerAngles.y, 0);
-
-        yield return new WaitForSeconds(Delay);
 
         battler.transform.LookAt(target);
         GameObject obj = Instantiate(effect, battler.transform.position, battler.transform.rotation);

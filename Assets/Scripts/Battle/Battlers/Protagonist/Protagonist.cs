@@ -39,14 +39,14 @@ public sealed class Protagonist : Battler
 		_inputReader.FirstSkillEvent -= OnFirstSkill;
 		_inputReader.SecondSkillEvent -= OnSecondSkill; 
 	}
-    #endregion
+	#endregion
 
-    private void Update()
+	#region Behaviour 
+	private void Update()
 	{
 		CalculateMovementInput();
 	}
 
-	#region Behaviour
 	public override void Attack() 
 	{
 		IsAttacking = true; 
@@ -56,24 +56,6 @@ public sealed class Protagonist : Battler
 	{
 		base.Dead();
 		OnDead?.RaiseEvent();
-	}
-
-	private void OnMove(Vector2 movement)
-	{
-		_userInput = movement;
-	}
-
-	private void CalculateMovementInput()
-	{
-		Vector3 cameraForward = Camera.main.transform.forward;
-		cameraForward.y = 0f;
-		Vector3 cameraRight = Camera.main.transform.right;
-		cameraRight.y = 0f;
-
-		Vector3 adjustedMovement = cameraRight.normalized * _userInput.x +
-			cameraForward.normalized * _userInput.y;
-
-		movementInput = Vector3.ClampMagnitude(adjustedMovement, 1f);
 	}
 
 	#region Skills 
@@ -102,6 +84,24 @@ public sealed class Protagonist : Battler
 		IsUsingSkill = true;
 	}
 	#endregion
+
+	private void CalculateMovementInput()
+	{
+		Vector3 cameraForward = Camera.main.transform.forward;
+		cameraForward.y = 0f;
+		Vector3 cameraRight = Camera.main.transform.right;
+		cameraRight.y = 0f;
+
+		Vector3 adjustedMovement = cameraRight.normalized * _userInput.x +
+			cameraForward.normalized * _userInput.y;
+
+		movementInput = Vector3.ClampMagnitude(adjustedMovement, 1f);
+	}
+
+	private void OnMove(Vector2 movement)
+	{
+		_userInput = movement;
+	}
 	#endregion
 
 	#region IDamageable
