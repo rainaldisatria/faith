@@ -59,9 +59,12 @@ public abstract class EnemyBattler : Battler, ITargetable
 
     public override void UseSkill()
     {
-        IsUsingSkill = true; 
-        int skillDecisionID = Random.Range(0, Data.Skills.Count - 1);
-        StartCoroutine(Data.Skills[skillDecisionID].Execute(this, Target));
+        if(Data.Skills.Count > 0)
+        {
+            IsUsingSkill = true;
+            int skillDecisionID = Random.Range(0, Data.Skills.Count - 1);
+            StartCoroutine(Data.Skills[skillDecisionID].Execute(this, Target));
+        }
     }
     #endregion
 
