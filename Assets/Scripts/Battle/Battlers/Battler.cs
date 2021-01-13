@@ -56,6 +56,7 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     protected virtual void Dead()
     {
         IsDead = true;
+        StopAllCoroutines();
     }
 
     private IEnumerator SetIsHittedToTrue()
