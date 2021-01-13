@@ -29,8 +29,8 @@ public class StrikeSkill : DamageSkill
 
     protected override IEnumerator Done(Battler battler)
     {
-        yield return base.Done(battler);
-        battler.DealDamageEnded();
+        yield return base.Done(battler); 
+        battler.GetComponentInChildren<DamageDealerTrigger>().Disable();
     }
 
     public void Strike(Transform target, Battler user)
@@ -82,8 +82,8 @@ public class StrikeSkill : DamageSkill
         });
         ShowBody(true, user);
 
-        Protagonist protagonist = user as Protagonist;
-        protagonist.DealDamageStart(); 
+        Protagonist protagonist = user as Protagonist; 
+        protagonist.GetComponentInChildren<DamageDealerTrigger>().Enable(Damage);
 
         GameObject sword = GameObject.FindGameObjectWithTag("PlayerSword");
 

@@ -16,5 +16,6 @@ MonoBehaviour:
   AnimationToPlay: Strike
   TransitionDuration: 0.2
   Delay: 0.45
-  Duration: 1.2
+  Duration: 1
+  Damage: 150
   speed: 0.35
