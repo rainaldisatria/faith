@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fc815eb0dd6f44aad2d5f5f9526053, type: 3}
   m_Name: Chapter 2 - Level 1
   m_EditorClassIdentifier: 
-  SceneName: Chapter_2_Level_1
-  BattleData: 
+  _sceneName: Chapter_2_Level_1
+  BattleData: {fileID: 11400000, guid: fe44bce4c2a36ca4ea315387fd6ed27f, type: 2}
+  _battleManagerSO: {fileID: 11400000, guid: 0676788d1d4e988459756fab23f7ea6d, type: 2}

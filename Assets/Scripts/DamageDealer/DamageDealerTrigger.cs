@@ -1,30 +1,39 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class DamageDealerTrigger : MonoBehaviour
 {
-    public bool ableToAttack = false;
+    private bool ableToAttack = false;
     private List<GameObject> damagedObject = new List<GameObject>();
-    private string userTag;
+    private string _userTag;
     private int _damage;
+    private float _drawBack = 1f;
+
+    [SerializeField] private TrailRenderer _trailRenderer;
 
     private void Awake()
     {
-        userTag = gameObject.transform.root.tag;
+        _userTag = gameObject.transform.root.tag; 
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     { 
         DealDamage(col);
+    }
+
+    public void SetUserTag(string userTag)
+    {
+        _userTag = userTag;
     }
 
     private void DealDamage(Collider col)
     { 
         if (ableToAttack)
         {
-            if (!col.CompareTag(userTag))
+            if (!col.CompareTag(_userTag))
             { 
                 if (col.gameObject.GetComponent<IDamageable>() != null)
                 {  
@@ -38,16 +47,23 @@ public class DamageDealerTrigger : MonoBehaviour
         }
     }
 
-    public void Enable(int damage)
+    public void Enable(int damage, float drawBack = 1)
     {
+        if (_trailRenderer != null)
+            _trailRenderer.emitting = true;
+
         _damage = damage;
+        _drawBack = drawBack;
+
         damagedObject.Clear();
-        ableToAttack = true;
+        ableToAttack = true;  
     }
 
     public void Disable()
     {
-        ableToAttack = false;
-        damagedObject.Clear(); 
-    }
+        if (_trailRenderer != null)
+            _trailRenderer.emitting = false;
+        damagedObject.Clear();
+        ableToAttack = false; 
+    } 
 }

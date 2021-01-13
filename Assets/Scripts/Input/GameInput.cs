@@ -57,6 +57,22 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""FirstSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""27b15c53-07d5-4813-a1a9-2a7f8c36dd94"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SecondSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""9686ab42-5f81-421f-bc7f-d9ab7774f6ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -279,6 +295,28 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""action"": ""CameraMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""861bb060-b32a-4bda-9185-c6a22b73f784"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a83ca24e-7820-49be-af19-89c9743c0420"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -330,6 +368,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_CameraMove = m_Gameplay.FindAction("CameraMove", throwIfNotFound: true);
+        m_Gameplay_FirstSkill = m_Gameplay.FindAction("FirstSkill", throwIfNotFound: true);
+        m_Gameplay_SecondSkill = m_Gameplay.FindAction("SecondSkill", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_AdvanceDialogue = m_Dialogue.FindAction("AdvanceDialogue", throwIfNotFound: true);
@@ -387,6 +427,8 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_CameraMove;
+    private readonly InputAction m_Gameplay_FirstSkill;
+    private readonly InputAction m_Gameplay_SecondSkill;
     public struct GameplayActions
     {
         private @GameInput m_Wrapper;
@@ -396,6 +438,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @CameraMove => m_Wrapper.m_Gameplay_CameraMove;
+        public InputAction @FirstSkill => m_Wrapper.m_Gameplay_FirstSkill;
+        public InputAction @SecondSkill => m_Wrapper.m_Gameplay_SecondSkill;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -420,6 +464,12 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @CameraMove.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCameraMove;
                 @CameraMove.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCameraMove;
                 @CameraMove.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCameraMove;
+                @FirstSkill.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFirstSkill;
+                @FirstSkill.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFirstSkill;
+                @FirstSkill.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFirstSkill;
+                @SecondSkill.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSkill;
+                @SecondSkill.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSkill;
+                @SecondSkill.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSkill;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -439,6 +489,12 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @CameraMove.started += instance.OnCameraMove;
                 @CameraMove.performed += instance.OnCameraMove;
                 @CameraMove.canceled += instance.OnCameraMove;
+                @FirstSkill.started += instance.OnFirstSkill;
+                @FirstSkill.performed += instance.OnFirstSkill;
+                @FirstSkill.canceled += instance.OnFirstSkill;
+                @SecondSkill.started += instance.OnSecondSkill;
+                @SecondSkill.performed += instance.OnSecondSkill;
+                @SecondSkill.canceled += instance.OnSecondSkill;
             }
         }
     }
@@ -483,6 +539,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnCameraMove(InputAction.CallbackContext context);
+        void OnFirstSkill(InputAction.CallbackContext context);
+        void OnSecondSkill(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {

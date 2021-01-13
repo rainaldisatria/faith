@@ -4,48 +4,46 @@ using UnityEngine.Events;
 
 public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
 {
+    #region Fields
     [SerializeField] protected BattlerData Data;
-    protected Animator[] _animators;
-    protected Transform _head;
 
-    [HideInInspector] public bool isAttacking;  
+    protected Animator[] Animators;
+    protected Transform Target;
+
+    protected Transform Head;
+    protected Transform Mid;   
+    private DamageTriggerController _damageDealer;
+    #endregion
+
+    #region State machine fields
+    [HideInInspector] public bool IsAttacking;  
     [HideInInspector] public bool IsHitted;
     [HideInInspector] public bool IsDead;
-     
-    private DamageDealer _damageDealer;
-     
-    // Inisialisasi
+    [HideInInspector] public bool IsUsingSkill;
+    #endregion 
+
+    #region Behaviour  
+    // Initialization
     protected virtual void Awake()
     {
-        _animators = GetComponentsInChildren<Animator>();
+        Animators = GetComponentsInChildren<Animator>();
 
-        _head = transform.Find("Head");
-        if (_head == null)
+        Head = transform.Find("Head");
+        if (Head == null)
             Debug.LogError("Battler has no head referenced");
 
-        _damageDealer = new DamageDealer(GetComponentsInChildren<DamageDealerTrigger>());
+        Mid = transform.Find("Mid");
+        if (Mid == null)
+            Debug.LogError("Battler has no mid referenced");
+
+        _damageDealer = new DamageTriggerController(GetComponentsInChildren<DamageDealerTrigger>());
 
         Data = Instantiate(Data);
-    }
-
-    public virtual void TakeDamage(int damage, Transform damager)
-    {
-        IsHitted = true;
-
-        Data.HP -= damage; 
-
-        CheckCondition();
     } 
 
-    public void DealDamageStart(int damage)
-    {
-        _damageDealer.DealDamageStart(Data.Damage);
-    }
+    public abstract void Attack();
 
-    public void DealDamageEnded()
-    {
-        _damageDealer.DealDamageEnded();
-    }
+    public abstract void UseSkill();
 
     protected virtual void CheckCondition()
     {
@@ -58,8 +56,40 @@ public abstract class Battler : MonoBehaviour, IDamageable, IDamageDealer
     protected virtual void Dead()
     {
         IsDead = true;
+        StopAllCoroutines();
     }
 
-    public abstract void Attack();
+    private IEnumerator SetIsHittedToTrue()
+    {
+        IsHitted = true;
+        yield return null;
+        IsHitted = false;
+    }
+    #endregion
+
+    #region IDamageable
+    public virtual void TakeDamage(int damage, Transform damager)
+    {
+        StartCoroutine(SetIsHittedToTrue());
+
+        DealDamageEnded();
+
+        Data.HP -= damage;
+
+        CheckCondition();
+    }
+    #endregion
+
+    #region IDamageDealer
+    public void DealDamageStart()
+    {
+        _damageDealer.Start(Data.Damage);
+    }
+
+    public void DealDamageEnded()
+    {
+        _damageDealer.End();
+    }
+    #endregion
 }
 

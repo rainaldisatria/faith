@@ -1,14 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections; 
 using UnityEngine;
 
-public abstract class SkillBaseSO : ScriptableObject, ISkills
+public abstract class SkillBaseSO : ScriptableObject, ISkill
 {
-    [SerializeField] protected string _skillName;
-    [SerializeField] protected GameObject _effect;
-    [SerializeField] protected float delay;
+    [SerializeField] protected string SkillName;
+    [SerializeField] protected string AnimationToPlay;
+    [SerializeField] protected float TransitionDuration;
+    [SerializeField] protected float Delay;
+    [SerializeField] protected float Duration;
 
-    public string SkillName { get => _skillName;}
+    /// <summary>
+    /// Play skill animation then wait for delay.
+    /// </summary>
+    /// <param name="battler"></param>
+    public virtual IEnumerator Execute(Battler battler, Transform target)
+    {
+        yield return null;
+        battler.GetComponent<Animator>().CrossFade(Animator.StringToHash(AnimationToPlay), TransitionDuration);
+        yield return new WaitForSeconds(Delay);
+    }
 
-    public abstract IEnumerator Execute(Transform posToExecute);
+    protected virtual IEnumerator Done(Battler battler)
+    { 
+        yield return new WaitForSeconds(Duration);
+        yield return new WaitForEndOfFrame();
+        battler.IsUsingSkill = false;
+    }
 }

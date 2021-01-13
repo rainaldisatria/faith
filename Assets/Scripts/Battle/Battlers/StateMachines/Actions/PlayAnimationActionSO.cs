@@ -4,15 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [CreateAssetMenu(fileName = "PlayAnimation", menuName = "State Machines/Actions/Play Animation")]
-public class PlayAnimationActionSO : StateActionSO<PlayAnimationAction>
+public class PlayAnimationActionSO : StateActionSO
 {
     public string animationStateName;
+    public float transitionDuration = 0.25f;
+    protected override StateAction CreateAction() => new PlayAnimationAction(Animator.StringToHash(animationStateName));
 }
 
 public class PlayAnimationAction : StateAction
 {
     private Animator[] _animators;
     private PlayAnimationActionSO _baseOrigin => (PlayAnimationActionSO)base.OriginSO;
+    private int _parameterHash;
+
+    public PlayAnimationAction(int hash)
+    {
+        _parameterHash = hash;
+    }
 
     public override void Awake(StateMachine stateMachine)
     {
@@ -22,7 +30,7 @@ public class PlayAnimationAction : StateAction
     public override void OnStateEnter()
     {
         _animators.PlayAll(
-            (i) => _animators[i].Play(this._baseOrigin.animationStateName, -1, 0));
+            (i) => _animators[i].CrossFade(_parameterHash, _baseOrigin.transitionDuration, -1, 0));
     }
 
     public override void OnUpdate()
