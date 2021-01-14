@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnthaGames.Assets.Scripts.DialogueSystem.ScriptableObjects;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

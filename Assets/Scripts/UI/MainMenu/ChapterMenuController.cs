@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using AnthaGames.Assets.Scripts.ChapterSystem.ScriptableObjects; 
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;

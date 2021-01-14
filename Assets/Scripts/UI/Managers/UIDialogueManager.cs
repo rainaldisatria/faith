@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AnthaGames.Assets.Scripts.DialogueSystem.ScriptableObjects;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIDialogueManager : Manager

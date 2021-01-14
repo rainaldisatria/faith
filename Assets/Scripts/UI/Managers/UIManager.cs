@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using AnthaGames.Assets.Scripts.ChapterSystem.ScriptableObjects; 
 using UnityEngine;  
 
 public class UIManager : Manager
