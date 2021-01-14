@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
   m_Name: DemonMaster
   m_EditorClassIdentifier: 
-  _maxHP: 1200
+  _maxHP: 2000
   _maxSP: 0
-  _damage: 500
-  _moveSpeed: 4
+  _damage: 700
+  _moveSpeed: 5
   _skills:
   - {fileID: 11400000, guid: 757abee0b65905c47848301da7755e39, type: 2}

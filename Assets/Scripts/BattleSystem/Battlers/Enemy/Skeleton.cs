@@ -20,7 +20,7 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Enemies
 
                 StartCoroutine(LookAtPlayer());
 
-                yield return new WaitForSeconds(Random.Range(0.1f, 1f));
+                yield return new WaitForSeconds(Random.Range(0.1f, 1.1f));
 
                 this.Animators.PlayAll((i) =>
                     this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0));
