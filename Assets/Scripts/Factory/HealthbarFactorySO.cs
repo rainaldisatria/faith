@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "HealthbarFactory", menuName = "Factory/Healthbar Factory")]
-public class HealthbarFactorySO : FactorySO<Healthbar>
+public class HealthbarFactorySO : FactorySO<HealthbarController>
 {
-    public Healthbar prefab;
+    public HealthbarController prefab;
 
-    public override Healthbar Create()
+    public override HealthbarController Create()
     {
         return Instantiate(prefab);
     }

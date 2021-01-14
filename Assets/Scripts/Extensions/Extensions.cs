@@ -1,7 +1,7 @@
 ﻿using System; 
 using UnityEngine;  
 
-public static class ExtensionMethods
+public static class Extensions
 {  
     #region Animators
     public static void PlayAll(this Animator[] animators, Action<int> action) 

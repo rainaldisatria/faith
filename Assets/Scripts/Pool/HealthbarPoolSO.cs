@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "HealthbarPool", menuName = "Pool/Healthbar Pool")]
-public class HealthbarPoolSO : ComponentPoolSO<Healthbar>
+public class HealthbarPoolSO : ComponentPoolSO<HealthbarController>
 {
     [SerializeField] private HealthbarFactorySO _factory;
 
-    public override IFactory<Healthbar> Factory 
+    public override IFactory<HealthbarController> Factory 
     {
         get
         {

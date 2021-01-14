@@ -36,7 +36,7 @@ public class SceneLoaderManager : Manager
     /// <returns></returns>
     private IEnumerator LoadSceneAsync(string name, float fadeInDuration = 0.5f, float fadeOutDuration = 0.5f)
     {
-        ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeOut(fadeInDuration); 
+        ((UIScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeOut(fadeInDuration); 
 
         yield return new WaitForSeconds(fadeInDuration);
 
@@ -48,7 +48,7 @@ public class SceneLoaderManager : Manager
             if (asyncLoad.progress >= 0.9f)
             {
                 UnloadScene(); 
-                ((ScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeIn(fadeOutDuration);
+                ((UIScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeIn(fadeOutDuration);
                 asyncLoad.allowSceneActivation = true; 
             }
 

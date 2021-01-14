@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIHealthbarManager : MonoBehaviour
 { 
     [SerializeField] private HealthbarPoolSO _healthbarPoolSO;
-    private readonly List<Healthbar> _currentlyActiveHealthbars = new List<Healthbar>();
+    private readonly List<HealthbarController> _currentlyActiveHealthbars = new List<HealthbarController>();
 
     [SerializeField] private HealthbarEventChannelSO _healthbarEventChannelSO;
     [SerializeField] private HealthbarFactorySO _healthbarFactorySO;
@@ -31,7 +31,7 @@ public class UIHealthbarManager : MonoBehaviour
     {
         if (!IsCurrentlyActive(instanceID))
         {
-            Healthbar healthbar = _healthbarPoolSO.Request();
+            HealthbarController healthbar = _healthbarPoolSO.Request();
             _currentlyActiveHealthbars.Add(healthbar);
 
             healthbar.SetHealthbar(instanceID, trans, data);
@@ -53,7 +53,7 @@ public class UIHealthbarManager : MonoBehaviour
         return false;
     }
 
-    private void OnHealthbarFinishedPlaying(Healthbar healthbar)
+    private void OnHealthbarFinishedPlaying(HealthbarController healthbar)
     {
         healthbar.OnHealthbarFinishedDisplaying -= OnHealthbarFinishedPlaying;
         _currentlyActiveHealthbars.Remove(healthbar); 

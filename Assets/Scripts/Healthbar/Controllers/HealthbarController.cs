@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections; 
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Healthbar : MonoBehaviour
+public class HealthbarController : MonoBehaviour
 {
     [SerializeField] private Image _healthImage;
     [SerializeField] private float duration = 5;
     [SerializeField] private Vector3 offset;
 
-    public event UnityAction<Healthbar> OnHealthbarFinishedDisplaying;
+    public event UnityAction<HealthbarController> OnHealthbarFinishedDisplaying;
     public int InstanceID { get; private set; }
 
     private float startTime;

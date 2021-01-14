@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScreenEffectManager : Manager
+public class UIScreenEffectManager : Manager
 { 
     [Serializable]
     public class FadeEffect
