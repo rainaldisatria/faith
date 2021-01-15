@@ -7,6 +7,7 @@ public class BattleTrigger : MonoBehaviour
 {
     [SerializeField] private ManagerSO _battleManagerSO;
     [SerializeField] private BattleData _battleData;
+    [SerializeField] private GameObject _effect;
 
     private BattleManager _battleManager;
     private bool ableToSpawn = true;
@@ -35,7 +36,8 @@ public class BattleTrigger : MonoBehaviour
             StartCoroutine(
                 _battleManager.Spawn(_battleData.Waves[_waveCounter], 
                 transform,
-                OnDead
+                OnDead,
+                _effect
                 ));
         }
     }

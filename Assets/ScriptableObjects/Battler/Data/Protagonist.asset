@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8ca4e3a15f1b6429e0690ef5e4dc3f, type: 3}
   m_Name: Protagonist
   m_EditorClassIdentifier: 
-  _maxHP: 1500
+  _maxHP: 2500
   _maxSP: 0
   _damage: 75
   _moveSpeed: 8

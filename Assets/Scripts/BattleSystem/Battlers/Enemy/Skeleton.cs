@@ -25,7 +25,7 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Enemies
                 this.Animators.PlayAll((i) =>
                     this.Animators[i].CrossFade("Attack1", 0.25f, -1, 0));
 
-                yield return new WaitForSeconds(Random.Range(0.8f, 1));
+                yield return new WaitForSeconds(Random.Range(0.3f, 0.7f));
 
                 IsAttacking = false;
             }
