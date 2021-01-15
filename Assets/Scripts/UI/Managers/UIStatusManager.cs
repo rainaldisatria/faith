@@ -13,7 +13,7 @@ public class UIStatusManager : MonoBehaviour
     private void OnEnable()
     {
         _onPlayerHitted.OnEventRaised += SetHealth;
-        _OnLoadScene.OnEventRaised += () => { _healthBar.fillAmount = 1; };
+        _OnLoadScene.OnEventRaised += () => { StartCoroutine(ApplyHealth(1)); };
     }
 
     private void OnDisable()
