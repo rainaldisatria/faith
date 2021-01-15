@@ -1,15 +1,13 @@
-﻿using AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist;
-using System.Collections;
-using System.Collections.Generic;
+﻿using AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist; 
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "HandlePlayerRotationWhenAttacking", menuName = "State Machines/Actions/Handle Player Rotation When Attacking")]
-public class HandlePlayerRotationWhenAttackingSO : StateActionSO<HandlePlayerRotationWhenAttackingAction>
+public class HandlePlayerRotationSOWhenAttackingSO : StateActionSO<HandlePlayerRotationSOWhenAttacking>
 {
     public float turnSpeed = 15f;
 }
 
-public class HandlePlayerRotationWhenAttackingAction : StateAction
+public class HandlePlayerRotationSOWhenAttacking : StateAction
 {
     private Protagonist _protagonist;
     private HandlePlayerRotationSO _originSO => (HandlePlayerRotationSO)base.OriginSO;
@@ -31,7 +29,10 @@ public class HandlePlayerRotationWhenAttackingAction : StateAction
     }
 
     public override void OnUpdate()
-    {
-         
+    { 
+
     }
 }
+
+
+

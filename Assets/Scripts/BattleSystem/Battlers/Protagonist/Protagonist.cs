@@ -50,7 +50,7 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 		}
 
 		public override void Attack()
-		{
+		{ 
 			IsAttacking = true;
 		}
 
