@@ -35,7 +35,7 @@ public class DashAction : StateAction
         {
             if (startTime + _originSO.dashDuration > Time.time)
             {
-                _cc.Move(-_battler.transform.forward * Time.deltaTime * _originSO.dashSpeed);
+                _cc.Move(_battler.transform.forward * Time.deltaTime * _originSO.dashSpeed);
             }
         }
         else
