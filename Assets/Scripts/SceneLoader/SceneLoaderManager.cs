@@ -10,7 +10,8 @@ public class SceneLoaderManager : Manager
 
     [Header("Event")]
     [SerializeField] private StringEventChannelSO _loadScene;
-    [SerializeField] private VoidEventChannelSO OnSceneLoaded;
+    [SerializeField] private VoidEventChannelSO OnSceneLoading;
+    [SerializeField] private VoidEventChannelSO OnSceneLoaded; 
 
     private AsyncOperation asyncLoad;
 
@@ -37,6 +38,8 @@ public class SceneLoaderManager : Manager
     /// <returns></returns>
     private IEnumerator LoadSceneAsync(string name, float fadeInDuration = 0.5f, float fadeOutDuration = 0.5f)
     {
+        OnSceneLoading.RaiseEvent();
+
         ((UIScreenEffectManager)(_screenEffectManagerSO.Manager)).FadeOut(fadeInDuration); 
 
         yield return new WaitForSeconds(fadeInDuration);

@@ -8,17 +8,23 @@ public class UIStatusManager : MonoBehaviour
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _manaBar;
     [SerializeField] private FloatEventChannelSO _onPlayerHitted;
-    [SerializeField] private VoidEventChannelSO _OnLoadScene;
+    [SerializeField] private VoidEventChannelSO _onsceneloaded;
 
     private void OnEnable()
     {
         _onPlayerHitted.OnEventRaised += SetHealth;
-        _OnLoadScene.OnEventRaised += () => { StartCoroutine(ApplyHealth(1)); };
+        _onsceneloaded.OnEventRaised += ResetHealth;
     }
 
     private void OnDisable()
     {
-        _onPlayerHitted.OnEventRaised -= SetHealth; 
+        _onPlayerHitted.OnEventRaised -= SetHealth;
+        _onsceneloaded.OnEventRaised -= ResetHealth;
+    }
+
+    void ResetHealth()
+    {
+        SetHealth(1);
     }
 
     public void SetHealth(float hpFillTarget)

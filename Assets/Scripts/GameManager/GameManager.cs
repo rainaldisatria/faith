@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : Manager
 {
     [SerializeField] private ManagerSO _sceneLoaderManagerSO;
+    [SerializeField] private ManagerSO _audioManager;
     [SerializeField] private VoidEventChannelSO _onPlayerDeadSO;
     [SerializeField] private VoidEventChannelSO _exitGameSO;
     [SerializeField] private VoidEventChannelSO OnSceneLoaded;
+    [SerializeField] private Image _image;
 
     private void Start()
     { 
@@ -59,12 +62,15 @@ public class GameManager : Manager
     private IEnumerator PlayerDead()
     {
         if (!isPlayerDead)
-        { 
+        {
+            StartCoroutine(((AudioManager)(_audioManager.Manager)).FadeInMusic(0.1f));
             isPlayerDead = true;
+            _image.gameObject.SetActive(true);
             Time.timeScale = 0.3f;
             yield return new WaitForSecondsRealtime(4f);
             ((SceneLoaderManager)(_sceneLoaderManagerSO.Manager)).LoadScene("GameOver"); 
             Time.timeScale = 1f;
+            _image.gameObject.SetActive(false);
         }
     }
     #endregion
