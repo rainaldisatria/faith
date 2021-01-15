@@ -26,7 +26,6 @@ public class SceneLoaderManager : Manager
 
     public void LoadScene(string name)
     {
-        OnSceneLoaded.RaiseEvent();
         StartCoroutine(LoadSceneAsync(name));
     }
 
@@ -58,6 +57,7 @@ public class SceneLoaderManager : Manager
         }
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
+        OnSceneLoaded.RaiseEvent();
     }
 
     private void UnloadScene()

@@ -62,6 +62,9 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 			{
 				OnDead?.RaiseEvent();
 			}
+
+			GetComponent<Collider>().enabled = false;
+			
 			IsDead = true;
 			base.Dead();
 		}
