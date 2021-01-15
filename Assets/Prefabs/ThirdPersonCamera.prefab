@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.5, z: -10}
+  m_FollowOffset: {x: 0, y: 3.5, z: -16}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -271,11 +271,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 7
-    m_Radius: 8
-  - m_Height: 3.5
     m_Radius: 10
+  - m_Height: 3.5
+    m_Radius: 16
   - m_Height: 0.88
-    m_Radius: 5
+    m_Radius: 10
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 7440145777853553467}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.5, z: -10}
+  m_FollowOffset: {x: 0, y: 3.5, z: -16}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -494,7 +494,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7440145777615760533}
-  m_LocalRotation: {x: -0.16494815, y: -0.694891, z: 0.2642704, w: 0.6481357}
+  m_LocalRotation: {x: -0.18334799, y: -0.7022676, z: 0.24436359, w: 0.64303213}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -568,7 +568,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7440145777853553464}
-  m_LocalRotation: {x: -0.1531316, y: -0.689969, z: 0.27686635, w: 0.6510288}
+  m_LocalRotation: {x: -0.17162125, y: -0.6977065, z: 0.25709707, w: 0.64626074}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -642,7 +642,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7440145777913502891}
-  m_LocalRotation: {x: -0.17667915, y: -0.69957083, z: 0.25162056, w: 0.6450367}
+  m_LocalRotation: {x: -0.19498336, y: -0.70658505, z: 0.23158324, w: 0.6396001}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.5, z: -10}
+  m_FollowOffset: {x: 0, y: 3.5, z: -16}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1

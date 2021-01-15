@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf075a2690487a4a8783b69de39aac8, type: 3}
-  m_Name: Dash
+  m_Script: {fileID: 11500000, guid: b403dfac5f925ba49885d28d48dd30c0, type: 3}
+  m_Name: New Dodge Skill
   m_EditorClassIdentifier: 
-  dashSpeed: 4
-  dashDuration: 0.3
-  _targetManagerSO: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
+  SkillName: Dodge
+  AnimationToPlay: Dodge
+  TransitionDuration: 0.1
+  Delay: 0
+  Duration: 0.35
+  _speed: 15

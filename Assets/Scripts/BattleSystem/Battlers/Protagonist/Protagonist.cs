@@ -32,6 +32,7 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 			_inputReader.AttackEvent += Attack;
 			_inputReader.FirstSkillEvent += OnFirstSkill;
 			_inputReader.SecondSkillEvent += OnSecondSkill;
+			_inputReader.ThirdSkillEvent += OnThirdSkill;
 		}
 
 		private void OnDisable()
@@ -40,6 +41,7 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 			_inputReader.AttackEvent -= Attack;
 			_inputReader.FirstSkillEvent -= OnFirstSkill;
 			_inputReader.SecondSkillEvent -= OnSecondSkill;
+			_inputReader.ThirdSkillEvent -= OnThirdSkill;
 		}
 		#endregion
 
@@ -63,7 +65,14 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 		#region Skills 
 		public override void UseSkill()
 		{
-			StartCoroutine(Data.Skills[skillToUse].Execute(this, Target));
+			if(Data.Skills.Count - 1 >= skillToUse)
+			{
+				StartCoroutine(Data.Skills[skillToUse].Execute(this, Target));
+			}
+			else
+			{
+				IsUsingSkill = false;
+			}
 		}
 
 		private void OnFirstSkill()
@@ -78,6 +87,13 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 			StartCoroutine(StartUseSkill());
 			Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
 			skillToUse = 1;
+		}
+
+		private void OnThirdSkill()
+		{
+			StartCoroutine(StartUseSkill());
+			Target = ((TargetManager)(_targetManagerSO.Manager)).Target;
+			skillToUse = 2;
 		}
 
 		private IEnumerator StartUseSkill()

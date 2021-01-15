@@ -73,6 +73,14 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ThirdSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""fae530d4-26ce-4e83-a824-19f0f163cfcf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -317,6 +325,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""action"": ""SecondSkill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7aafddfa-a928-453a-8dca-83883593d580"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -370,6 +389,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Gameplay_CameraMove = m_Gameplay.FindAction("CameraMove", throwIfNotFound: true);
         m_Gameplay_FirstSkill = m_Gameplay.FindAction("FirstSkill", throwIfNotFound: true);
         m_Gameplay_SecondSkill = m_Gameplay.FindAction("SecondSkill", throwIfNotFound: true);
+        m_Gameplay_ThirdSkill = m_Gameplay.FindAction("ThirdSkill", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_AdvanceDialogue = m_Dialogue.FindAction("AdvanceDialogue", throwIfNotFound: true);
@@ -429,6 +449,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_CameraMove;
     private readonly InputAction m_Gameplay_FirstSkill;
     private readonly InputAction m_Gameplay_SecondSkill;
+    private readonly InputAction m_Gameplay_ThirdSkill;
     public struct GameplayActions
     {
         private @GameInput m_Wrapper;
@@ -440,6 +461,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @CameraMove => m_Wrapper.m_Gameplay_CameraMove;
         public InputAction @FirstSkill => m_Wrapper.m_Gameplay_FirstSkill;
         public InputAction @SecondSkill => m_Wrapper.m_Gameplay_SecondSkill;
+        public InputAction @ThirdSkill => m_Wrapper.m_Gameplay_ThirdSkill;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -470,6 +492,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @SecondSkill.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSkill;
                 @SecondSkill.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSkill;
                 @SecondSkill.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSkill;
+                @ThirdSkill.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThirdSkill;
+                @ThirdSkill.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThirdSkill;
+                @ThirdSkill.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThirdSkill;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -495,6 +520,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @SecondSkill.started += instance.OnSecondSkill;
                 @SecondSkill.performed += instance.OnSecondSkill;
                 @SecondSkill.canceled += instance.OnSecondSkill;
+                @ThirdSkill.started += instance.OnThirdSkill;
+                @ThirdSkill.performed += instance.OnThirdSkill;
+                @ThirdSkill.canceled += instance.OnThirdSkill;
             }
         }
     }
@@ -541,6 +569,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnCameraMove(InputAction.CallbackContext context);
         void OnFirstSkill(InputAction.CallbackContext context);
         void OnSecondSkill(InputAction.CallbackContext context);
+        void OnThirdSkill(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
