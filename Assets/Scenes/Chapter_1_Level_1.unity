@@ -4583,6 +4583,14 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 2102080075}
+    - target: {fileID: 7440145776520908034, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
+      propertyPath: m_Orbits.Array.data[2].m_Radius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440145776520908034, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
+      propertyPath: m_Orbits.Array.data[0].m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7440145776520908035, guid: 08cbcd3a51032a944a6e290e0b5a0a56, type: 3}
       propertyPath: m_Name
       value: ThirdPersonCamera
