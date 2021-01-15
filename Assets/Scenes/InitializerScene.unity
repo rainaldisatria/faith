@@ -347,6 +347,7 @@ MonoBehaviour:
   _managerSO: {fileID: 11400000, guid: 6b1e16a169ef6d843b290d3cfd3e98c6, type: 2}
   _screenEffectManagerSO: {fileID: 11400000, guid: f5831e5b62a26c24687b73f9498e9ac6, type: 2}
   _loadScene: {fileID: 11400000, guid: 147e3c7d705808745af2945658952ee5, type: 2}
+  OnSceneLoaded: {fileID: 11400000, guid: cc17376075ef8a647830706b7922714b, type: 2}
 --- !u!4 &561907093
 Transform:
   m_ObjectHideFlags: 0
@@ -658,6 +659,7 @@ MonoBehaviour:
   _sceneLoaderManagerSO: {fileID: 11400000, guid: 6b1e16a169ef6d843b290d3cfd3e98c6, type: 2}
   _onPlayerDeadSO: {fileID: 11400000, guid: f6c75e3503f49d846bf189ffb7f78ba0, type: 2}
   _exitGameSO: {fileID: 11400000, guid: f89976ffce4a86e4a91c097f4548919e, type: 2}
+  OnSceneLoaded: {fileID: 11400000, guid: cc17376075ef8a647830706b7922714b, type: 2}
 --- !u!4 &796152601
 Transform:
   m_ObjectHideFlags: 0
@@ -1105,6 +1107,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8104888486292658281, guid: 03d7db1cde5389449833f6f333a6c360, type: 3}
+      propertyPath: _OnLoadScene
+      value: 
+      objectReference: {fileID: 11400000, guid: cc17376075ef8a647830706b7922714b, type: 2}
     - target: {fileID: 8104888486292658283, guid: 03d7db1cde5389449833f6f333a6c360, type: 3}
       propertyPath: m_IsActive
       value: 1

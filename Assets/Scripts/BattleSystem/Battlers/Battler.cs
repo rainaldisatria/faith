@@ -56,7 +56,6 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers
 
         protected virtual void Dead()
         {
-            IsDead = true;
             StopAllCoroutines();
         }
 

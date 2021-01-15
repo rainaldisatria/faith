@@ -7,9 +7,17 @@ public class GameManager : Manager
     [SerializeField] private ManagerSO _sceneLoaderManagerSO;
     [SerializeField] private VoidEventChannelSO _onPlayerDeadSO;
     [SerializeField] private VoidEventChannelSO _exitGameSO;
+    [SerializeField] private VoidEventChannelSO OnSceneLoaded;
+
+    private void Start()
+    { 
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
     private void OnEnable()
-    {
+    { 
+        OnSceneLoaded.OnEventRaised += () => { isPlayerDead = false; };
+
         _onPlayerDeadSO.OnEventRaised += OnPlayerDead;
         _exitGameSO.OnEventRaised += ExitGame;
     }
@@ -35,7 +43,6 @@ public class GameManager : Manager
             Time.timeScale = 0.3f;
             yield return new WaitForSecondsRealtime(4f);
             ((SceneLoaderManager)(_sceneLoaderManagerSO.Manager)).LoadScene("GameOver"); 
-            isPlayerDead = false;
             Time.timeScale = 1f;
         }
     }

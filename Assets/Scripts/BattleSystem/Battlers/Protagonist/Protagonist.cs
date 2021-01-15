@@ -58,8 +58,12 @@ namespace AnthaGames.Assets.Scripts.BattleSystem.Battlers.Protagonist
 
 		protected override void Dead()
 		{
+			if (!IsDead)
+			{
+				OnDead?.RaiseEvent();
+			}
+			IsDead = true;
 			base.Dead();
-			OnDead?.RaiseEvent();
 		}
 
 		#region Skills 

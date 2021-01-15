@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf075a2690487a4a8783b69de39aac8, type: 3}
-  m_Name: Dash
+  m_Script: {fileID: 11500000, guid: 4b02c0f91c6ae62458f1eda3dd23712f, type: 3}
+  m_Name: OnSceneLoaded
   m_EditorClassIdentifier: 
-  dashSpeed: 3
-  dashDuration: 0.5
-  _targetManagerSO: {fileID: 11400000, guid: 0ed9bcc3f2a5fa44997edab43d50f1cc, type: 2}
+  description: 

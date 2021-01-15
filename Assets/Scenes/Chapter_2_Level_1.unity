@@ -3682,7 +3682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _battleManagerSO: {fileID: 11400000, guid: 0676788d1d4e988459756fab23f7ea6d, type: 2}
   _battleData: {fileID: 11400000, guid: fe44bce4c2a36ca4ea315387fd6ed27f, type: 2}
-  _effect: {fileID: 0}
+  _effect: {fileID: 100010, guid: 2f18c32efccdebe42b56f6de27c8c92e, type: 3}
 --- !u!136 &174215746
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class SceneLoaderManager : Manager
 
     [Header("Event")]
     [SerializeField] private StringEventChannelSO _loadScene;
+    [SerializeField] private VoidEventChannelSO OnSceneLoaded;
 
     private AsyncOperation asyncLoad;
 
@@ -24,7 +25,8 @@ public class SceneLoaderManager : Manager
     }
 
     public void LoadScene(string name)
-    { 
+    {
+        OnSceneLoaded.RaiseEvent();
         StartCoroutine(LoadSceneAsync(name));
     }
 

@@ -7,11 +7,13 @@ public class UIStatusManager : MonoBehaviour
 {
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _manaBar;
-    [SerializeField] private FloatEventChannelSO _onPlayerHitted; 
+    [SerializeField] private FloatEventChannelSO _onPlayerHitted;
+    [SerializeField] private VoidEventChannelSO _OnLoadScene;
 
     private void OnEnable()
     {
-        _onPlayerHitted.OnEventRaised += SetHealth; 
+        _onPlayerHitted.OnEventRaised += SetHealth;
+        _OnLoadScene.OnEventRaised += () => { _healthBar.fillAmount = 1; };
     }
 
     private void OnDisable()
