@@ -6,7 +6,7 @@ Architectured with ScriptableObjects
 (A work-in-progress screenshoot)
 
 
-## Brought To You By: Samaldi Tech
+## Brought to you by: Samaldi Tech
 
 Please welcome its members:
 - Aldi (my friend)
@@ -16,9 +16,12 @@ Please welcome its members:
 Guest: 
 - Nabilah (CEO)
 - Rakha (Angel Investor)  
+
+2D Artist:
+- Adiva (Main Menu 2D Artist)
 - Daru (Main Menu 2D Artist)
 
-## Getting Started
+## Getting started with the project
 ### Prerequisites
 - Unity 2020.1.6f1 or higher.
 ### Running the project
@@ -26,14 +29,18 @@ Guest:
 - Open the root project folder in Unity
 - Go to "Main Menu" Scene.	
 - Press play button
-### Playing the game 
-- 'WASD': Move the player.
-- '1': Use first skill: Blink Strike.
-- '2': Use second skill: Summon Magic Shinning Arrow.
+
+## Playing the game
+Just want to play the game? 
+Head out to the [release page](https://github.com/rainaldisatria/faith/releases) and grab the latest version. 
+### Game control
+- 'W, A, S, D': Move the player.
+- '1': Use first skill: Strike.
+- '2': Use second skill: Summon magic shinning arrow.
 - 'Left-Shift': Dodge.
 - 'L': Interact with NPC.
-- 'K': Advance Dialogue.
-- 'U' & 'A': Rotate Camera.
+- 'K': Advance dialogue.
+- 'U' & 'A': Rotate the camera.
 
 ## Note
 - New PR are welcome.
