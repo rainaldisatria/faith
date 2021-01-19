@@ -1,4 +1,4 @@
-# faith
+# Faith : The Legend of Savero
 Modular, OOP - Hack & slash game made with Unity.   
 Architectured with ScriptableObjects
 
@@ -29,6 +29,8 @@ Guest:
 - Open the root project folder in Unity
 - Go to "Main Menu" Scene.	
 - Press play button
+### Code documentation
+Want to see the code documentation? Head out to [wiki page](https://github.com/rainaldisatria/faith/wiki).
 
 ## Playing the game
 Just want to play the game? 
@@ -43,10 +45,11 @@ Head out to the [release page](https://github.com/rainaldisatria/faith/releases)
 - 'U' & 'A': Rotate the camera.
 
 ## Note
-- New PR are welcome.
+- New PRs or any contributions are welcome.
 - There are placeholder assets tagged with "placeholder_" at the start of their name. Please don't use or redistribute those assets.
+- You must have a license to use the Assets in Assets/Assets folder. You can get the license by going to Unity Asset Store and search using the name of the folder. We get it all for free.
 
-## Built With
+## Built with
 - State Machine, Event Channel from Unity Open Project #1:
 https://github.com/UnityTechnologies/open-project-1
 - DOTween:
