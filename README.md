@@ -44,10 +44,9 @@ Head out to the [release page](https://github.com/rainaldisatria/faith/releases)
 - 'K': Advance dialogue.
 - 'U' & 'A': Rotate the camera.
 
-## Note
-- New PRs or any contributions are welcome.
-- There are placeholder assets tagged with "placeholder_" at the start of their name. Please don't use or redistribute those assets.
-- You must have a license to use the Assets in Assets/Assets folder. You can get the license by going to Unity Asset Store and search using the name of the folder. We get it all for free.
+## Notes
+- All rights reserverd to their respective owners.
+- You must have a license to use the Assets in Assets/Assets folder. You can get the license [here](https://github.com/rainaldisatria/faith/wiki/Assets-used-from-Unity-Asset-Store). (We get it all for free).
 
 ## Built with
 - State Machine, Event Channel from Unity Open Project #1:
