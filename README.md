@@ -47,6 +47,7 @@ Head out to the [release page](https://github.com/rainaldisatria/faith/releases)
 ## Notes
 - All rights reserverd to their respective owners.
 - You must have a license to use the Assets in Assets/Assets folder. You can get the license [here](https://github.com/rainaldisatria/faith/wiki/Assets-used-from-Unity-Asset-Store). (We get it all for free).
+- There are placeholder assets tagged with "placeholder_" at the start of their name. Please don't use or redistribute those assets.
 
 ## Built with
 - State Machine, Event Channel from Unity Open Project #1:
